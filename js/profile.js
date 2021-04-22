@@ -44,8 +44,8 @@ const setId = (photographer) => {
       { class: 'tag' },
       elmtFactory(
         'a',
-        { href: "", class: 'tagLink' },
-        // { href: `index.html?tag=${tag}`, class: 'tagLink' },
+        // { href: "", class: 'tagLink' },
+        { href: `index.html?tag=${photographer.tags[j]}`, class: 'tagLink' },
         '# ' + `${photographer.tags[j]}`
       )
     );

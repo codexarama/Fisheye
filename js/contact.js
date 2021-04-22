@@ -20,14 +20,13 @@ const message = document.getElementById('message');
 
 // EVENEMENTS MODAL
 // launch modal event
-// Cannot read property 'addEventListener' of null
-// modalBtn.addEventListener(
-//   'click',
-//   (launchModal = (e) => {
-//     e.preventDefault();
-//     modal.style.display = 'block';
-//   })
-// );
+modalBtn.addEventListener(
+  'click',
+  (launchModal = (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+  })
+);
 
 // close modal event
 closeModalBtn.addEventListener(
@@ -54,6 +53,8 @@ form.addEventListener('submit', function (e) {
     modalBody.style.display = 'none';
     confirm.style.opacity = '1';
     form.reset();
+  } else {
+    modalBody.style.display = 'block';
   }
 });
 
@@ -71,7 +72,7 @@ const checkValidity = (input) => {
     }
     // aucun champ n'est rempli
     if (e.target.validity.valueMissing) {
-      submitBtn.style.backgroundColor = 'darkgrey';
+      submitBtn.style.backgroundColor = 'grey';
       dataError(input, 'Veuillez renseigner ce champ');
     }
   });

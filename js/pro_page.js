@@ -60,6 +60,10 @@ function fetchData() {
       for (let i = 0; i < photographerWork.length; i++) {
         setGallery(photographerWork[i]);
       }
+
+      // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
+      const formName = document.querySelector('.form__body--name');
+      formName.textContent = photographerData.name;
     });
 
   // GESTION DES ERREURS // A ETAYER

@@ -4,6 +4,7 @@
 const title = document.querySelector('title');
 const main = document.querySelector('main');
 const sectionId = document.querySelector('.id');
+const btnContact = document.querySelector('.btn-contact');
 
 const setId = (photographer) => {
   const id = elmtFactory(
@@ -25,7 +26,6 @@ const setId = (photographer) => {
     elmtFactory(
       'div',
       { class: 'id__contact' },
-      elmtFactory('button', { type: 'button', id: "modalBtn", class: 'btn btn-contact' }, 'Contactez-moi')
     ),
     elmtFactory(
       'div',
@@ -44,7 +44,6 @@ const setId = (photographer) => {
       { class: 'tag' },
       elmtFactory(
         'a',
-        // { href: "", class: 'tagLink' },
         { href: `index.html?tag=${photographer.tags[j]}`, class: 'tagLink' },
         '# ' + `${photographer.tags[j]}`
       )
@@ -52,6 +51,8 @@ const setId = (photographer) => {
     tagsList.appendChild(tags);
   }
 
+  const contact = id.querySelector(".id__contact")
+  contact.appendChild(btnContact)
   sectionId.appendChild(id);
   main.setAttribute('id', `${photographer.id}`);
   title.textContent = "Fisheye | " + `${photographer.name}`;

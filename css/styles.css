@@ -331,7 +331,7 @@ body {
   padding: 5px 5%;
   margin: 10px auto;
 }
-.form__body--title {
+.form__body--title, .form__body--name {
   font-size: 2em;
   font-weight: 400;
   color: black;
@@ -446,7 +446,7 @@ input {
   display: block;
   border-radius: 7px;
   border: 0;
-  margin: 10px auto;
+  margin: 20px auto 10px;
   padding: 15px 30px;
   font-size: medium;
   color: #fff;

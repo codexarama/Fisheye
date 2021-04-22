@@ -1,0 +1,5 @@
+@mixin font () {
+    font-family: $type;
+    font-size: $s;
+    font-weight: $regular;
+}

@@ -1,0 +1,26 @@
+.header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 25px;
+
+  &__logo {
+    width: 200px;
+    padding-right: 10px;
+  }
+
+  &__headline {
+    padding-left: 10px;
+  }
+}
+
+.banner {
+  justify-content: flex-start;
+  margin: 25px 0;
+
+  &__logo {
+    width: 150px;
+    padding-right: 10px;
+  }
+}

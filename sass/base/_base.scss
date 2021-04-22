@@ -1,0 +1,30 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 10px auto;
+
+  a,
+  a:visited {
+    text-decoration: none;
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+
+    & a,
+    & a:visited {
+      text-decoration: none;
+      text-align: center;
+    }
+  }
+}

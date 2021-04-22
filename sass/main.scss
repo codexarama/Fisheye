@@ -1,0 +1,28 @@
+/*
+Author: Amandine ARIAS;
+Project: Ohmyfood!;
+Type: website;
+Description: mockup integration;
+First version: 02/02/2021;
+Tags: web, gastronomic restaurant, order online, no wait;
+*/
+
+@import "./utils/variables";
+@import "./utils/mixin";
+@import "./utils/responsive";
+
+@import "./base/base";
+@import "./base/typography";
+
+@import "./components/buttons";
+
+@import "./layout/header";
+@import "./layout/nav";
+@import "./layout/card";
+@import "./layout/profile";
+@import "./layout/contact";
+@import "./layout/gallery";
+@import "./layout/lightbox";
+
+@import "./pages/fisheye_home";
+@import "./pages/photographer_page";

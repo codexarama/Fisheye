@@ -1,0 +1,592 @@
+/*
+Author: Amandine ARIAS;
+Project: Ohmyfood!;
+Type: website;
+Description: mockup integration;
+First version: 02/02/2021;
+Tags: web, gastronomic restaurant, order online, no wait;
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 10px auto;
+}
+body a,
+body a:visited {
+  text-decoration: none;
+  text-align: center;
+}
+body li {
+  list-style: none;
+  display: inline-block;
+}
+body li a, body li a:visited {
+  text-decoration: none;
+  text-align: center;
+}
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: 400;
+}
+
+.btn-homepage {
+  font-size: xx-small;
+}
+
+.header__tags {
+  font-size: xx-small;
+}
+.header__headline {
+  font-size: 2em;
+  color: #901c1c;
+}
+
+.card__name {
+  font-size: 2em;
+  font-weight: 400;
+  color: #d3573c;
+}
+.card__location {
+  font-size: medium;
+  color: #d3573c;
+}
+.card__tagline {
+  font-weight: 700;
+}
+.card__price {
+  font-size: xx-small;
+  font-weight: 300;
+}
+
+.filter__title, .filter__select {
+  font-weight: 700;
+}
+.filter__select, .filter__options {
+  color: white;
+}
+
+.gallery {
+  color: #901c1c;
+  font-weight: 700;
+}
+
+.footer {
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #901c1c;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #fd8d73;
+  color: black;
+}
+
+.btn-homepage {
+  display: flex;
+  margin: 10px auto 0;
+  padding: 3px 6px;
+}
+.btn-homepage a {
+  color: white;
+}
+.btn-homepage a:hover {
+  color: black;
+}
+
+.filter__title {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.filter__box {
+  width: 105px;
+}
+.filter__select:hover {
+  color: white;
+}
+.filter__box.open .filter__select {
+  border-radius: 3px 3px 0 0;
+}
+.filter__box.open .selected {
+  display: none;
+}
+.filter__select {
+  position: relative;
+}
+.filter__select i {
+  position: absolute;
+  right: 10px;
+  padding-left: 5px;
+}
+.filter__arrow {
+  color: white;
+  transition: all 0.5s;
+}
+.filter__box.open .filter__arrow {
+  position: absolute;
+  right: 10px;
+  transform: rotateX(180deg);
+}
+.filter__options {
+  position: absolute;
+  width: 105px;
+  background-color: #901c1c;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.filter__box.open {
+  border-radius: 0 0 3px 3px;
+}
+.filter__box.open .filter__options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.filter__option {
+  padding: 10px 0;
+  border-top: 1px solid white;
+  border-left: 10px solid #901c1c;
+  border-right: 10px solid #901c1c;
+}
+.filter__option--1:hover, .filter__option--2:hover, .filter__option--3:hover {
+  background-color: #fd8d73;
+  border-left: 10px solid #fd8d73;
+  border-right: 10px solid #fd8d73;
+}
+
+.header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.header__logo {
+  width: 200px;
+  padding-right: 10px;
+}
+.header__headline {
+  padding-left: 10px;
+}
+
+.banner {
+  justify-content: flex-start;
+  margin: 25px 0;
+}
+.banner__logo {
+  width: 150px;
+  padding-right: 10px;
+}
+
+.tags li a {
+  text-align: center;
+  font-size: xx-small;
+  border-radius: 25px;
+  border: solid 1px lightgray;
+  margin-right: 3px;
+  padding: 0 5px;
+  color: #901c1c;
+}
+.tags li a:hover {
+  cursor: pointer;
+  border-radius: 25px;
+  border: solid 1px #901c1c;
+  background-color: #901c1c;
+  color: white;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.card__image {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  margin: auto;
+  overflow: hidden;
+}
+.card__image img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+.card__image img:hover {
+  transform: scale(1.25);
+  transform-origin: 50% 50%;
+}
+.card__name, .card__slogan, .card .tag {
+  margin-top: 10px;
+}
+
+.id {
+  background-color: #fafafa;
+  padding: 25px 35px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.id__card {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+}
+.id__card ul {
+  margin-top: 10px;
+}
+.id .tag {
+  margin-top: 10px;
+}
+.id__contact {
+  margin-top: 10px;
+}
+.id__image {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.id__image img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+.id__image img:hover {
+  transform: scale(1.25);
+  transform-origin: 50% 50%;
+}
+
+.filter {
+  display: inline-flex;
+  margin: 50px 0;
+}
+
+.form__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.form__content {
+  margin: 5% auto;
+  width: 100%;
+  max-width: 425px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #fd8d73;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: black;
+}
+.form__confirmation {
+  position: fixed;
+  z-index: -1;
+  opacity: 0;
+  max-width: 425px;
+  width: 80%;
+  background-color: #fd8d73;
+  border-radius: 10px;
+  top: 220px;
+  padding: 50px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 300;
+}
+.form__body {
+  padding: 5px 5%;
+  margin: 10px auto;
+}
+.form__body--title {
+  font-size: 2em;
+  font-weight: 400;
+  color: black;
+}
+
+label {
+  font-family: var(--font-default);
+  font-size: medium;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+
+.text-control,
+.text-area {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+.tex-control {
+  height: 50px;
+}
+
+.text-area {
+  height: 150px;
+}
+
+.formData small {
+  padding-left: 5px;
+  font-size: x-small;
+  color: white;
+  visibility: hidden;
+}
+
+.formData.error small {
+  visibility: visible;
+}
+
+#errorForm {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+  font-weight: 300;
+  color: darkgrey;
+}
+
+.close,
+.close-confirm {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.close:before,
+.close:after,
+.close-confirm:before,
+.close-confirm:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before,
+.close-confirm:before {
+  transform: rotate(45deg);
+}
+
+.close:after,
+.close-confirm:after {
+  transform: rotate(-45deg);
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 10px;
+  right: 13px;
+  width: 11px;
+  height: 11px;
+  border: 3px solid transparent;
+  border-bottom-color: black;
+  border-left-color: black;
+  transform: rotate(-45deg);
+  border-radius: 5px 0 5px 0;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  transform: rotate(135deg);
+  top: 13px;
+}
+
+.btn-submit {
+  background: #901c1c;
+  display: block;
+  border-radius: 7px;
+  border: 0;
+  margin: 10px auto;
+  padding: 15px 30px;
+  font-size: medium;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.gallery__card {
+  margin-bottom: 15px;
+}
+.gallery__image {
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+  margin: auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery__image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+.gallery__image img:hover {
+  transform: scale(1.25);
+  transform-origin: 50% 50%;
+}
+.gallery__content {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.gallery__infos {
+  width: 70%;
+  display: inline-flex;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+.gallery__likes {
+  width: 25%;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+.gallery__likes i {
+  margin-top: 1px;
+  margin-left: 3px;
+}
+.gallery__likes i:hover {
+  color: #fd8d73;
+}
+
+.footer {
+  position: fixed;
+  display: inline-flex;
+  justify-content: space-between;
+  bottom: 0;
+  width: 25%;
+  padding: 10px;
+  background-color: #fd8d73;
+  border-radius: 5px 0 0 0;
+  right: 0;
+}
+.footer__content {
+  width: 50%;
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.lightbox__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: black;
+}
+.lightbox__content {
+  height: 100%;
+}
+.lightbox__image {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  overflow: hidden;
+  position: relative;
+}
+.lightbox img {
+  width: 65%;
+  border-radius: 3px;
+}
+.lightbox__title {
+  width: 65%;
+  color: white;
+  margin: 10px auto 0;
+}
+.lightbox__prev, .lightbox__next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -20px;
+  padding: 20px;
+  color: #525252;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s ease;
+  user-select: none;
+}
+.lightbox__prev:hover, .lightbox__next:hover {
+  color: white;
+}
+.lightbox__next {
+  right: 0;
+}
+
+.photographers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+/*# sourceMappingURL=styles.css.map */

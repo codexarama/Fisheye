@@ -1,0 +1,51 @@
+.id {
+  background-color: #fafafa;
+  padding: 25px 35px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+
+    & ul {
+      margin-top: 10px;
+    }
+  }
+
+  & .tag {
+    margin-top: 10px;
+  }
+
+  &__contact {
+    margin-top: 10px;
+  }
+  &__image {
+
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & img {
+      width: 125px;
+      height: 125px;
+      object-fit: cover;
+      transition: all 0.5s ease;
+
+      &:hover {
+        transform: scale(1.25);
+        transform-origin: 50% 50%;
+      }
+    }
+  }
+}
+
+.filter {
+ display: inline-flex;
+ margin: 50px 0;
+}

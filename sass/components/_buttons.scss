@@ -1,0 +1,117 @@
+// bouton par défaut
+// page pro photographe : "contactez-moi", "envoyez" (formulaire)
+
+.btn {
+  background-color: $primaire-bg;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: $primaire-a;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondaire-bg;
+    color: $secondaire-a;
+  }
+}
+
+// bouton "passez au contenu"
+// page d'accueil
+.btn-homepage {
+  display: flex;
+  margin: 10px auto 0;
+  padding: 3px 6px;
+
+  & a {
+    color: $primaire-a;
+  }
+
+  & a:hover {
+    color: $secondaire-a;
+  }
+}
+
+// liste déroulante FILTRES : "popularité" - "date" - "titre"
+// page pro photographe
+.filter {
+
+  &__title {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  &__box {
+    width: 105px;
+  }
+
+  &__select {
+    &:hover {
+      color: $primaire-a;
+    }
+  }
+
+  &__box.open .filter__select {
+    border-radius: 3px 3px 0 0;
+  }
+
+  &__box.open .selected {
+    display: none;
+  }
+
+  &__select {
+    position: relative;
+
+    & i {
+      position: absolute;
+      right: 10px;
+      padding-left: 5px;
+    }
+  }
+
+  &__arrow {
+    color: white;
+    transition: all 0.5s;
+  }
+
+  &__box.open .filter__arrow {
+    position: absolute;
+    right: 10px;
+    transform: rotateX(180deg);
+  }
+
+  &__options {
+    position: absolute;
+    width: 105px;
+    background-color: $primaire-bg;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__box.open {
+    border-radius: 0 0 3px 3px; // ne fonctionne pas
+  }
+
+  &__box.open .filter__options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &__option {
+    padding: 10px 0;
+    border-top: 1px solid white;
+    border-left: 10px solid $primaire-bg;
+    border-right: 10px solid $primaire-bg;
+
+    &--1:hover,
+    &--2:hover,
+    &--3:hover {
+      background-color: $secondaire-bg;
+      border-left: 10px solid $secondaire-bg;
+      border-right: 10px solid $secondaire-bg;
+    }
+  }
+}

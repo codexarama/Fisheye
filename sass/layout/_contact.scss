@@ -1,0 +1,173 @@
+.form {
+  &__modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    margin: 5% auto;
+    width: 100%;
+    max-width: 425px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: $secondaire-bg;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: $secondaire-a;
+  }
+
+  &__confirmation {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    max-width: 425px;
+    width: 80%;
+    background-color: $secondaire-bg;
+    border-radius: 10px;
+    top: 220px;
+    padding: 50px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primaire-a;
+    font-weight: 300;
+  }
+
+  &__body {
+    padding: 5px 5%;
+    margin: 10px auto;
+
+    &--title {
+      font-size: $l;
+      font-weight: $regular;
+      color: $secondaire-a;
+    }
+  }
+}
+
+label {
+  font-family: var(--font-default);
+  font-size: $m;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+
+.text-control,
+.text-area {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: medium;
+}
+.tex-control {
+  height: 50px;
+}
+.text-area {
+  height: 150px;
+}
+
+.formData small {
+  padding-left: 5px;
+  font-size: x-small;
+  color: $primaire-a;
+  visibility: hidden;
+}
+
+.formData.error small {
+  visibility: visible;
+}
+
+#errorForm {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+  font-weight: 300;
+  color: darkgrey;
+}
+
+.close,
+.close-confirm {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.close:before,
+.close:after,
+.close-confirm:before,
+.close-confirm:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before,
+.close-confirm:before {
+  transform: rotate(45deg);
+}
+
+.close:after,
+.close-confirm:after {
+  transform: rotate(-45deg);
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: '';
+  top: 10px;
+  right: 13px;
+  width: 11px;
+  height: 11px;
+  border: 3px solid transparent;
+  border-bottom-color: black;
+  border-left-color: black;
+  transform: rotate(-45deg);
+  border-radius: 5px 0 5px 0;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  transform: rotate(135deg);
+  top: 13px;
+}
+
+.btn-submit {
+  background: $primaire-bg;
+  display: block;
+  border-radius: 7px;
+  border: 0;
+  margin: 10px auto;
+  padding: 15px 30px;
+  font-size: medium;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}

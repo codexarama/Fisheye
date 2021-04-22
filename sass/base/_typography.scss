@@ -1,0 +1,63 @@
+body {
+  @include font();
+}
+
+.btn-homepage {
+  font-size: $xs;
+}
+
+.header {
+  &__tags {
+    font-size: $xs;
+  }
+
+  &__headline {
+    font-size: $l;
+    color: $secondaire-txt;
+  }
+}
+
+.card {
+  &__name {
+    font-size: $l;
+    font-weight: $regular;
+    color: $primaire-txt;
+  }
+
+  &__location {
+    font-size: $m;
+    color: $primaire-txt;
+    // color: $secondaire-txt;
+  }
+
+  &__tagline {
+    font-weight: $bold;
+  }
+
+  &__price {
+    font-size: $xs;
+    font-weight: $light;
+  }
+}
+
+.filter {
+
+  &__title,
+  &__select {
+    font-weight: $bold;
+  }
+
+  &__select,
+  &__options {
+    color: white;
+  }
+}
+
+.gallery {
+  color: $secondaire-txt;
+  font-weight: $bold;
+}
+
+.footer {
+  font-weight: $bold;
+}

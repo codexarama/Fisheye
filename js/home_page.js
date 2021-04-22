@@ -12,10 +12,33 @@ function fetchData() {
       // AFFICHAGE DES DONNEES
       for (let i = 0; i < data.photographers.length; i++) {
         setCard(data.photographers[i]);
-
-        // AFFICHAGE PAR TAG UNIQUE
-        console.log(data.photographers[i].tags);
       }
+
+      // RECUPERE LE(S) TAG(S) SELECTIONNE(S)
+      // TAG href = `index.html?tag=${photographer.tags}`
+      // const urlParams = window.location.search;
+      // console.log(urlParams); // ?tag="portrait" (...)
+      const getTag = (urlTag, tag) => {
+        urlTag = new URL(document.location).searchParams;
+        tag = urlTag.get('tag');
+        return tag;
+      };
+      console.log(getTag()); // "portrait"
+
+      // CIBLE LES PHOTOGRAPHES EN FONCTION DU FILTRE CHOISI
+      for (let j = 0; j < data.photographers.lenght; j++) {
+        const photographerTag = data.photographers.filter(
+          (elmt) => elmt.tags == getTag()
+        )[0];
+        console.log(photographerTag[j]); // RIEN DANS LA CONSOLE
+      }
+
+      // // CIBLE LES PHOTOGRAPHES EN FONCTION DU FILTRE CHOISI
+      //   const photographerTag = data.photographers.filter(
+      //     (elmt) => elmt.tags == getTag()
+      //   )[0];
+      //   console.log(photographerTag[j]); // undefined
+
     })
     // GESTION DES ERREURS
     .catch((error) => console.log(error.message));
@@ -68,7 +91,8 @@ const setCard = (photographer) => {
       { class: 'tag' },
       elmtFactory(
         'a',
-        { href: '', class: 'tagLink' },
+        // { href: '', class: 'tagLink' },
+        { href: `index.html?tag=${photographer.tags[j]}`, class: 'tagLink' },
         '# ' + `${photographer.tags[j]}`
       )
     );

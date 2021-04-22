@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site web de photographes freelance" />
+  <title></title>
+  <!-- <link rel="stylesheet" href="css/styles.min.css"> -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <script
+    src="https://kit.fontawesome.com/437a0e72c7.js"
+    crossorigin="anonymous"
+  ></script>
+</head>
+<html>
+  <body>
+    <header class="banner">
+      <a href="index.html"
+        ><img
+          src="images/logo/logo_fisheye.svg"
+          class="banner__logo"
+          alt="Fisheye Home page"
+      /></a>
+    </header>
+    <main>
+      <section class="id"></section>
+
+      <section class="filter">
+          <p for="select" class="filter__title">Trier par</p>
+          <ul id="select" class="filter__box">
+            <div class="filter__select btn" role="button" aria-haspopup="listbox", aria-expanded="">
+              <li id="selected">Popularité</li>
+              <i class="fas fa-chevron-down filter__arrow"></i>
+            </div>
+            <ul class="filter__options" role="listbox" aria-labelledby="filtres">
+              <div class="filter__option filter__option--1 selected">
+                <li id="likes" value="likes">Popularité</li>
+              </div>
+              <div class="filter__option filter__option--2 ">
+                <li id="date" value="date">Date</li>
+              </div>
+              <div class="filter__option filter__option--3">
+                <li id="titre" value="titre">Titre</li>
+              </div>
+            </ul>
+          </ul>
+      </section>
+
+      <section class="gallery"></section>
+
+      <section class="lightbox">
+        <div class="lightbox__modal">
+          <div class="lightbox__content">
+            <span class="close"></span>
+            <div class="lightbox__image">
+              <img src="/images/photos/Animals_Rainbow.jpg.jpg" alt="">
+              <p class="lightbox__title">titre</p>
+            </div>
+            <i class="fas fa-chevron-left lightbox__prev" onclick="plusSlides(-1)"></i>
+            <i class="fas fa-chevron-right lightbox__next" onclick="plusSlides(1)"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="form">
+        <div class="form__modal">
+          <div class="form__content">
+            <div class="form__confirmation">
+              <span class="close-confirm"></span>
+              <p>Message envoyé.</p>
+            </div>
+            <span class="close"></span>
+            <div class="form__body">
+              <h2 class="form__body--title">Contactez-moi</h2>
+              <h2 class="id-name"></h2>
+              <form
+                name="contact"
+                id="contact"
+                action="propage.html"
+                methode="POST"
+              >
+                <div class="formData">
+                  <label for="firstName">Prénom</label>
+                  <small id="errorFirst"></small>
+                  <input
+                    class="text-control"
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    pattern="^\D*$"
+                    required
+                  />
+                </div>
+                <div class="formData">
+                  <label for="lastName">Nom</label>
+                  <small id="errorLast"></small>
+                  <input
+                    class="text-control"
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    pattern="^\D*$"
+                    required
+                  />
+                </div>
+                <div class="formData">
+                  <label for="email">E-mail</label>
+                  <small id="errorEmail"></small>
+                  <input
+                    class="text-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocapitalize="none"
+                    required
+                  />
+                </div>
+                <div class="formData">
+                  <label for="massage">Message</label>
+                  <small id="errorMessage"></small>
+                  <textarea
+                  class="text-control text-area"
+                  id="message"
+                  name="message"
+                  pattern="^\D*$"
+                  required
+                  >
+                  </textarea>
+                </div>
+                <div class="formData">
+                  <input
+                    class="btn-submit"
+                    for="validate"
+                    name="validate"
+                    type="submit"
+                    id="submit"
+                    value="Envoyer"
+                  />
+                  <small id="errorForm">error</small>
+                </div>
+            </form>
+          </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__content">
+        <p>297 081</p>
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="footer__content">
+        <p class="gallery__likes--n">300€ / jour</p>
+      </div>
+    </footer>
+    <script type="text/javascript" src="js/elmt_factory.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
+    <script type="text/javascript" src="js/filtres.js"></script>
+    <script type="text/javascript" src="js/gallery.js"></script>
+    <script type="text/javascript" src="js/pro_page.js"></script>
+    <script type="text/javascript" src="js/lightbox.js"></script>
+    <script type="text/javascript" src="js/contact.js"></script>
+  </body>
+</html>

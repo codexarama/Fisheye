@@ -38,7 +38,7 @@ modalBtn.addEventListener(
 //   })
 // );
 
-closeModalBtn = (e) => {
+closeModalBtn = () => {
   modal.style.display = 'none';
 };
 

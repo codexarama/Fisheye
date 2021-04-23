@@ -14,9 +14,8 @@ const setGallery = (media) => {
       elmtFactory('img', {
         src: '/images/photos/' + `${media.image}`,
         alt: `${media.name}`,
-        id: 'lightbox-currentSlide',
-        onclick: "openLightbox()"
-      }),
+        onclick: 'openLightbox();currentSlide(n)',
+      })
 
       // // GESTION DES TYPES DE MEDIA
       // // --------- pas d'erreur console ---------- //
@@ -24,10 +23,8 @@ const setGallery = (media) => {
       //   elmtFactory('img' || "video", {
       //   src: '/images/photos/' || '/images/videos/' + `${media.image}` || `${media.video}`,
       //   alt: `${media.name}`,
-      //   id: 'lightbox-currentSlide',
-      //   onclick: "openLightbox()"
+      //   onclick: 'openLightbox();currentSlide(n)',
       // }),
-      
     ),
     elmtFactory(
       'div',

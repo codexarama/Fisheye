@@ -59,6 +59,7 @@ function fetchData() {
       // ---------- ok mais sans filtrage ---------- //
       for (let i = 0; i < photographerWork.length; i++) {
         setGallery(photographerWork[i]);
+        // setLightbox(photographerWork[i]);
       }
 
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT

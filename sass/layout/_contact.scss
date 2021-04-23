@@ -18,7 +18,7 @@
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
     background: $secondaire-bg;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
     color: $secondaire-a;
@@ -31,7 +31,7 @@
     max-width: 425px;
     width: 80%;
     background-color: $secondaire-bg;
-    border-radius: 10px;
+    border-radius: 5px;
     top: 220px;
     padding: 50px 10px;
     display: flex;
@@ -72,7 +72,7 @@ input {
   margin: 0;
   padding: 8px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: medium;
 }
 .tex-control {
@@ -111,6 +111,7 @@ input {
   opacity: 1;
   cursor: pointer;
   transform: scale(0.7);
+  z-index: 2;
 }
 
 .close:before,
@@ -159,7 +160,7 @@ input {
 .btn-submit {
   background: $primaire-bg;
   display: block;
-  border-radius: 7px;
+  border-radius: 5px;
   border: 0;
   margin: 20px auto 10px;
   padding: 15px 30px;

@@ -306,7 +306,7 @@ body {
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #fd8d73;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
   color: black;
@@ -318,7 +318,7 @@ body {
   max-width: 425px;
   width: 80%;
   background-color: #fd8d73;
-  border-radius: 10px;
+  border-radius: 5px;
   top: 220px;
   padding: 50px 10px;
   display: flex;
@@ -355,7 +355,7 @@ input {
   margin: 0;
   padding: 8px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: medium;
 }
 
@@ -396,6 +396,7 @@ input {
   opacity: 1;
   cursor: pointer;
   transform: scale(0.7);
+  z-index: 2;
 }
 
 .close:before,
@@ -444,7 +445,7 @@ input {
 .btn-submit {
   background: #901c1c;
   display: block;
-  border-radius: 7px;
+  border-radius: 5px;
   border: 0;
   margin: 20px auto 10px;
   padding: 15px 30px;
@@ -468,7 +469,7 @@ input {
 .gallery__card {
   margin-bottom: 15px;
 }
-.gallery__image {
+.gallery__media {
   width: 200px;
   height: 200px;
   border-radius: 3px;
@@ -476,13 +477,13 @@ input {
   overflow: hidden;
   cursor: pointer;
 }
-.gallery__image img {
+.gallery__media img, .gallery__media video {
   width: 200px;
   height: 200px;
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.gallery__image img:hover {
+.gallery__media img:hover, .gallery__media video:hover {
   transform: scale(1.25);
   transform-origin: 50% 50%;
 }
@@ -542,7 +543,7 @@ input {
 .lightbox__content {
   height: 100%;
 }
-.lightbox__image {
+.lightbox__media {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -553,7 +554,7 @@ input {
   overflow: hidden;
   position: relative;
 }
-.lightbox img {
+.lightbox img, .lightbox video {
   width: 65%;
   border-radius: 3px;
 }

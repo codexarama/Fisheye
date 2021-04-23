@@ -28,10 +28,11 @@
       /></a>
     </header>
     <main>
+      <!-- profil du photographe -->
       <section class="id">
         <button type="button" id="modalBtn" class="btn btn-contact">Contactez-moi</button>
       </section>
-
+      <!-- choix des options de filtrage de la galerie photos -->
       <section class="filter">
           <p for="select" class="filter__title">Trier par</p>
           <ul id="select" class="filter__box">
@@ -52,15 +53,16 @@
             </ul>
           </ul>
       </section>
-
+      <!-- gallerie virtuelle -->
       <section class="gallery"></section>
-
+      <!-- lightbox -->
       <section class="lightbox">
         <div class="lightbox__modal">
           <div class="lightbox__content">
-            <span class="close"></span>
-            <div class="lightbox__image">
-              <img src="/images/photos/Animals_Rainbow.jpg.jpg" alt="">
+            <span class="close" onclick="closeLightbox()"></span>
+            <div class="lightbox__media">
+              <!-- <img src="/images/photos/Animals_Rainbow.jpg.jpg" alt=""> -->
+              <img src="images/photos/" alt="">
               <p class="lightbox__title">titre</p>
             </div>
             <i class="fas fa-chevron-left lightbox__prev" onclick="plusSlides(-1)"></i>
@@ -68,7 +70,7 @@
           </div>
         </div>
       </section>
-
+      <!-- formulaire de contact -->
       <section class="form">
         <div class="form__modal">
           <div class="form__content">
@@ -76,7 +78,8 @@
               <span class="close-confirm"></span>
               <p>Message envoyé.</p>
             </div>
-            <span class="close"></span>
+            <!-- <span class="close"></span> -->
+            <span class="close" onclick="closeModalBtn()"></span>
             <div class="form__body">
               <h2 class="form__body--title">Contactez-moi</h2>
               <h2 class="form__body--name"></h2>
@@ -149,6 +152,7 @@
           </div>
       </section>
     </main>
+    <!-- footer element -->
     <footer class="footer">
       <div class="footer__content">
         <p>297 081</p>
@@ -158,6 +162,7 @@
         <p class="gallery__likes--n">300€ / jour</p>
       </div>
     </footer>
+    <!-- appel des scripts js -->
     <script type="text/javascript" src="js/elmt_factory.js"></script>
     <script type="text/javascript" src="js/filtres.js"></script>
     <script type="text/javascript" src="js/sort.js"></script>

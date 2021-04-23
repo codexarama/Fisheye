@@ -5,7 +5,7 @@ const modalContent = document.querySelector('.form__content');
 const modalBody = document.querySelector('.form__body');
 const confirm = document.querySelector('.form__confirmation');
 const submitBtn = document.getElementById('submit');
-const closeModalBtn = document.querySelector('.close');
+let closeModalBtn = document.querySelector('.close');
 const closeConfirmBtn = document.querySelector('.close-confirm');
 
 // FORM
@@ -29,13 +29,19 @@ modalBtn.addEventListener(
 );
 
 // close modal event
-closeModalBtn.addEventListener(
-  'click',
-  (closeModal = (e) => {
-    e.preventDefault();
-    modal.style.display = 'none';
-  })
-);
+// // ---------- ne fonctionne pas ---------- //
+// closeModalBtn.addEventListener(
+//   'click',
+//   (closeModal = (e) => {
+//     e.preventDefault();
+//     modal.style.display = 'none';
+//   })
+// );
+
+closeModalBtn = (e) => {
+  e.preventDefault();
+  modal.style.display = 'none';
+};
 
 // close confirm message event
 closeConfirmBtn.addEventListener(
@@ -53,8 +59,6 @@ form.addEventListener('submit', function (e) {
     modalBody.style.display = 'none';
     confirm.style.opacity = '1';
     form.reset();
-  } else {
-    modalBody.style.display = 'block';
   }
 });
 

@@ -10,11 +10,24 @@ const setGallery = (media) => {
     { class: 'gallery__card' },
     elmtFactory(
       'div',
-      { class: 'gallery__image' },
+      { class: 'gallery__media' },
       elmtFactory('img', {
         src: '/images/photos/' + `${media.image}`,
-          alt: `${media.name}`,
-      })
+        alt: `${media.name}`,
+        id: 'lightbox-currentSlide',
+        onclick: "openLightbox()"
+      }),
+
+      // // GESTION DES TYPES DE MEDIA
+      // // --------- pas d'erreur console ---------- //
+      // // --------- ne fonctionne pas ---------- //
+      //   elmtFactory('img' || "video", {
+      //   src: '/images/photos/' || '/images/videos/' + `${media.image}` || `${media.video}`,
+      //   alt: `${media.name}`,
+      //   id: 'lightbox-currentSlide',
+      //   onclick: "openLightbox()"
+      // }),
+      
     ),
     elmtFactory(
       'div',

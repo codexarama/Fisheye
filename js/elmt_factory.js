@@ -5,6 +5,13 @@ const elmtFactory = (type, attribute, ...children) => {
 
   for (key in attribute) {
     elmt.setAttribute(key, attribute[key]);
+    // GESTION DES TYPES DE MEDIA
+    // --------- pas d'erreur console ---------- //
+    // --------- ne fonctionne pas ---------- //
+
+    if (key === 'video') {
+      attribute = { src: '/images/videos/' + `${media.video}` };
+    }
   }
 
   children.forEach((child) => {
@@ -17,7 +24,3 @@ const elmtFactory = (type, attribute, ...children) => {
 
   return elmt;
 };
-
-// FONCTION : CREATION D'ELEMENTS MEDIA (image, vidéo) DANS LE DOM
-// FACTORY METHOD APPLIQUEE AUX ELEMENTS : type + attributs + hiérarchie
-

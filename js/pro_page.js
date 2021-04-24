@@ -59,8 +59,10 @@ function fetchData() {
       // ---------- ok mais sans filtrage ---------- //
       for (let i = 0; i < photographerWork.length; i++) {
         setGallery(photographerWork[i]);
-        // setLightbox(photographerWork[i]);
+        setLightbox(photographerWork[i]);
       }
+      // setLightbox(photographerWork);
+      // console.log(setLightbox());
 
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');

@@ -64,6 +64,18 @@ function fetchData() {
       // setLightbox(photographerWork);
       // console.log(setLightbox());
 
+      // RECUPERE LE NOM DU MEDIA CHOISI DANS LA GALERIE
+      // IMG href = `propage.html?currentMedia=${media.name}`
+      // const urlParams = window.location.search;
+      // console.log(urlParams); // ?currentMedia=nom_image (...)
+
+      // const getMedia = (urlMedia, currentMedia) => {
+      //   urlMedia = new URL(document.location).searchParams;
+      //   currentMedia = urlMedia.get('currentMedia');
+      //   return currentMedia;
+      // };
+      // console.log(getMedia()); // "nom_image" // MAIS ----- erreur console ----- //
+
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');
       formName.textContent = photographerData.name;

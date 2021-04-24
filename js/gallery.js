@@ -14,7 +14,8 @@ const setGallery = (media) => {
       elmtFactory('img', {
         src: '/images/photos/' + `${media.image}`,
         alt: `${media.name}`,
-        onclick: 'openLightbox();currentSlide(n)',
+        onclick: 'openLightbox()',
+        // onclick: 'openLightbox();currentSlide(1)',
       })
 
       // // GESTION DES TYPES DE MEDIA

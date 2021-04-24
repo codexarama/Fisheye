@@ -8,10 +8,8 @@ const elmtFactory = (type, attribute, ...children) => {
     // GESTION DES TYPES DE MEDIA
     // --------- pas d'erreur console ---------- //
     // --------- ne fonctionne pas ---------- //
-
-    if (key === 'video') {
-      attribute = { src: '/images/videos/' + `${media.video}` };
-    }
+    // if (key === 'img') return attribute = { src: '/images/photos/' + `${media.image}` };
+    // if (key === 'video') return attribute = { src: '/images/videos/' + `${media.video}` };
   }
 
   children.forEach((child) => {

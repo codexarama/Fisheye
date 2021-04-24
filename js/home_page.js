@@ -9,12 +9,12 @@ function fetchData() {
     .then((data) => {
       console.log(data);
 
-      // AFFICHAGE DES DONNEES
+      // AFFIchE LES DONNEES
       for (let i = 0; i < data.photographers.length; i++) {
         setCard(data.photographers[i]);
       }
 
-      // RECUPERE LE(S) TAG(S) SELECTIONNE(S)
+      // RECUPERE LE(S) TAG(S) CHOISI(S)
       // TAG href = `index.html?tag=${photographer.tags}`
       // const urlParams = window.location.search;
       // console.log(urlParams); // ?tag="portrait" (...)

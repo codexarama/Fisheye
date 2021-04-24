@@ -62,14 +62,14 @@
       <section class="lightbox">
         <div class="lightbox__modal">
           <div class="lightbox__content">
-            <span class="close" onclick="closeLightbox()"></span>
+            <span class="close" role="button" onclick="closeLightbox()"></span>
             <div class="lightbox__media">
-              <!-- <img src="/images/photos/Animals_Rainbow.jpg.jpg" alt=""> -->
-              <!-- <img alt=""> -->
-              <!-- <p class="lightbox__title">titre</p> -->
+              <!-- <img src="/images/photos/Animals_Rainbow.jpg.jpg" alt="">
+              <img src="" alt=""> -->
+              <p class="lightbox__title">titre</p>
             </div>
-            <i class="fas fa-chevron-left lightbox__prev" onclick="plusSlides(-1)"></i>
-            <i class="fas fa-chevron-right lightbox__next" onclick="plusSlides(1)"></i>
+            <i class="fas fa-chevron-left lightbox__prev" role="button" onclick="plusSlides(-1)"></i>
+            <i class="fas fa-chevron-right lightbox__next" role="button" onclick="plusSlides(1)"></i>
           </div>
         </div>
       </section>
@@ -79,11 +79,11 @@
         <div class="form__modal">
           <div class="form__content">
             <div class="form__confirmation">
-              <span class="close-confirm"></span>
+              <span class="close-confirm" role="button"></span>
               <p>Message envoyé.</p>
             </div>
             <!-- <span class="close"></span> -->
-            <span class="close" onclick="closeModalBtn()"></span>
+            <span class="close" role="button" onclick="closeModalBtn()"></span>
             <div class="form__body">
               <h2 class="form__body--title">Contactez-moi</h2>
               <h2 class="form__body--name"></h2>

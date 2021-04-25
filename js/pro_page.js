@@ -59,10 +59,7 @@ function fetchData() {
       // ---------- ok mais sans filtrage ---------- //
       for (let i = 0; i < photographerWork.length; i++) {
         setGallery(photographerWork[i]);
-        setLightbox(photographerWork[i]);
       }
-      // setLightbox(photographerWork);
-      // console.log(setLightbox());
 
       // RECUPERE LE NOM DU MEDIA CHOISI DANS LA GALERIE
       // IMG href = `propage.html?currentMedia=${media.name}`

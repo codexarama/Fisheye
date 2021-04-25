@@ -15,7 +15,7 @@ const setGallery = (media) => {
       'div',
       { class: 'gallery__media' },
       elmtFactory('img', {
-        src: '/images/photos/' + `${media.image}`,
+        src: 'images/photos/' + `${media.image}`,
         alt: `${media.name}`,
         onclick: 'openLightbox()',
       })
@@ -24,7 +24,7 @@ const setGallery = (media) => {
       // // --------- pas d'erreur console ---------- //
       // // --------- ne fonctionne pas ---------- //
       //   elmtFactory('img' || "video", {
-      //   src: '/images/photos/' || '/images/videos/' + `${media.image}` || `${media.video}`,
+      //   src: 'images/photos/' || 'images/videos/' + `${media.image}` || `${media.video}`,
       //   alt: `${media.name}`,
       //   onclick: 'openLightbox();currentSlide(1)',
       // })

@@ -64,7 +64,7 @@ nav {
 }
 .card__location {
   font-size: medium;
-  color: #d3573c;
+  color: #901c1c;
 }
 .card__tagline {
   font-weight: 700;
@@ -114,68 +114,6 @@ nav {
 }
 .btn-homepage a:hover {
   color: black;
-}
-
-.filter__title {
-  margin-right: 10px;
-  margin-top: 10px;
-}
-.filter__box {
-  width: 105px;
-}
-.filter__select:hover {
-  color: white;
-}
-.filter__box.open .filter__select {
-  border-radius: 3px 3px 0 0;
-}
-.filter__box.open .selected {
-  display: none;
-}
-.filter__select {
-  position: relative;
-}
-.filter__select i {
-  position: absolute;
-  right: 10px;
-  padding-left: 5px;
-}
-.filter__arrow {
-  color: white;
-  transition: all 0.5s;
-}
-.filter__box.open .filter__arrow {
-  position: absolute;
-  right: 10px;
-  transform: rotateX(180deg);
-}
-.filter__options {
-  position: absolute;
-  width: 105px;
-  background-color: #901c1c;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-.filter__box.open {
-  border-radius: 0 0 3px 3px;
-}
-.filter__box.open .filter__options {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-}
-.filter__option {
-  padding: 10px 0;
-  border-top: 1px solid white;
-  border-left: 10px solid #901c1c;
-  border-right: 10px solid #901c1c;
-}
-.filter__option--1:hover, .filter__option--2:hover, .filter__option--3:hover {
-  background-color: #db8876;
-  border-left: 10px solid #db8876;
-  border-right: 10px solid #db8876;
 }
 
 @media only screen and (max-width: 600px) {
@@ -242,7 +180,7 @@ nav {
   padding: 0 5px;
   color: #901c1c;
 }
-.tags li a:hover {
+.tags li a:hover, .tags li a:active {
   cursor: pointer;
   border-radius: 25px;
   border: solid 1px #901c1c;
@@ -513,6 +451,67 @@ input {
   display: inline-flex;
   margin: 50px 0;
 }
+.filter__title {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.filter__box {
+  width: 105px;
+}
+.filter__select:hover {
+  color: white;
+}
+.filter__box.open .filter__select {
+  border-radius: 3px 3px 0 0;
+}
+.filter__box.open .selected {
+  display: none;
+}
+.filter__select {
+  position: relative;
+}
+.filter__select i {
+  position: absolute;
+  right: 10px;
+  padding-left: 5px;
+}
+.filter__arrow {
+  color: white;
+  transition: all 0.5s;
+}
+.filter__box.open .filter__arrow {
+  position: absolute;
+  right: 10px;
+  transform: rotateX(180deg);
+}
+.filter__options {
+  position: absolute;
+  width: 105px;
+  background-color: #901c1c;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.filter__box.open {
+  border-radius: 0 0 3px 3px;
+}
+.filter__box.open .filter__options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.filter__option {
+  padding: 10px 0;
+  border-top: 1px solid white;
+  border-left: 10px solid #901c1c;
+  border-right: 10px solid #901c1c;
+}
+.filter__option--1:hover, .filter__option--2:hover, .filter__option--3:hover {
+  background-color: #db8876;
+  border-left: 10px solid #db8876;
+  border-right: 10px solid #db8876;
+}
 
 @media only screen and (max-width: 600px) {
   .filter {
@@ -605,11 +604,12 @@ input {
   position: relative;
 }
 .lightbox img, .lightbox video {
-  width: 65%;
+  width: auto;
+  height: 90%;
   border-radius: 3px;
 }
 .lightbox__title {
-  width: 65%;
+  width: auto;
   color: white;
   margin: 10px auto 0;
 }

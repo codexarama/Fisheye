@@ -8,7 +8,8 @@
     padding: 0 5px;
     color: $secondaire-txt;
   }
-  & li a:hover {
+  & li a:hover,
+  & li a:active {
     cursor: pointer;
     border-radius: 25px;
     border: solid 1px $primaire-border;

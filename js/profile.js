@@ -9,10 +9,10 @@ const btnContact = document.querySelector('.btn-contact');
 const setId = (photographer) => {
   const id = elmtFactory(
     'article',
-    { class: 'id' },
+    { class: 'id__card' },
     elmtFactory(
       'div',
-      { class: 'id__card' },
+      { class: 'id__infos' },
       elmtFactory('h2', { class: 'card__name' }, `${photographer.name}`),
       elmtFactory(
         'p',

@@ -17,6 +17,11 @@ body {
   }
 }
 
+nav {
+  text-align: center;
+  line-height: 2em;
+}
+
 .card {
   &__name {
     font-size: $l;

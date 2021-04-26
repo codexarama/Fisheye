@@ -1,19 +1,15 @@
 .id {
   background-color: #fafafa;
-  padding: 25px 35px;
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  padding: 25px;
 
   &__card {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    justify-content: center;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 
     & ul {
-      margin-top: 10px;
+      margin: 10px 0;
     }
   }
 
@@ -21,11 +17,7 @@
     margin-top: 10px;
   }
 
-  &__contact {
-    margin-top: 10px;
-  }
   &__image {
-
     width: 125px;
     height: 125px;
     border-radius: 50%;
@@ -45,7 +37,30 @@
   }
 }
 
-.filter {
- display: inline-flex;
- margin: 50px 0;
+@media only screen and (max-width: 600px) {
+  .id {
+    padding: 0;
+    margin-bottom: 50px;
+
+    &__infos {
+      margin-left: 10px;
+      width: 70%;
+    }
+
+    &__image {
+      width: 85px;
+      height: 85px;
+      margin-right: 10px;
+
+      & img {
+        width: 85px;
+        height: 85px;
+      }
+    }
+
+    & ul {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+  }
 }

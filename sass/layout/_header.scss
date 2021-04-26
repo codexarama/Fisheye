@@ -24,3 +24,24 @@
     padding-right: 10px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .header {
+    display: block;
+    width: 90%;
+    margin:auto;
+
+    &__logo {
+      width: 150px;
+      margin: 25px 0;
+      padding-right: 10px;
+    }
+
+    &__headline {
+      position: absolute;
+      top: 40px;
+      right: 10%;
+      font-size: $m;
+    }
+  }
+}

@@ -35,7 +35,6 @@
 // liste déroulante FILTRES : "popularité" - "date" - "titre"
 // page pro photographe
 .filter {
-
   &__title {
     margin-right: 10px;
     margin-top: 10px;
@@ -113,5 +112,18 @@
       border-left: 10px solid $secondaire-bg;
       border-right: 10px solid $secondaire-bg;
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .btn-homepage {
+    display: none;
+  }
+  .id__contact {
+    margin-top: 10px;
+    position: fixed;
+    bottom: 25px;
+    width: 90%;
+    text-align: center;
   }
 }

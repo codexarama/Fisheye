@@ -44,8 +44,10 @@ const setId = (photographer) => {
       { class: 'tag' },
       elmtFactory(
         'a',
-        { href: `index.html?tag=${photographer.tags[j]}`, class: 'tagLink' },
-        '# ' + `${photographer.tags[j]}`
+        { href: `index.html?tag=${photographer.tags[j]}`,
+          class: `${photographer.tags[j]}`
+        },
+        '#' + `${photographer.tags[j]}`
       )
     );
     tagsList.appendChild(tags);

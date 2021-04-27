@@ -9,7 +9,7 @@
     color: $secondaire-txt;
   }
   & li a:hover,
-  & li a:active {
+  & li a:focus {
     cursor: pointer;
     border-radius: 25px;
     border: solid 1px $primaire-border;

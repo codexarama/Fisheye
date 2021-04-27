@@ -180,7 +180,7 @@ nav {
   padding: 0 5px;
   color: #901c1c;
 }
-.tags li a:hover, .tags li a:active {
+.tags li a:hover, .tags li a:focus {
   cursor: pointer;
   border-radius: 25px;
   border: solid 1px #901c1c;
@@ -638,7 +638,7 @@ input {
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 25%;
+  width: 200px;
   padding: 10px;
   background-color: #db8876;
   border-radius: 5px 0 0 0;

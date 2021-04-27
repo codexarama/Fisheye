@@ -14,11 +14,17 @@ const setGallery = (media) => {
     elmtFactory(
       'div',
       { class: 'gallery__media' },
-      elmtFactory('img', {
-        src: 'images/photos/' + `${media.image}`,
-        alt: `${media.name}`,
-        onclick: 'openLightbox()',
-      })
+      elmtFactory(
+        'a',
+        // { href:  `${media.name}`,
+        { href: "?currentMedia=" + `${media.name}`,
+          id: `${media.name}`,
+        },
+        elmtFactory('img', {
+          src: 'images/photos/' + `${media.image}`,
+          alt: `${media.name}`,
+        })
+      )
 
       // // GESTION DES TYPES DE MEDIA
       // // --------- pas d'erreur console ---------- //
@@ -59,6 +65,7 @@ const setGallery = (media) => {
   images.forEach((image) => {
     image.addEventListener('click', (e) => {
       e.preventDefault();
+      openLightbox();
       lightboxMedia.classList.add('active');
       img.src = image.src;
       lightboxTitle.textContent = `${media.name}`;

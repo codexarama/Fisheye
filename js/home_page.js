@@ -20,16 +20,16 @@ function fetchData() {
       };
       console.log(getTag());
 
-      // for (let i = 0; i < data.photographers.length; i++) {
-      //   // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
-      //   setCard(data.photographers[i]);
-      //   // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
-      //   const selectedTag = data.photographers[i].tags.filter(
-      //     (elmt) => elmt == getTag()
-      //   )[0];
-      //   console.log(data.photographers[i].tags);
-      //   console.log(selectedTag);
-      // }
+      for (let i = 0; i < data.photographers.length; i++) {
+        // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
+        setCard(data.photographers[i]);
+        // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
+        const selectedTag = data.photographers[i].tags.filter(
+          (elmt) => elmt == getTag()
+        )[0];
+        console.log(data.photographers[i].tags);
+        console.log(selectedTag);
+      }
 
       // ESSAIS
 

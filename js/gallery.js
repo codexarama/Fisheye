@@ -16,9 +16,8 @@ const setGallery = (media) => {
       { class: 'gallery__media' },
       elmtFactory(
         'a',
-        // { href:  `${media.name}`,
-        { href: "?currentMedia=" + `${media.name}`,
-          id: `${media.name}`,
+        { id: `${media.name}`,
+          href: "?currentMedia=" + `${media.name}`,
         },
         elmtFactory('img', {
           src: 'images/photos/' + `${media.image}`,

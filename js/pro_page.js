@@ -26,13 +26,15 @@ function fetchData() {
         (elmt) => elmt.id == getId()
       )[0];
       console.log(photographerData); // array data by ID
+
+      // AFFICHE LE PROFIL DU PHOTOGRAPHE CORRESPONDANT
+      setId(photographerData);
+
+      // CIBLE LES MEDIA EN FONCTION DU PHOTOGRAPHE CHOISI
       const photographerWork = data.media.filter(
         (elmt) => elmt.photographerId == getId()
       );
       console.log(photographerWork); // array media by ID
-
-      // AFFICHE LE PROFIL DU PHOTOGRAPHE CORRESPONDANT
-      setId(photographerData);
 
       // FILTRE LA GALERIE VIRTUELLE
       // ORGANISE ET AFFICHE LES DONNEES SELON FILTRE => OK
@@ -62,16 +64,12 @@ function fetchData() {
       }
 
       // RECUPERE LE NOM DU MEDIA CHOISI DANS LA GALERIE
-      // IMG href = `propage.html?currentMedia=${media.name}`
-      // const urlParams = window.location.search;
-      // console.log(urlParams); // ?currentMedia=nom_image (...)
-
-      // const getMedia = (urlMedia, currentMedia) => {
-      //   urlMedia = new URL(document.location).searchParams;
-      //   currentMedia = urlMedia.get('currentMedia');
-      //   return currentMedia;
-      // };
-      // console.log(getMedia()); // "nom_image" // MAIS ----- erreur console ----- //
+      const getMedia = (urlMedia, currentMedia) => {
+        urlMedia = new URL(document.location).searchParams;
+        currentMedia = urlMedia.get('currentMedia');
+        return currentMedia;
+      };
+      console.log(getMedia()); // null
 
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');

@@ -37,8 +37,8 @@
       <section class="filter">
           <p for="select" class="filter__title">Trier par</p>
           <ul id="select" class="filter__box">
-            <div class="filter__select btn" role="button" aria-haspopup="listbox", aria-expanded="">
-              <li id="selected">Popularité</li>
+            <div class="filter__selected btn" role="button" aria-haspopup="listbox", aria-expanded="">
+              <li>Popularité</li>
               <i class="fas fa-chevron-down filter__arrow"></i>
             </div>
             <ul class="filter__options" role="listbox" aria-labelledby="filtres">
@@ -63,12 +63,12 @@
         <div class="lightbox__modal">
           <div class="lightbox__content">
             <span class="close" role="button" onclick="closeLightbox()"></span>
-            <div class="lightbox__media">
+            <div id="currentMedia" class="lightbox__media">
               <img src="" alt="" class="lightbox__img">
               <p class="lightbox__title"></p>
             </div>
-            <i class="fas fa-chevron-left lightbox__prev" role="button" onclick="plusSlides(-1)"></i>
-            <i class="fas fa-chevron-right lightbox__next" role="button" onclick="plusSlides(1)"></i>
+            <a rel="prev" href="" role="button" onclick="plusSlides(-1)"><i class="fas fa-chevron-left lightbox__prev"></i></a>
+            <a rel="next" href="" role="button" onclick="plusSlides(1)"><i class="fas fa-chevron-right lightbox__next"></i></a>
           </div>
         </div>
       </section>

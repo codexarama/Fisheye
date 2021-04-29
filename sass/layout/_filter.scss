@@ -11,9 +11,7 @@
 
   &__box {
     width: 105px;
-  }
-
-  &__select {
+    cursor: pointer;
     &:hover {
       color: $primaire-a;
     }
@@ -27,7 +25,7 @@
     display: none;
   }
 
-  &__select {
+  &__selected {
     position: relative;
 
     & i {

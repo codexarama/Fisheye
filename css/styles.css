@@ -457,8 +457,9 @@ input {
 }
 .filter__box {
   width: 105px;
+  cursor: pointer;
 }
-.filter__select:hover {
+.filter__box:hover {
   color: white;
 }
 .filter__box.open .filter__select {
@@ -467,10 +468,10 @@ input {
 .filter__box.open .selected {
   display: none;
 }
-.filter__select {
+.filter__selected {
   position: relative;
 }
-.filter__select i {
+.filter__selected i {
   position: absolute;
   right: 10px;
   padding-left: 5px;

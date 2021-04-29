@@ -16,12 +16,12 @@ const setGallery = (media) => {
       { class: 'gallery__media' },
       elmtFactory(
         'a',
-        { id: `${media.name}`,
-          href: "?currentMedia=" + `${media.name}`,
+        { id: `${media.title}`,
+          href: "?currentMedia=" + `${media.title}`,
         },
         elmtFactory('img', {
           src: 'images/photos/' + `${media.image}`,
-          alt: `${media.name}`,
+          alt: `${media.title}`,
         })
       )
 
@@ -30,7 +30,7 @@ const setGallery = (media) => {
       // // --------- ne fonctionne pas ---------- //
       //   elmtFactory('img' || "video", {
       //   src: 'images/photos/' || 'images/videos/' + `${media.image}` || `${media.video}`,
-      //   alt: `${media.name}`,
+      //   alt: `${media.title}`,
       //   onclick: 'openLightbox();currentSlide(1)',
       // })
     ),
@@ -41,7 +41,7 @@ const setGallery = (media) => {
       elmtFactory(
         'div',
         { class: 'gallery__infos' },
-        elmtFactory('p', { class: 'gallery__title' }, `${media.name}`),
+        elmtFactory('p', { class: 'gallery__title' }, `${media.title}`),
 
         elmtFactory('p', { class: 'gallery__price' }, `${media.price}` + '€')
       ),
@@ -67,7 +67,7 @@ const setGallery = (media) => {
       openLightbox();
       lightboxMedia.classList.add('active');
       img.src = image.src;
-      lightboxTitle.textContent = `${media.name}`;
+      lightboxTitle.textContent = `${media.title}`;
     });
   });
 };

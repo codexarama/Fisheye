@@ -14,7 +14,7 @@ for (const option of document.querySelectorAll('.filter__option')) {
       option.classList.add('selected');
       option
         .closest('.filter__box')
-        .querySelector('.filter__select li').textContent = this.textContent;
+        .querySelector('.filter__selected li').textContent = this.textContent;
     }
   });
 
@@ -26,18 +26,3 @@ for (const option of document.querySelectorAll('.filter__option')) {
     }
   });
 }
-
-// // FONCTION TRI DATA SELON OPTION CHOISIE
-// document.getElementById('selected').addEventListener('change', function (e) {
-//   e.preventDefault();
-// })
-
-// const filterByOption = (option, media) => {
-//   // let value = document.getElementById('selected').value;
-
-//   if (option === 'Popularité') return media.sort(filterBy('likes', 'desc'));
-//   if (option === 'Date') return media.sort(filterBy('date', 'desc'));
-//   if (option === 'Titre') return media.sort(filterBy('titre'));
-// };
-
-// filterByOption(); // Uncaught RangeError: Maximum call stack size exceeded

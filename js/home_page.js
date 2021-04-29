@@ -22,37 +22,26 @@ function fetchData() {
 
       for (let i = 0; i < data.photographers.length; i++) {
         // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
-        let selectedTag = data.photographers.filter(
-          (elmt) => elmt.tags[i] == getTag()
+        let selectedTag = data.photographers[i].tags.filter(
+          (elmt) => elmt == getTag()
         );
         // console.log(data.photographers[i].tags);
-        console.log(selectedTag); // tableau complet de chaque photographe dont le tag correspond
+        console.log(selectedTag); // tableau du tag sélectionné correspondant si true pour chaque photographe
 
         if (getTag() == null) {
           // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
           setCard(data.photographers[i]);
-        // } else {
-          // for (let j = 0; j < selectedTag.length; j++) {
-          //   return selectedTag[j].length > 0
-          // }
-
-          // setCard() affiche tous les selectedTag.lenght > 0
-          // for (let j = 0; j < selectedTag; j++) {
-          //   const filteredIndex = selectedTag[j].lenght > 0
-          //   console.log(filteredIndex);
-          // }
+        } else {
+          for (let j = 0; j < selectedTag.length; j++) {
+            // AFFICHE LA CARTE DES PHOTOGRAPHES DONT UN TAG CORRESPOND A CELUI CHOISI
+            if (selectedTag[j].length > 0) {
+              setCard(data.photographers[i]);
+            }
+          }
         }
       }
-
-    //   selectedTag = document.querySelectorAll('li');
-    //   selectedTag.forEach((elmt) => {
-    //     elmt.addEventListener('click', (e) => {
-    //       e.preventDefault();
-    //       setCard(data.photographers[i]);
-    //   })
-    // })
-  })
+    })
   // GESTION DES ERREURS
-  // .catch((error) => console.log(error.message));
+  .catch((error) => console.log(error.message));
 }
 fetchData();

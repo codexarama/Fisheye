@@ -556,12 +556,13 @@ input {
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
-  padding-right: 5px;
+}
+.gallery__title {
+  width: 100%;
 }
 .gallery__likes {
   display: inline-flex;
   justify-content: flex-end;
-  margin-left: 10px;
 }
 .gallery__likes i {
   margin-top: 1px;

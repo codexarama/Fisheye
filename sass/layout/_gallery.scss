@@ -42,13 +42,15 @@
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
-    padding-right: 5px;
+  }
+
+  &__title {
+    width: 100%;
   }
 
   &__likes {
     display: inline-flex;
     justify-content: flex-end;
-    margin-left: 10px;
 
     & i {
       margin-top: 1px;

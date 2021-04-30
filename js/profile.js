@@ -23,10 +23,7 @@ const setId = (photographer) => {
       elmtFactory('p', { class: 'card__price' }, `${photographer.price}` + '€'),
       elmtFactory('ul', { class: 'tags' })
     ),
-    elmtFactory(
-      'div',
-      { class: 'id__contact' },
-    ),
+    elmtFactory('div', { class: 'id__contact' }),
     elmtFactory(
       'div',
       { class: 'id__image' },
@@ -44,8 +41,10 @@ const setId = (photographer) => {
       { class: 'tag' },
       elmtFactory(
         'a',
-        { href: `index.html?tag=${photographer.tags[j]}`,
-          class: `${photographer.tags[j]}`
+        {
+          href: `index.html?tag=${photographer.tags[j]}`,
+          class: `${photographer.tags[j]}`,
+          rel: 'tag',
         },
         '#' + `${photographer.tags[j]}`
       )
@@ -53,10 +52,10 @@ const setId = (photographer) => {
     tagsList.appendChild(tags);
   }
 
-  const contact = id.querySelector(".id__contact")
-  contact.appendChild(btnContact)
+  const contact = id.querySelector('.id__contact');
+  contact.appendChild(btnContact);
   sectionId.appendChild(id);
   main.setAttribute('id', `${photographer.id}`);
   // AFFICHE LE TITRE DE LA PAGE PRO DU PHOTOGRAPHE CHOISI SELON CANEVAS : Fisheye | Prenom Nom
-  title.textContent = "Fisheye | " + `${photographer.name}`;
+  title.textContent = 'Fisheye | ' + `${photographer.name}`;
 };

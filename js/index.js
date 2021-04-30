@@ -48,6 +48,7 @@ const setCard = (photographer) => {
         {
           href: '?tag=' + `${photographer.tags[j]}`,
           class: `${photographer.tags[j]}`,
+          rel: 'tag',
         },
         '#' + `${photographer.tags[j]}`
       )

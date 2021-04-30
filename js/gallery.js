@@ -1,12 +1,14 @@
-// FONCTION : CREATION DE LA GALERIE VIRTUELLE
-// APPEL FONCTION elmtFactory ()
-// INJECTION DES DONNEES DANS ITEM CORRESPONDANT
+// RECUPERATON URL PAGE
+const urlPhotographer = window.location.search;
 
+// CREATION DE LA GALERIE VIRTUELLE
 const sectionGallery = document.querySelector('.gallery');
 const lightboxMedia = document.querySelector('.lightbox__media');
 const img = document.querySelector('.lightbox__img');
 const lightboxTitle = document.querySelector('.lightbox__title');
 
+// APPEL FONCTION elmtFactory ()
+// INJECTION DES DONNEES DANS ITEM CORRESPONDANT
 const setGallery = (media) => {
   const gallery = elmtFactory(
     'article',
@@ -17,10 +19,11 @@ const setGallery = (media) => {
       elmtFactory(
         'a',
         {
-          class: 'currentMedia',
-          href: '#currentMedia=' + `${media.title}`,
+          // complete url page avec titre media
+          href: urlPhotographer + '&currentMedia=' + `${media.title}`,
         },
         elmtFactory('img', {
+          class: 'currentMedia',
           src: 'images/photos/' + `${media.image}`,
           alt: `${media.title}`,
         })
@@ -43,7 +46,6 @@ const setGallery = (media) => {
         'div',
         { class: 'gallery__infos' },
         elmtFactory('p', { class: 'gallery__title' }, `${media.title}`)
-        // elmtFactory('p', { class: 'gallery__price' }, `${media.price}` + '€')
       ),
       elmtFactory(
         'div',
@@ -61,57 +63,28 @@ const setGallery = (media) => {
 
   sectionGallery.appendChild(gallery);
 
-  ///////////////////////////////////////////////////////////
-  //   const links = document.querySelectorAll('.currentMedia');
-  //   links.forEach((link) => {
-  //     link.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       openLightbox();
-  //     });
-  //   });
-  //   const images = document.querySelectorAll('img');
-  //   images.forEach((image) => {
-  //     image.addEventListener('click', () => {
-  //       lightboxMedia.classList.add('active');
-  //       img.src = image.src;
-  //       lightboxTitle.textContent = `${media.title}`; // affiche le titre de la dernière image pour chacune
-  //       for (let i = 0; i < media.title.length; i++) {
-  //         lightboxTitle.textContent = `${media.title}`[i]; // affiche "f" pour toutes les images
-  //       }
-  //     });
-  //   });
-  // };
-
-  const images = document.querySelectorAll('img');
+  const images = document.querySelectorAll('.currentMedia');
   images.forEach((image) => {
     image.addEventListener('click', (e) => {
       e.preventDefault();
       openLightbox();
       lightboxMedia.classList.add('active');
       img.src = image.src;
-      // for (let i = 0; i < media.title.length; i++) {
-      //   lightboxTitle.textContent = `${media.title}`[i]; // affiche "e" pour toutes les images
-      // }
-    // lightboxTitle.textContent = `${media.title}`;
+      // A FAIRE : RECUPERER L'INDEX DE L'IMAGE CHOISIE
+      img.alt = lightboxTitle.textContent; // ne fonctionne pas
     });
   });
-  // for (let i = 0; i < media.title.length; i++) {
-  //   lightboxTitle.textContent = `${media.title}`[i]; // affiche "e" pour toutes les images
-  // }
+
+  lightboxTitle.textContent = `${media.title}`; // affiche le dernier titre des medias pour chacun
+
+  // // ---------- NE FONCTIONNE PAS ---------- //
+  // const titles = document.querySelectorAll('.gallery__title');
+  // titles.forEach((title) => {
+  //   title.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     p.textContent = lightboxTitle.textContent;
+  //     // p.textContent = lightboxTitle.innerHTML; // ne fonctionne pas
+  //   // lightboxTitle.textContent = `${media.title}`; // affiche systématiquement le dernier titre de la liste des media
+  //   });
+  // });
 };
-
-// exemple
-// const tagsList = id.getElementsByClassName('tags')[0];
-// for (let j = 0; j < photographer.tags.length; j++) {
-//   const tags = elmtFactory(
-//     'li',
-//     { class: 'tag' },
-//     elmtFactory(
-//       'a',
-//       { href: `index.html?tag=${photographer.tags[j]}`,
-//         class: `${photographer.tags[j]}`
-//       },
-//       '#' + `${photographer.tags[j]}`
-//     )
-//   );
-

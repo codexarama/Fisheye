@@ -43,37 +43,69 @@ function fetchData() {
 
       // RECUPERE LA VALEUR DU FILTRE CHOISI
       // CARTE href = "propage.html?id=" + `$photographers.id`
-      const urlPhotographer = window.location.search;
-      const pop = document.querySelector('.likes');
-      pop.href = urlPhotographer + '&filter=pop'; // PB : ajoute 1 '&filter=pop' ds l'url à chaque clic
-      const getPop = (urlPop, pop) => {
-        urlPop = new URL(document.location).searchParams;
-        pop = urlPop.get('filter');
-        return pop;
-      };
-      console.log(getPop());
+      // const urlPhotographer = window.location.search;
+      // const pop = document.querySelector('.likes');
+      // pop.href = urlPhotographer + '&filter=pop'; // PB : ajoute 1 '&filter=pop' ds l'url à chaque clic
+      // const getPop = (urlPop, pop) => {
+      //   urlPop = new URL(document.location).searchParams;
+      //   pop = urlPop.get('filter');
+      //   return pop;
+      // };
+      // console.log(getPop());
 
+      // ---------- NE FONCTIONNE PAS ---------- //
+      // const filtredByLikes = photographerWork.sort(filterBy('likes', 'desc'));
       // for (let i = 0; i < photographerWork.length; i++) {
-      //   const filtredByLikes = photographerWork.filter (
-      //     (elmt) => elmt.sort(filterBy('likes', 'desc')) == getPop()
-      //   )
-      //   setGallery(filtredByLikes[i]) // photographerWork.sort is not a function
-      // }
-      // for (let i = 0; i < photographerWork.length; i++) {
-      //   const filtredByLikes = photographerWork.sort(filterBy('likes', 'desc'))
-      //   (
+      //   filtredByLikes.sort (
       //     (elmt) => elmt == getPop()
       //   )
-      //   setGallery(filtredByLikes[i]) // photographerWork.sort is not a function
       // }
+      // setGallery(filtredByLikes)
 
+      // ---------- NE FONCTIONNE PAS ---------- //
+      // ---------- DEVRAIT FONCTIONNER ! ---------- //
+      // const filtredByLikes = photographerWork.sort(filterBy('likes', 'desc'));
+      // const filtredByDate = photographerWork.sort(filterBy('date', 'desc'));
+      // const filtredByTitle = photographerWork.sort(filterBy('title'));
 
+      // let option = document.querySelector('.filter__selected--value');
+      // option.addEventListener('change', function (e) {
+      //   e.preventDefault();
+      //   for (let i = 0; i < photographerWork.length; i++) {
+      //     if (option.textContent == 'Popularité') {
+      //       setGallery(filtredByLikes[i]);
+      //     } else if (option.textContent == 'Date') {
+      //       setGallery(filtredByDate[i]);
+      //     } else if (option.textContent == 'Titre') {
+      //       setGallery(filtredByTitle[i]);
+      //     }
+      //   }
+      // });
+
+      // ---------- NE FONCTIONNE PAS ---------- //
+      // ---------- DEVRAIT FONCTIONNER ! ---------- //
+      // const filtredByLikes = photographerWork.sort(filterBy('likes', 'desc'));
+      // const filtredByDate = photographerWork.sort(filterBy('date', 'desc'));
+      // const filtredByTitle = photographerWork.sort(filterBy('title'));
+
+      // let option = document.querySelector('.filter__selected--value')
+      // option.addEventListener('change', function (e) {
+      //   e.preventDefault();
+      //   for (let i = 0; i < photographerWork.length; i++) {
+      //     if (option.textContent == 'Popularité') return setGallery(filtredByLikes[i]);
+      //     if (option.textContent =='Date') return setGallery(filtredByDate[i]);
+      //     if (option.textContent == 'Titre') return setGallery(filtredByTitle[i]);
+      //   }
+      // });
+
+      // ********** RETESTER ******************* //
       // ---------- NE FONCTIONNE PAS ---------- //
       // const filtredByLikes = photographerWork.sort(filterBy('likes', 'desc'));
       // const filtredByDate = photographerWork.sort(filterBy('date', 'desc'));
       // const filtredByTitle = photographerWork.sort(filterBy('title'));
-      // const option = document.querySelector('.selected')
-      //    option.addEventListener('change', function () {
+
+      // for (const option of document.querySelectorAll('.filter__option')) {
+      //   option.addEventListener('change', function () {
       //      for (let i = 0; i < photographerWork.length; i++) {
       //        if (option.classList.contains('filter__option--1'))
       //          return setGallery(filtredByLikes[i]);
@@ -84,6 +116,9 @@ function fetchData() {
       //       }
       //     });
       //     console.log(option());
+  //   }
+  // });
+
 
       // // OK MAIS 1 PAR 1 ET SI RECHARGE PAGE ENTRE CHAQUE CLICK
       // // organise les media par popularite
@@ -154,18 +189,6 @@ function fetchData() {
       //       if (titre) return setGallery(filtredByTitle[i]);
       //     }
       //   });
-      // });
-
-      // // ---------- NE FONCTIONNE PAS ---------- //
-      // // DEVRAIT FONCTIONNER !
-      // let optionValue = document.querySelector('.filter__selected--value')
-      // optionValue.addEventListener('change', function (e) {
-      //   e.preventDefault();
-      //   for (let i = 0; i < photographerWork.length; i++) {
-      //     if (optionValue == 'Popularité') return setGallery(filtredByLikes[i]);
-      //     if (optionValue =='Date') return setGallery(filtredByDate[i]);
-      //     if (optionValue == 'Titre') return setGallery(filtredByTitle[i]);
-      //   }
       // });
 
       // // RECUPERE LE NOM DU MEDIA CHOISI DANS LA GALERIE

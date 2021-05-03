@@ -1,12 +1,16 @@
 // RECUPERATON URL PAGE
 const urlPhotographer = window.location.search;
+let searchParams = new URLSearchParams(urlPhotographer);
+
+// ELEMENT DE LA LIGHTBOX
+const lightboxShow = document.querySelector('.lightbox__show');
+const lightboxMedia = document.querySelector('.lightbox__media');
+const lightboxTitle = document.querySelector('.lightbox__title');
+const prev = document.querySelector('.lightbox__prev');
+const next = document.querySelector('.lightbox__next');
 
 // CREATION DE LA GALERIE VIRTUELLE
 const sectionGallery = document.querySelector('.gallery');
-const lightboxMedia = document.querySelector('.lightbox__media');
-const img = document.querySelector('.lightbox__img');
-const lightboxTitle = document.querySelector('.lightbox__title');
-
 // APPEL FONCTION elmtFactory ()
 // INJECTION DES DONNEES DANS ITEM CORRESPONDANT
 const setGallery = (media) => {
@@ -16,18 +20,19 @@ const setGallery = (media) => {
     elmtFactory(
       'div',
       { class: 'gallery__media' },
-      elmtFactory(
-        'a',
-        {
-          // complete url page avec titre media
-          href: urlPhotographer + '&currentMedia=' + `${media.title}`,
-        },
-        elmtFactory('img', {
-          class: 'currentMedia',
-          src: 'images/photos/' + `${media.image}`,
-          alt: `${media.title}`,
-        })
-      )
+      // elmtFactory(
+      //         'a',
+      // {
+      // complete url page avec titre media
+      // href: urlPhotographer + '&currentMedia=' + `${media.title}`,
+      // class: 'currentMedia'
+      // },
+      elmtFactory('img', {
+        class: 'currentMedia',
+        src: 'images/photos/' + `${media.image}`,
+        alt: `${media.title}`,
+      })
+      // )
 
       // // GESTION DES TYPES DE MEDIA
       // // --------- pas d'erreur console ---------- //
@@ -35,7 +40,6 @@ const setGallery = (media) => {
       //   elmtFactory('img' || "video", {
       //   src: 'images/photos/' || 'images/videos/' + `${media.image}` || `${media.video}`,
       //   alt: `${media.title}`,
-      //   onclick: 'openLightbox();currentSlide(1)',
       // })
     ),
     elmtFactory(
@@ -63,28 +67,29 @@ const setGallery = (media) => {
 
   sectionGallery.appendChild(gallery);
 
-  const images = document.querySelectorAll('.currentMedia');
-  images.forEach((image) => {
-    image.addEventListener('click', (e) => {
+  // export const medias = document.querySelectorAll('.currentMedia'); // ne fonctionne pas
+  const medias = document.querySelectorAll('.currentMedia');
+  // let currentMedia = 0;
+  console.log([medias]);
+  medias.forEach((selectedMedia) => {
+    selectedMedia.addEventListener('click', (e) => {
       e.preventDefault();
       openLightbox();
-      lightboxMedia.classList.add('active');
-      img.src = image.src;
-      // A FAIRE : RECUPERER L'INDEX DE L'IMAGE CHOISIE
-      img.alt = lightboxTitle.textContent; // ne fonctionne pas
+      lightboxShow.classList.add('active');
+      // searchParams.set('title', `${media.title}`); // ne fonctionne pas
+      // searchParams.set('title', selectedMedia.alt); // ne fonctionne pas
+      selectedMedia.classList.add('selected');
+      selectedMedia.selected = 0
+      lightboxMedia.src = selectedMedia.src;
+      lightboxMedia.alt = selectedMedia.alt;
+      lightboxTitle.textContent = selectedMedia.alt;
+      console.log([selectedMedia.selected]);
+
+    });
+
+    next.addEventListener('click', function () {
+      selectedMedia.selected += 1;
+      // lightboxMedia.src = selectedMedia.src
     });
   });
-
-  lightboxTitle.textContent = `${media.title}`; // affiche le dernier titre des medias pour chacun
-
-  // // ---------- NE FONCTIONNE PAS ---------- //
-  // const titles = document.querySelectorAll('.gallery__title');
-  // titles.forEach((title) => {
-  //   title.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     p.textContent = lightboxTitle.textContent;
-  //     // p.textContent = lightboxTitle.innerHTML; // ne fonctionne pas
-  //   // lightboxTitle.textContent = `${media.title}`; // affiche systématiquement le dernier titre de la liste des media
-  //   });
-  // });
 };

@@ -18,9 +18,13 @@
 
 // bouton "passez au contenu"
 // page d'accueil
+.evitement {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+}
+
 .btn-homepage {
-  display: flex;
-  margin: 10px auto 0;
   padding: 3px 6px;
 
   & a {

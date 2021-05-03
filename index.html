@@ -19,8 +19,11 @@
 </head>
 <html>
   <body>
-    <button class="btn btn-homepage"><a href="index.html">Passer au contenu</a></button>
+    <!-- <button class="btn btn-homepage evitement"><a href="#contenu">Passer au contenu</a></button> -->
+    <!-- <a class="btn btn-homepage evitement" role="button" href="#contenu">Passer au contenu</a> -->
+    <span class="evitement"><a class="evitement__link btn btn-homepage" role="button" href="#contenu">Passer au contenu</a></span>
     <header class="header">
+
       <img
         src="images/logo/logo_fisheye.svg"
         class="header__logo"
@@ -28,6 +31,7 @@
       />
       <nav aria-label="photographer categories">
         <ul class="tags" aria-label="photographer categories">
+          <!-- <li class="tag"><a href="#contenu?tag=portrait" rel="tag">#Portrait</a></li> -->
           <li class="tag"><a href="?tag=portrait" rel="tag">#Portrait</a></li>
           <li class="tag"><a href="?tag=art" rel="tag">#Art</a></li>
           <li class="tag"><a href="?tag=architecture" rel="tag">#Architecture</a></li>
@@ -39,8 +43,8 @@
       </nav>
       <h1 class="header__headline">Nos Photographes</h1>
     </header>
-    <main>
-      <section></section>
+    <main role="main">
+      <section id="contenu" tabindex="-1"></section>
     </main>
     <script type="text/javascript" src="js/elmt_factory.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

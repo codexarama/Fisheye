@@ -104,9 +104,13 @@ nav {
   color: black;
 }
 
+.evitement {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+}
+
 .btn-homepage {
-  display: flex;
-  margin: 10px auto 0;
   padding: 3px 6px;
 }
 .btn-homepage a {
@@ -119,14 +123,6 @@ nav {
 @media only screen and (max-width: 600px) {
   .btn-homepage {
     display: none;
-  }
-
-  .id__contact {
-    margin-top: 10px;
-    position: fixed;
-    bottom: 25px;
-    width: 90%;
-    text-align: center;
   }
 }
 .header {
@@ -176,7 +172,7 @@ nav {
   font-size: xx-small;
   border-radius: 25px;
   border: solid 1px lightgray;
-  margin-right: 3px;
+  margin: 0 2px;
   padding: 0 5px;
   color: #901c1c;
 }
@@ -261,6 +257,13 @@ nav {
   .id__infos {
     margin-left: 10px;
     width: 70%;
+  }
+  .id__contact {
+    margin-top: 10px;
+    position: fixed;
+    bottom: 25px;
+    width: 90%;
+    text-align: center;
   }
   .id__image {
     width: 85px;
@@ -583,37 +586,44 @@ input {
 }
 .lightbox__modal {
   display: none;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   height: 100%;
-  width: 100%;
   overflow: auto;
   background-color: black;
 }
-.lightbox__content {
-  height: 100%;
-}
-.lightbox__media {
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.lightbox__show {
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   overflow: hidden;
   position: relative;
+  max-width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.lightbox img, .lightbox video {
-  width: auto;
-  height: 90%;
+.lightbox__media {
+  width: 100%;
+  height: auto;
   border-radius: 3px;
+  margin: auto;
 }
 .lightbox__title {
-  width: auto;
+  width: 100%;
   color: white;
-  margin: 10px auto 0;
+  text-align: center;
+  margin-top: 5px;
+}
+.lightbox__btn {
+  opacity: 0.5;
+}
+.lightbox__btn:hover {
+  opacity: 1;
 }
 .lightbox__prev, .lightbox__next {
   cursor: pointer;
@@ -621,15 +631,12 @@ input {
   top: 50%;
   width: auto;
   margin-top: -20px;
-  padding: 20px;
-  color: #525252;
+  padding: 2%;
+  color: white;
   font-weight: bold;
   font-size: 20px;
   transition: 0.5s ease;
   user-select: none;
-}
-.lightbox__prev:hover, .lightbox__next:hover {
-  color: white;
 }
 .lightbox__next {
   right: 0;

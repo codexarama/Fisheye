@@ -1,42 +1,49 @@
 .lightbox {
   &__modal {
     display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     height: 100%;
-    width: 100%;
+    // width: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 1);
   }
 
-  &__content {
-      height: 100%;
-  }
-
-  &__media {
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  &__show {
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
     overflow: hidden;
     position: relative;
+    max-width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  & img,
-  & video {
-    width: auto;
-    height: 90%;
+  &__media {
+    width: 100%;
+    height: auto;
     border-radius: 3px;
+    margin: auto;
   }
 
   &__title {
-    width: auto;
+    width: 100%;
     color: $primaire-a;
-    margin: 10px auto 0;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  &__btn {
+    opacity: .5;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__prev,
@@ -46,16 +53,12 @@
     top: 50%;
     width: auto;
     margin-top: -20px;
-    padding: 20px;
-    color: $contrast-txt;
+    padding: 2%;
+    color: $primaire-a;
     font-weight: bold;
     font-size: 20px;
     transition: 0.5s ease;
     user-select: none;
-
-    &:hover {
-      color: $primaire-a;
-    }
   }
 
   &__next {

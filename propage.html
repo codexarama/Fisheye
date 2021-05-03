@@ -34,7 +34,7 @@
       </section>
 
       <!-- ESSAI choix des options de filtrage de la galerie photos -->
-      <section class="filter">
+      <!-- <section class="filter">
         <p for="select" class="filter__title">Trier par</p>
         <ul id="select" class="filter__box">
           <div class="filter__selected btn" role="button" aria-haspopup="listbox", aria-expanded="">
@@ -53,9 +53,9 @@
             </div>
           </ul>
         </ul>
-    </section>
+    </section> -->
     <!-- choix des options de filtrage de la galerie photos -->
-      <!-- <section class="filter">
+      <section class="filter">
           <p for="select" class="filter__title">Trier par</p>
           <ul id="select" class="filter__box">
             <div class="filter__selected btn" role="button" aria-haspopup="listbox", aria-expanded="">
@@ -74,7 +74,7 @@
               </div>
             </ul>
           </ul>
-      </section> -->
+      </section>
 
       <!-- gallerie virtuelle -->
       <section class="gallery"></section>
@@ -83,13 +83,13 @@
       <section class="lightbox">
         <div class="lightbox__modal">
           <div class="lightbox__content">
-            <span class="close" role="button" onclick="closeLightbox()"></span>
-            <div id="currentMedia" class="lightbox__media">
-              <img src="" alt="" class="lightbox__img">
+            <span class="close lightbox__btn" role="button" onclick="closeLightbox()"></span>
+            <div id="currentMedia" class="lightbox__show">
+              <img src="" alt="" class="lightbox__media">
               <p class="lightbox__title"></p>
             </div>
-            <a rel="prev" href="" role="button" onclick="plusSlides(-1)"><i class="fas fa-chevron-left lightbox__prev"></i></a>
-            <a rel="next" href="" role="button" onclick="plusSlides(1)"><i class="fas fa-chevron-right lightbox__next"></i></a>
+            <a rel="prev" href="" role="button"><i class="fas fa-chevron-left lightbox__btn lightbox__prev"></i></a>
+            <a rel="next" href="" role="button"><i class="fas fa-chevron-right lightbox__btn lightbox__next"></i></a>
           </div>
         </div>
       </section>
@@ -195,6 +195,7 @@
     <script type="text/javascript" src="js/profile.js"></script>
     <script type="text/javascript" src="js/gallery.js"></script>
     <script type="text/javascript" src="js/lightbox.js"></script>
+    <!-- <script type="module" src="./js/lightbox.js"></script> -->
     <script type="text/javascript" src="js/contact.js"></script>
     <script type="text/javascript" src="js/pro_page.js"></script>
   </body>

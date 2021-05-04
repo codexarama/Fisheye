@@ -2,13 +2,6 @@
 const urlPhotographer = window.location.search;
 let searchParams = new URLSearchParams(urlPhotographer);
 
-// ELEMENT DE LA LIGHTBOX
-const lightboxShow = document.querySelector('.lightbox__show');
-const lightboxMedia = document.querySelector('.lightbox__media');
-const lightboxTitle = document.querySelector('.lightbox__title');
-const prev = document.querySelector('.lightbox__prev');
-const next = document.querySelector('.lightbox__next');
-
 // CREATION DE LA GALERIE VIRTUELLE
 const sectionGallery = document.querySelector('.gallery');
 // APPEL FONCTION elmtFactory ()
@@ -20,25 +13,18 @@ const setGallery = (media) => {
     elmtFactory(
       'div',
       { class: 'gallery__media' },
-      // elmtFactory(
-      //         'a',
-      // {
-      // complete url page avec titre media
-      // href: urlPhotographer + '&currentMedia=' + `${media.title}`,
-      // class: 'currentMedia'
-      // },
       elmtFactory('img', {
         class: 'currentMedia',
         src: 'images/photos/' + `${media.image}`,
         alt: `${media.title}`,
       })
-      // )
 
       // // GESTION DES TYPES DE MEDIA
       // // --------- pas d'erreur console ---------- //
       // // --------- ne fonctionne pas ---------- //
-      //   elmtFactory('img' || "video", {
-      //   src: 'images/photos/' || 'images/videos/' + `${media.image}` || `${media.video}`,
+      //   elmtFactory('img' || "video",
+      // {
+      //   src: 'images/photos/'  + `${media.image}` || 'images/videos/' + `${media.video}`,
       //   alt: `${media.title}`,
       // })
     ),
@@ -67,15 +53,14 @@ const setGallery = (media) => {
 
   sectionGallery.appendChild(gallery);
 
-  // export const medias = document.querySelectorAll('.currentMedia'); // ne fonctionne pas
-  const medias = document.querySelectorAll('.currentMedia');
-  // let currentMedia = 0;
-  console.log([medias]);
-  medias.forEach((selectedMedia) => {
+  // export const mediasToLightbox // ne fonctionne pas
+
+  const mediasToLightbox = document.querySelectorAll('.currentMedia');
+  console.log(mediasToLightbox);
+  mediasToLightbox.forEach((selectedMedia) => {
     selectedMedia.addEventListener('click', (e) => {
       e.preventDefault();
       openLightbox();
-      lightboxShow.classList.add('active');
       // searchParams.set('title', `${media.title}`); // ne fonctionne pas
       // searchParams.set('title', selectedMedia.alt); // ne fonctionne pas
       selectedMedia.classList.add('selected');
@@ -83,13 +68,13 @@ const setGallery = (media) => {
       lightboxMedia.src = selectedMedia.src;
       lightboxMedia.alt = selectedMedia.alt;
       lightboxTitle.textContent = selectedMedia.alt;
-      console.log([selectedMedia.selected]);
-
+      // console.log([selectedMedia.selected]);
     });
 
-    next.addEventListener('click', function () {
-      selectedMedia.selected += 1;
-      // lightboxMedia.src = selectedMedia.src
-    });
+    // next.addEventListener('click', function () {
+    //   selectedMedia.selected += 1;
+    // });
   });
 };
+
+

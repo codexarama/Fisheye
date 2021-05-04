@@ -140,6 +140,10 @@ nav {
   padding-left: 10px;
 }
 
+.nosPhotographes {
+  text-align: left;
+}
+
 .banner {
   justify-content: flex-start;
   margin: 25px 0;

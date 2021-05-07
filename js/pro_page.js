@@ -64,18 +64,55 @@ function fetchData() {
         });
       }
 
-      // COMPTE LES LIKES
-      let incrementLikeArray = document.getElementsByClassName(
+      // RECUPERE URL PAGE => pour afficher titre image dans url
+      // const urlPhotographer = window.location.search;
+      // let searchParams = new URLSearchParams(urlPhotographer);
+
+      // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX
+      const medias = document.querySelectorAll('.currentMedia');
+      console.log(medias); // L'ITERATION EST EXPONENTIELLE
+      medias.forEach((selectedMedia) => {
+        selectedMedia.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLightbox();
+          selectedMedia.classList.add('selected');
+          // AFFICHE TITRE IMAGE DANS URL
+          // searchParams.set('title', photographerWork.title); // ne fonctionne pas
+          // searchParams.set('title', selectedMedia.alt); // ne fonctionne pas
+          selectedMedia.selected = 0;
+          console.log(selectedMedia.selected);
+          // A FAIRE : REMOVE "selected" quand "selected" > 1
+          lightboxMedia.src = selectedMedia.src;
+          lightboxMedia.alt = selectedMedia.alt;
+          lightboxTitle.textContent = selectedMedia.alt;
+        });
+      });
+
+      // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
+      let likes = document.getElementsByClassName(
         'gallery__likes--icon'
       );
-      for (let i = 0; i < incrementLikeArray.length; i++) {
-        let like = incrementLikeArray[i];
+      for (let i = 0; i < likes.length; i++) {
+        let like = likes[i];
         like.addEventListener('click', function () {
+          like.classList.toggle('selected');
           let input = like.parentElement.children[0];
           console.log(input); // au click sur "like", l'input "count" prend le focus
-          likeCount = parseInt(input.value) + 1;
-          console.log(likeCount);
-          input.value = likeCount;
+          if (like.classList.contains('selected')) {
+            like.style.color = "#db8876";
+            like.style.hover = "#901c1c";
+            likesCounter = parseInt(input.value) + 1;
+            console.log(likesCounter);
+            input.value = likesCounter;
+            input.style.color = "#db8876";
+          } else {
+            like.style.color = "#901c1c";
+            like.style.hover = "#db8876";
+            likesCounter = parseInt(input.value) - 1;
+            console.log(likesCounter);
+            input.value = likesCounter;
+            input.style.color = "#901c1c";
+          }
         });
       }
 

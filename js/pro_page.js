@@ -10,36 +10,14 @@ function fetchData() {
     .then((data) => {
       // console.log(data);
 
-      // URL : REMPLACE LE #
-      // A REVOIR
-      function removeLocationHash() {
-        var noHashURL = window.location.href.replace(/#.*$/, '');
-        window.history.replaceState('', document.title, noHashURL);
-        // window.history.replaceState('', document.title, location.pathname+location.search);
-      }
-      // ANNULE LES EFFETS DE LA FONCION...
-      // window.addEventListener("popstate", function(event){
-      //   event.preventDefault();
-      //     removeLocationHash();
-      // });
-      // window.addEventListener("hashchange", function(event){
-      //     event.preventDefault();
-      //     removeLocationHash();
-      // });
-      window.addEventListener('load', function () {
-        removeLocationHash();
-      });
-
-      // history.replaceState('', document.title, location.pathname+location.search);
-
       // RECUPERE L'ID DU PHOTOGRAPHE QUAND SA CARTE EST CLIQUEE
-      // CARTE href = `propage.html?id=$photographers.id`
+      // source index : CARD href = `propage.html?id=$photographers.id`
       const getId = (urlId, id) => {
         urlId = new URL(document.location).searchParams;
         id = urlId.get('id');
         return id;
       };
-      console.log(getId()); // 243 (...)
+      console.log(getId()); // n° id
 
       // CIBLE LES DONNEES EN FONCTION DU PHOTOGRAPHE CHOISI
       const photographerData = data.photographers.filter(
@@ -56,15 +34,21 @@ function fetchData() {
       );
       console.log(photographerWork); // array media by ID
 
-      // AFFICHE LA GALLERIE CORRESPONDANTE
-      // (filtre pop puisque selectionne par defaut)
-      for (let i = 0; i < photographerWork.length; i++) {
-        // location.hash = 'filtre popularite';
-        setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
-      }
+      // // CHARGE LA GALERIE AVEC LE CHARGEMENT DE LA PAGE
+      // // ---------- NE FONCTIONNE PAS ---------- //
+      // window.onload = lauchGallery();
+
+      // AFFICHE LA GALLERIE // filtre pop par defaut
+      // ---------- A REMPLACER PAR FONCTION DE CHARGEMENT AVEC CHARGEMENT DE LA PAGE
+      const launchGallery = () => {
+        for (let i = 0; i < photographerWork.length; i++) {
+          // location.hash = 'filtre popularite';
+          setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
+        }
+      };
+      launchGallery()
 
       // AFFICHE LA GALERIE TRIEE SELON CHOIX FILTRE
-      // ---------- LA LIGHTBOX NE FONCTIONNE PAS APRES CHOIX AUTRE FILTRE ---------- //
       const gallery = document.getElementsByClassName('gallery')[0];
       const galleryCard = document.getElementsByClassName('gallery__card');
       for (const option of document.querySelectorAll('.filter__option')) {
@@ -76,19 +60,16 @@ function fetchData() {
           }
           for (let i = 0; i < photographerWork.length; i++) {
             if (option.classList.contains('filter__option--1')) {
-              // location.hash = 'filtre popularite';
+              location.hash = 'filtre popularite';
               setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
-              // openLightbox(); // ne fonctionne pas
             }
             if (option.classList.contains('filter__option--2')) {
-              // location.hash = 'filtre date';
+              location.hash = 'filtre date';
               setGallery(photographerWork.sort(filterBy('date', 'desc'))[i]);
-              // openLightbox(); // ne fonctionne pas
             }
             if (option.classList.contains('filter__option--3')) {
-              // location.hash = 'filtre titre';
+              location.hash = 'filtre titre';
               setGallery(photographerWork.sort(filterBy('title'))[i]);
-              // openLightbox(); // ne fonctionne pas
             }
           }
         });
@@ -96,23 +77,25 @@ function fetchData() {
 
       // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX
       // ---------- LA LIGHTBOX NE FONCTIONNE PAS APRES CHOIX AUTRE FILTRE ---------- //
-      const medias = document.getElementsByClassName('currentMedia');
-      for (let i = 0; i < medias.length; i++) {
-        let selectedMedia = medias[i];
-        selectedMedia.addEventListener('click', (e) => {
-          e.preventDefault();
-          selectedMedia.classList.add('selected'); // ne fonctionne pas apres choix autre filtre
-          openLightbox();
-          // AFFICHE TITRE IMAGE DANS URL
-          // window.location.hash = selectedMedia.alt;
-          selectedMedia.selected = 0;
-          console.log(selectedMedia.selected);
-          // A FAIRE : REMOVE "selected" : (cf. "lightbox.js > close function")
-          lightboxMedia.src = selectedMedia.src;
-          lightboxMedia.alt = selectedMedia.alt;
-          lightboxTitle.textContent = selectedMedia.alt;
-        });
-      }
+      // ---------- QUAND FONCTION PLACEE ICI
+      // ---------- MAIS OK SI PLACEE DANS "setGallery()" du fichier "gallery.js"
+      // const medias = document.getElementsByClassName('currentMedia');
+      // for (let i = 0; i < medias.length; i++) {
+      //   let selectedMedia = medias[i];
+      //   selectedMedia.addEventListener('click', (e) => {
+      //     e.preventDefault();
+      //     selectedMedia.classList.add('selected'); // ne fonctionne pas apres choix autre filtre
+      //     openLightbox();
+      //     // AFFICHE TITRE IMAGE DANS URL
+      //     // window.location.hash = selectedMedia.alt;
+      //     selectedMedia.selected = 0;
+      //     console.log(selectedMedia.selected);
+      //     // A FAIRE : REMOVE "selected" : (cf. "lightbox.js > close function")
+      //     lightboxMedia.src = selectedMedia.src;
+      //     lightboxMedia.alt = selectedMedia.alt;
+      //     lightboxTitle.textContent = selectedMedia.alt;
+      //   });
+      // }
 
       // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
       let likes = document.getElementsByClassName('gallery__likes--icon');
@@ -123,7 +106,7 @@ function fetchData() {
           let input = like.parentElement.children[0];
           console.log(input); // au click sur "like", l'input "counter" prend le focus
           if (like.classList.contains('selected')) {
-            // location.hash = "j'aime";
+            location.hash = "j'aime";
             like.style.color = '#db8876';
             like.style.hover = '#901c1c';
             likesCounter = parseInt(input.value) + 1;
@@ -131,7 +114,7 @@ function fetchData() {
             input.value = likesCounter;
             input.style.color = '#db8876';
           } else {
-            // location.hash = "je n'aime pas";
+            location.hash = "je n'aime plus";
             like.style.color = '#901c1c';
             like.style.hover = '#db8876';
             likesCounter = parseInt(input.value) - 1;

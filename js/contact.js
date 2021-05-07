@@ -26,7 +26,7 @@ modalBtn.addEventListener(
   (launchModal = (e) => {
     e.preventDefault();
     modal.style.display = 'block';
-    // location.hash = 'me contacter'
+    location.hash = 'me contacter'
   })
 );
 

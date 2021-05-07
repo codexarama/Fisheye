@@ -11,6 +11,9 @@ const setGallery = (media) => {
       { class: 'gallery__media' },
       elmtFactory('img', {
         class: 'currentMedia',
+        // selectionne le media par son index (photo / video indifferent)
+        // ---------- NE FONCTIONNE PAS ---------- //
+        // src: 'images/photos/' + `${media[2]}`,
         src: 'images/photos/' + `${media.image}`,
         alt: `${media.title}`,
         role: 'button',
@@ -51,4 +54,21 @@ const setGallery = (media) => {
   );
 
   sectionGallery.appendChild(gallery);
+
+  const medias = document.querySelectorAll('.currentMedia');
+  medias.forEach((selectedMedia) => {
+    selectedMedia.addEventListener('click', (e) => {
+      e.preventDefault();
+      selectedMedia.classList.add('selected'); // ne fonctionne pas apres choix autre filtre
+      openLightbox();
+      // AFFICHE TITRE IMAGE DANS URL
+      location.hash = selectedMedia.alt;
+      selectedMedia.selected = 0;
+      console.log(selectedMedia.selected);
+      // A FAIRE : REMOVE "selected" : (cf. "lightbox.js > close function")
+      lightboxMedia.src = selectedMedia.src;
+      lightboxMedia.alt = selectedMedia.alt;
+      lightboxTitle.textContent = selectedMedia.alt;
+    });
+  });
 };

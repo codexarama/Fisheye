@@ -630,6 +630,9 @@ input {
   transition: 0.5s ease;
   user-select: none;
 }
+.lightbox__prev {
+  left: 0;
+}
 .lightbox__next {
   right: 0;
 }

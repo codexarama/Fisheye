@@ -10,6 +10,28 @@ function fetchData() {
     .then((data) => {
       // console.log(data);
 
+      // URL : REMPLACE LE #
+      // A REVOIR
+      function removeLocationHash() {
+        var noHashURL = window.location.href.replace(/#.*$/, '');
+        window.history.replaceState('', document.title, noHashURL);
+        // window.history.replaceState('', document.title, location.pathname+location.search);
+      }
+      // ANNULE LES EFFETS DE LA FONCION...
+      // window.addEventListener("popstate", function(event){
+      //   event.preventDefault();
+      //     removeLocationHash();
+      // });
+      // window.addEventListener("hashchange", function(event){
+      //     event.preventDefault();
+      //     removeLocationHash();
+      // });
+      window.addEventListener('load', function () {
+        removeLocationHash();
+      });
+
+      // history.replaceState('', document.title, location.pathname+location.search);
+
       // RECUPERE L'ID DU PHOTOGRAPHE QUAND SA CARTE EST CLIQUEE
       // CARTE href = `propage.html?id=$photographers.id`
       const getId = (urlId, id) => {
@@ -37,10 +59,12 @@ function fetchData() {
       // AFFICHE LA GALLERIE CORRESPONDANTE
       // (filtre pop puisque selectionne par defaut)
       for (let i = 0; i < photographerWork.length; i++) {
+        // location.hash = 'filtre popularite';
         setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
       }
 
-      // AFFICHE GALERIE TRIEE SELON CHOIX FILTRE
+      // AFFICHE LA GALERIE TRIEE SELON CHOIX FILTRE
+      // ---------- LA LIGHTBOX NE FONCTIONNE PAS APRES CHOIX AUTRE FILTRE ---------- //
       const gallery = document.getElementsByClassName('gallery')[0];
       const galleryCard = document.getElementsByClassName('gallery__card');
       for (const option of document.querySelectorAll('.filter__option')) {
@@ -52,66 +76,68 @@ function fetchData() {
           }
           for (let i = 0; i < photographerWork.length; i++) {
             if (option.classList.contains('filter__option--1')) {
+              // location.hash = 'filtre popularite';
               setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
+              // openLightbox(); // ne fonctionne pas
             }
             if (option.classList.contains('filter__option--2')) {
+              // location.hash = 'filtre date';
               setGallery(photographerWork.sort(filterBy('date', 'desc'))[i]);
+              // openLightbox(); // ne fonctionne pas
             }
             if (option.classList.contains('filter__option--3')) {
+              // location.hash = 'filtre titre';
               setGallery(photographerWork.sort(filterBy('title'))[i]);
+              // openLightbox(); // ne fonctionne pas
             }
           }
         });
       }
 
-      // RECUPERE URL PAGE => pour afficher titre image dans url
-      // const urlPhotographer = window.location.search;
-      // let searchParams = new URLSearchParams(urlPhotographer);
-
       // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX
-      const medias = document.querySelectorAll('.currentMedia');
-      console.log(medias); // L'ITERATION EST EXPONENTIELLE
-      medias.forEach((selectedMedia) => {
+      // ---------- LA LIGHTBOX NE FONCTIONNE PAS APRES CHOIX AUTRE FILTRE ---------- //
+      const medias = document.getElementsByClassName('currentMedia');
+      for (let i = 0; i < medias.length; i++) {
+        let selectedMedia = medias[i];
         selectedMedia.addEventListener('click', (e) => {
           e.preventDefault();
+          selectedMedia.classList.add('selected'); // ne fonctionne pas apres choix autre filtre
           openLightbox();
-          selectedMedia.classList.add('selected');
           // AFFICHE TITRE IMAGE DANS URL
-          // searchParams.set('title', photographerWork.title); // ne fonctionne pas
-          // searchParams.set('title', selectedMedia.alt); // ne fonctionne pas
+          // window.location.hash = selectedMedia.alt;
           selectedMedia.selected = 0;
           console.log(selectedMedia.selected);
-          // A FAIRE : REMOVE "selected" quand "selected" > 1
+          // A FAIRE : REMOVE "selected" : (cf. "lightbox.js > close function")
           lightboxMedia.src = selectedMedia.src;
           lightboxMedia.alt = selectedMedia.alt;
           lightboxTitle.textContent = selectedMedia.alt;
         });
-      });
+      }
 
       // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
-      let likes = document.getElementsByClassName(
-        'gallery__likes--icon'
-      );
+      let likes = document.getElementsByClassName('gallery__likes--icon');
       for (let i = 0; i < likes.length; i++) {
         let like = likes[i];
         like.addEventListener('click', function () {
           like.classList.toggle('selected');
           let input = like.parentElement.children[0];
-          console.log(input); // au click sur "like", l'input "count" prend le focus
+          console.log(input); // au click sur "like", l'input "counter" prend le focus
           if (like.classList.contains('selected')) {
-            like.style.color = "#db8876";
-            like.style.hover = "#901c1c";
+            // location.hash = "j'aime";
+            like.style.color = '#db8876';
+            like.style.hover = '#901c1c';
             likesCounter = parseInt(input.value) + 1;
             console.log(likesCounter);
             input.value = likesCounter;
-            input.style.color = "#db8876";
+            input.style.color = '#db8876';
           } else {
-            like.style.color = "#901c1c";
-            like.style.hover = "#db8876";
+            // location.hash = "je n'aime pas";
+            like.style.color = '#901c1c';
+            like.style.hover = '#db8876';
             likesCounter = parseInt(input.value) - 1;
             console.log(likesCounter);
             input.value = likesCounter;
-            input.style.color = "#901c1c";
+            input.style.color = '#901c1c';
           }
         });
       }
@@ -121,7 +147,7 @@ function fetchData() {
       formName.textContent = photographerData.name;
     })
 
-    // GESTION DES ERREURS // A ETAYER
+    // AFFICHE LES ERREURS EN CONSOLE
     .catch((error) => console.log(error.message));
 }
 

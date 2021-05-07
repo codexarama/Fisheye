@@ -2,8 +2,13 @@
 // màj HTML link before !
 
 // ELEMENTS DE LA LIGHTBOX
-const mediasToLightbox = document.getElementsByClassName('currentMedia');
-console.log(mediasToLightbox);
+// const mediasToLightbox = Array.from(document.getElementsByClassName('currentMedia')); // length:0
+const mediasToLightbox = document.getElementsByClassName('currentMedia'); // HTML collection [] => ok MAIS forEach IMPOSSIBLE
+// console.log(mediasToLightbox);
+// HTMLCollection.item()
+// Retourne le nœud spécifique à l'index basé sur zéro donné dans la liste.
+// Retourne null si l'index est hors de portée.
+
 const lightbox = document.querySelector('.lightbox__modal');
 const lightboxShow = document.querySelector('.lightbox__show');
 const lightboxMedia = document.querySelector('.lightbox__media');
@@ -16,6 +21,7 @@ openLightbox = () => {
   lightbox.style.display = 'flex';
   lightboxShow.classList.add('active');
 };
+
 // close lightbox
 closeLightbox = () => {
   lightbox.style.display = 'none';
@@ -24,12 +30,13 @@ closeLightbox = () => {
 
 // SEPARE setLightbox() DE setGallery() // ne fonctionne pas
 
-// const setLightbox = () => {
-//   setGallery();
+// forEach NE PEUT PAS S'UTILISER SUR UNE COLLECTION HTML
+// => LA TRANSFORMER EN AJOUTANT Array.from(...) A L'EGALITE DE LA CONSTANTE
+// PB : length:0
+
 //   mediasToLightbox.forEach((selectedMedia) => {
-//     selectedMedia.addEventListener('click', (e) => {
+//     selectedMedia.addEventListener('click', openLightbox = (e) => {
 //       e.preventDefault();
-//       openLightbox();
 //       lightboxShow.classList.add('active');
 //       // searchParams.set('title', `${media.title}`); // ne fonctionne pas
 //       // searchParams.set('title', selectedMedia.alt); // ne fonctionne pas
@@ -45,8 +52,6 @@ closeLightbox = () => {
 //     // //     selectedMedia.selected += 1;
 //     // //   });
 //   });
-// };
-// setLightbox();
 
 // // AUTRE METHODE
 // // ne fonctionne pas
@@ -55,28 +60,10 @@ closeLightbox = () => {
 //   console.log(mediasToLightbox); // undefined
 //   // let currentMedia = 0;
 //   for (let i = 0; i < mediasToLightbox.length; i++) {
-//   mediasToLightbox.addEventListener('click', (e) => {
+//   mediasToLightbox[i].addEventListener('click', (e) => {
 //     e.preventDefault();
 //     openLightbox();
 //   });
 // }
 
 // for (let i = 0; i < mediasToLightbox.length; i++) {}
-
-// // AUTRE METHODE
-// // ne fonctionne pas
-// openLightbox = () => {
-//   mediasToLightbox.forEach((selectedMedia) => {
-//     selectedMedia.addEventListener('click', (e) => {
-//       e.preventDefault();
-//       lightbox.style.display = 'flex';
-//       lightboxShow.classList.add('active');
-//       selectedMedia.classList.add('selected');
-//       selectedMedia.selected = 0;
-//       lightboxMedia.src = selectedMedia.src;
-//       lightboxMedia.alt = selectedMedia.alt;
-//       lightboxTitle.textContent = selectedMedia.alt;
-//       // console.log([selectedMedia.selected]);
-//     });
-//   });
-// };

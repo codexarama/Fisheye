@@ -1,11 +1,12 @@
 // DOM Elements
-const modalBtn = document.getElementById('modalBtn');
+const modalBtn = document.querySelector('#modalBtn');
 const modal = document.querySelector('.form__modal');
 const modalContent = document.querySelector('.form__content');
 const modalBody = document.querySelector('.form__body');
 const confirm = document.querySelector('.form__confirmation');
-const submitBtn = document.getElementById('submit');
-let closeModalBtn = document.querySelector('.close');
+const submitBtn = document.querySelector('#submit');
+let closeModalBtn = document.querySelectorAll('.close');
+console.log(closeModalBtn);
 const closeConfirmBtn = document.querySelector('.close-confirm');
 
 // FORM
@@ -13,10 +14,10 @@ const form = document.querySelector(".form")
 const formData = document.querySelectorAll('.formData');
 
 // INPUTS
-const firstName = document.getElementById('firstName');
-const lastName = document.getElementById('lastName');
-const email = document.getElementById('email');
-const message = document.getElementById('message');
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const email = document.querySelector('#email');
+const message = document.querySelector('#message');
 
 // EVENEMENTS MODAL
 // launch modal event
@@ -28,28 +29,10 @@ modalBtn.addEventListener(
   })
 );
 
-// close modal event
-// // ---------- ne fonctionne pas ---------- //
-// closeModalBtn.addEventListener(
-//   'click',
-//   (closeModal = (e) => {
-//     e.preventDefault();
-//     modal.style.display = 'none';
-//   })
-// );
-
-closeModalBtn = () => {
-  modal.style.display = 'none';
-};
-
-// close confirm message event
-closeConfirmBtn.addEventListener(
-  'click',
-  (closeConfirm = (e) => {
-    e.preventDefault();
-    modal.style.display = 'none';
-  })
-);
+// close modal(s) event
+closeModalBtn.forEach((btn) => btn.addEventListener("click", closeModal = () => {
+  modal.style.display = "none";
+}));
 
 // CONFIRMATION D'ENVOI DU MESSAGE
 form.addEventListener('submit', function (e) {
@@ -110,33 +93,3 @@ const dataSuccess = (input, message) => {
   const small = formData.querySelector('small');
   small.innerText = message;
 };
-
-// const checkValidity = (input, textarea) => {
-//   input.addEventListener('invalid', (e) => {
-//     e.preventDefault();
-//     if (!e.target.validity.valid) {
-//       e.target.parentElement.classList.add('error');
-//     }
-//     textarea.addEventListener('invalid', (e) => {
-//       e.preventDefault();
-//       if (!e.target.validity.valid) {
-//         e.target.parentElement.classList.add('error');
-//       }
-//     });
-//   });
-
-//   input.addEventListener('input', (e) => {
-//     if (e.target.validity.valid) {
-//       e.target.parentElement.classList.remove('error');
-//     }
-//     textarea.addEventListener('textarea', (e) => {
-//       if (e.target.validity.valid) {
-//         e.target.parentElement.classList.remove('error');
-//       }
-//     });
-//   });
-// };
-
-// RECUPERATION DES SAISIES
-// Array.from(inputs).forEach(checkValidity);
-// Array.from(textarea).forEach(checkValidity);

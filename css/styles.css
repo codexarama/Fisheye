@@ -565,7 +565,6 @@ input {
 }
 .gallery__likes i:hover, .gallery__likes i:focus {
   cursor: pointer;
-  color: #db8876;
 }
 
 @media only screen and (max-width: 600px) {
@@ -585,6 +584,7 @@ input {
   left: 0;
   top: 0;
   height: 100%;
+  width: 100%;
   overflow: auto;
   background-color: black;
 }
@@ -600,8 +600,8 @@ input {
   justify-content: center;
 }
 .lightbox__media {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: 750px;
   border-radius: 3px;
   margin: auto;
 }

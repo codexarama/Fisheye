@@ -8,7 +8,7 @@
     left: 0;
     top: 0;
     height: 100%;
-    // width: 100%;
+    width: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 1);
   }
@@ -26,8 +26,8 @@
   }
 
   &__media {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 750px;
     border-radius: 3px;
     margin: auto;
   }

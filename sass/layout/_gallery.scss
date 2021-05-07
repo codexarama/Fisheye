@@ -52,12 +52,24 @@
     display: inline-flex;
     justify-content: flex-end;
 
-    & i {
-      margin-top: 1px;
-      margin-left: 3px;
+    &--count {
+      border: none;
+      width: 50px;
+      padding: 0;
+      pointer-events: none;
+      text-align: right;
+      background-color: transparent;
+      font-family: $type;
+      font-size: $xs;
+      font-weight: $bold;
+      color: $secondaire-txt;
+      position: absolute;
+      margin-right: 3px;
     }
 
-    & i:hover {
+    & i:hover,
+    & i:focus {
+      cursor: pointer;
       color: $secondaire-bg;
     }
   }

@@ -64,6 +64,21 @@ function fetchData() {
         });
       }
 
+      // COMPTE LES LIKES
+      let incrementLikeArray = document.getElementsByClassName(
+        'gallery__likes--icon'
+      );
+      for (let i = 0; i < incrementLikeArray.length; i++) {
+        let like = incrementLikeArray[i];
+        like.addEventListener('click', function () {
+          let input = like.parentElement.children[0];
+          console.log(input); // au click sur "like", l'input "count" prend le focus
+          likeCount = parseInt(input.value) + 1;
+          console.log(likeCount);
+          input.value = likeCount;
+        });
+      }
+
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');
       formName.textContent = photographerData.name;

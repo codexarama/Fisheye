@@ -52,6 +52,22 @@
     display: inline-flex;
     justify-content: flex-end;
 
+    &--icon {
+      cursor: pointer;
+      color: $primaire-bg;
+      &:hover {
+        color: $secondaire-bg;
+      }
+    }
+
+    &--icon.selected {
+      cursor: pointer;
+      color: $secondaire-bg;
+      &:hover {
+        color: $primaire-bg;
+      }
+    }
+
     &--count {
       border: none;
       width: 50px;
@@ -65,11 +81,6 @@
       color: $secondaire-txt;
       position: absolute;
       margin-right: 3px;
-    }
-
-    & i:hover,
-    & i:focus {
-      cursor: pointer;
     }
   }
 }

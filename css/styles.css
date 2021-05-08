@@ -549,6 +549,20 @@ input {
   display: inline-flex;
   justify-content: flex-end;
 }
+.gallery__likes--icon {
+  cursor: pointer;
+  color: #901c1c;
+}
+.gallery__likes--icon:hover {
+  color: #db8876;
+}
+.gallery__likes--icon.selected {
+  cursor: pointer;
+  color: #db8876;
+}
+.gallery__likes--icon.selected:hover {
+  color: #901c1c;
+}
 .gallery__likes--count {
   border: none;
   width: 50px;
@@ -562,9 +576,6 @@ input {
   color: #901c1c;
   position: absolute;
   margin-right: 3px;
-}
-.gallery__likes i:hover, .gallery__likes i:focus {
-  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {

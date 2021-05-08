@@ -54,21 +54,4 @@ const setGallery = (media) => {
   );
 
   sectionGallery.appendChild(gallery);
-
-  const medias = document.querySelectorAll('.currentMedia');
-  medias.forEach((selectedMedia) => {
-    selectedMedia.addEventListener('click', (e) => {
-      e.preventDefault();
-      selectedMedia.classList.add('selected'); // ne fonctionne pas apres choix autre filtre
-      openLightbox();
-      // AFFICHE TITRE IMAGE DANS URL
-      location.hash = selectedMedia.alt;
-      selectedMedia.selected = 0;
-      console.log(selectedMedia.selected);
-      // A FAIRE : REMOVE "selected" : (cf. "lightbox.js > close function")
-      lightboxMedia.src = selectedMedia.src;
-      lightboxMedia.alt = selectedMedia.alt;
-      lightboxTitle.textContent = selectedMedia.alt;
-    });
-  });
 };

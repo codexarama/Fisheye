@@ -555,6 +555,7 @@ input {
 }
 .gallery__likes--icon:hover {
   color: #db8876;
+  transition: color 0.5s;
 }
 .gallery__likes--icon.selected {
   cursor: pointer;

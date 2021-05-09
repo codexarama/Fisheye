@@ -101,14 +101,13 @@ function fetchData() {
       // (function() {launchGallery()})();
 
       // AFFICHE LE NOMBRE TOTAL DE LIKES DU PHOTOGRAPHE
-      // ---------- PB : STATIQUE ---------- //
-      // const totalLikesCounter = () => {
-      //   const totalCount = document.querySelector('#total-likes');
-      //   totalLikes = 0;
-      //   photographerWorks.forEach((work) => (totalLikes += work.likes));
-      //   totalCount.value = `${totalLikes}`;
-      // };
-      // totalLikesCounter()
+      const totalLikesCounter = () => {
+        const totalCounter = document.querySelector('#total-likes');
+        totalLikes = 0;
+        photographerWorks.forEach((work) => (totalLikes += work.likes));
+        totalCounter.value = `${totalLikes}`;
+      };
+      totalLikesCounter()
 
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');

@@ -1,8 +1,7 @@
 // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
 const likesCount = () => {
   const likes = document.querySelectorAll('.gallery__likes--icon');
-  const totalLikes = document.querySelectorAll('.gallery__likes--count');
-  const totalCount = document.querySelector('#total-likes');
+  const totalCounter = document.querySelector('#total-likes');
 
   for (let i = 0; i < likes.length; i++) {
     let like = likes[i];
@@ -16,24 +15,17 @@ const likesCount = () => {
         console.log(likesCounter);
         input.value = likesCounter;
         input.style.color = '#db8876';
+        // incremente de 1 le compteur global de likes
+        totalCounter.value++;
       } else {
         location.hash = "je n'aime plus";
         likesCounter = parseInt(input.value) - 1;
         console.log(likesCounter);
         input.value = likesCounter;
         input.style.color = '#901c1c';
+        // decremente de 1 le compteur global de likes
+        totalCounter.value--;
       }
     });
-  }
-
-  for (let j = 0; j < totalLikes.length; j++) {
-    let totalLikesCounter = totalLikes[j];
-    console.log(totalLikesCounter.value);
-    // totalLikesCounter.addEventListener('change', function () {
-      let total = 0
-      total += parseInt(totalLikesCounter.value); // l'addition ne se fait pas
-      console.log(total);
-      totalCount.value = total; // affiche la derniere valeur
-    // });
   }
 };

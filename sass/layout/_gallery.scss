@@ -55,14 +55,17 @@
     &--icon {
       cursor: pointer;
       color: $primaire-bg;
+
       &:hover {
         color: $secondaire-bg;
+        transition: color .5s;
       }
     }
 
     &--icon.selected {
       cursor: pointer;
       color: $secondaire-bg;
+
       &:hover {
         color: $primaire-bg;
       }

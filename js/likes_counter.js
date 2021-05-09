@@ -1,6 +1,9 @@
 // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
 const likesCount = () => {
-  let likes = document.querySelectorAll('.gallery__likes--icon');
+  const likes = document.querySelectorAll('.gallery__likes--icon');
+  const totalLikes = document.querySelectorAll('.gallery__likes--count');
+  const totalCount = document.querySelector('#total-likes');
+
   for (let i = 0; i < likes.length; i++) {
     let like = likes[i];
     like.addEventListener('click', function () {
@@ -21,5 +24,16 @@ const likesCount = () => {
         input.style.color = '#901c1c';
       }
     });
+  }
+
+  for (let j = 0; j < totalLikes.length; j++) {
+    let totalLikesCounter = totalLikes[j];
+    console.log(totalLikesCounter.value);
+    // totalLikesCounter.addEventListener('change', function () {
+      let total = 0
+      total += parseInt(totalLikesCounter.value); // l'addition ne se fait pas
+      console.log(total);
+      totalCount.value = total; // affiche la derniere valeur
+    // });
   }
 };

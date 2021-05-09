@@ -29,20 +29,31 @@ function fetchData() {
       setId(photographerData);
 
       // CIBLE LES MEDIA EN FONCTION DU PHOTOGRAPHE CHOISI
-      const photographerWork = data.media.filter(
+      const photographerWorks = data.media.filter(
         (elmt) => elmt.photographerId == getId()
       );
-      console.log(photographerWork); // array media by ID
+      console.log(photographerWorks); // array media by ID
+
+      // ---------- A RESOUDRE ---------- //
+      // LANCE L'AFFICHAGE DE LA GALERIE FILTREE PAR POPULARITE PAR DEFAUT
+      // PB : ATTRIBUT "selected" EST DEJA POSITIONNE SUR "popularite"
+      // enventListener SE DECLANCHE AU CLICK DONC "selected" N'EST PAS DETECTE
+      // AU CHARGEMENT DE LA PAGE
+
+      // ---------- NE FONCTIONNE PAS ---------- //
+      // window.onload = () => {
+      //   launchGallery();
+      // };
 
       // AFFICHE LA GALLERIE SELON FILTRE CHOISI
       const gallery = document.getElementsByClassName('gallery')[0];
       const galleryCard = document.getElementsByClassName('gallery__card');
 
       const launchGallery = () => {
-        for (let i = 0; i < photographerWork.length; i++) {
+        for (let i = 0; i < photographerWorks.length; i++) {
           // affiche la galerie triee par popularite (par defaut)
           location.hash = 'filtre popularite';
-          setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
+          setGallery(photographerWorks.sort(filterBy('likes', 'desc'))[i]);
         }
 
         for (const option of document.querySelectorAll('.filter__option')) {
@@ -54,21 +65,23 @@ function fetchData() {
               }
             }
 
-            for (let i = 0; i < photographerWork.length; i++) {
+            for (let i = 0; i < photographerWorks.length; i++) {
               // affiche la galerie triee par date
               if (option.classList.contains('filter__option--2')) {
                 location.hash = 'filtre date';
-                setGallery(photographerWork.sort(filterBy('date', 'desc'))[i]);
+                setGallery(photographerWorks.sort(filterBy('date', 'desc'))[i]);
               }
               // affiche la galerie triee par titre
               if (option.classList.contains('filter__option--3')) {
                 location.hash = 'filtre titre';
-                setGallery(photographerWork.sort(filterBy('title'))[i]);
+                setGallery(photographerWorks.sort(filterBy('title'))[i]);
               }
               // affiche la galerie triee par popularite
               if (option.classList.contains('filter__option--1')) {
                 location.hash = 'filtre popularite';
-                setGallery(photographerWork.sort(filterBy('likes', 'desc'))[i]);
+                setGallery(
+                  photographerWorks.sort(filterBy('likes', 'desc'))[i]
+                );
               }
             }
             // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
@@ -83,6 +96,19 @@ function fetchData() {
         setLightbox();
       };
       launchGallery();
+
+      // ---------- NE FONCTIONNE PAS ---------- //
+      // (function() {launchGallery()})();
+
+      // AFFICHE LE NOMBRE TOTAL DE LIKES DU PHOTOGRAPHE
+      // ---------- PB : STATIQUE ---------- //
+      // const totalLikesCounter = () => {
+      //   const totalCount = document.querySelector('#total-likes');
+      //   totalLikes = 0;
+      //   photographerWorks.forEach((work) => (totalLikes += work.likes));
+      //   totalCount.value = `${totalLikes}`;
+      // };
+      // totalLikesCounter()
 
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');

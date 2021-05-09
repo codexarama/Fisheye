@@ -3,7 +3,7 @@
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 200px;
+  width: 175px;
   padding: 10px;
   background-color: $secondaire-bg;
   border-radius: 5px 0 0 0;
@@ -12,8 +12,21 @@
   &__content {
     width: 50%;
     display: inline-flex;
-    justify-content: space-evenly;
   }
+}
+
+footer input {
+  margin-right: -5px;
+  width: 50px;
+  text-align: right;
+  background-color: transparent;
+  border: none;
+  pointer-events: none;
+  font-family: $type;
+  font-size: $xs;
+  font-weight: $bold;
+  padding: 0;
+  outline: none;
 }
 
 @media only screen and (max-width: 600px) {

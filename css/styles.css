@@ -585,6 +585,9 @@ input {
   .gallery__media img, .gallery__media video {
     width: 100%;
   }
+  .gallery__likes--count {
+    margin-right: 20px;
+  }
 }
 .lightbox__modal {
   display: none;
@@ -653,7 +656,7 @@ input {
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 200px;
+  width: 175px;
   padding: 10px;
   background-color: #db8876;
   border-radius: 5px 0 0 0;
@@ -662,7 +665,20 @@ input {
 .footer__content {
   width: 50%;
   display: inline-flex;
-  justify-content: space-evenly;
+}
+
+footer input {
+  margin-right: -5px;
+  width: 50px;
+  text-align: right;
+  background-color: transparent;
+  border: none;
+  pointer-events: none;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: xx-small;
+  font-weight: 700;
+  padding: 0;
+  outline: none;
 }
 
 @media only screen and (max-width: 600px) {

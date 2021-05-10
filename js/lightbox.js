@@ -8,52 +8,80 @@ const next = document.querySelector('.lightbox__next');
 // LAUNCH LIGHTBOX
 const setLightbox = () => {
   const medias = document.querySelectorAll('.currentMedia');
+  console.log(medias);
   for (let i = 0; i < medias.length; i++) {
+    // let selectedMediaIndex = i;
     let selectMedia = medias[i];
-    console.log(selectMedia);
+
+    // quand click sur image
     selectMedia.addEventListener('click', (e) => {
       e.preventDefault();
-      selectMedia.classList.add('selected');
-      // recupere index image choisie
-      selectMedia.index = i;
-      console.log(selectMedia.index);
+      let selectedMediaIndex = i;
+      console.log(selectMedia); // infos media choisi
+      console.log(i); // index media choisi
+      
+      // OUVRE LIGHTBOX
+      // ---------- TEST FONCTION + APPELS ---------- //
+      // ---------- NE FONCTIONNE PAS ---------- //
+      // const openLightbox = () => {
       lightbox.style.display = 'flex';
       lightboxShow.classList.add('active');
-      // affiche titre image dans url
+      selectMedia.classList.add('selected');
+      // affiche titre media dans url
       window.location.hash = selectMedia.alt;
-      // affiche media dans lightbox
+      // affiche media + titre dans lightbox
       lightboxMedia.src = selectMedia.src;
       lightboxMedia.alt = selectMedia.alt;
       lightboxTitle.textContent = selectMedia.alt;
+      // };
+
       // quand click sur prev
       prev.addEventListener('click', (e) => {
         e.preventDefault();
+        // AFFICHE MEDIA PRECEDENT
         // index -1
-        selectMedia.index--;
-        console.log(selectMedia.index);
-        // si index = 0, reprend decompte à 8 (medias.length)
-        if (selectMedia.index <= 0) selectMedia.index = medias.length;
-        // ---------- A FIXER ---------- //
-        // si index = 0, click sur next donne index = 0
-        // devrait donner index = 1
-        // affiche media correspondant au nouvel index
+        selectedMediaIndex--;
+        console.log(selectedMediaIndex);
+        console.log(selectMedia); // LA SOURCE N'EST PAS REMPLACEE PAR LE NOUVEL INDEX
+        // openLightbox();
+        // gestion visibilite prev + next btn pour 1e et derniere image
+        if (selectedMediaIndex == 0) prev.style.display = 'none';
+        if (selectedMediaIndex < medias.length) next.style.display = 'block';
       });
+
       // quand click sur next
       next.addEventListener('click', (e) => {
         e.preventDefault();
-        // index +1 // max = medias.length
-        selectMedia.index++;
-        // si index = 8 (medias.length), reprend decompte à 0
-        if (selectMedia.index >= medias.length) selectMedia.index = 0;
-        console.log(selectMedia.index);
-        // ---------- A FIXER ---------- //
-        // si index = 0, click sur next donne index = -1
-        // devrait donner index = 0
-        // affiche media correspondant au nouvel index
+        // AFFICHE MEDIA SUIVANT
+        // index +1
+        selectedMediaIndex++;
+        console.log(selectedMediaIndex);
+        console.log(selectMedia); // LA SOURCE N'EST PAS REMPLACEE PAR LE NOUVEL INDEX
+        // gestion visibilite prev + next btn pour 1e et derniere image
+        if (selectedMediaIndex == medias.length - 1)
+          next.style.display = 'none';
+        if (selectedMediaIndex > 0) prev.style.display = 'block';
       });
+      // openLightbox()
     });
   }
 };
+
+// // AUTRE METHODE (BY IMG.URL)
+// // ouvre l'image dans une autre pag web
+// const setLightbox = () => {
+//   for (let i = 0; i < medias.length; i++) {
+//     medias[i].onclick = () => {
+//       console.log(i);
+//       const showMedia = () => {
+//         // window.location.replace(medias[i].src)
+//         let selectedMedia = window.location.replace(medias[i].src)
+//         console.log(selectedMedia);
+//       };
+//       showMedia();
+//       lightbox.style.display = 'flex';
+//       lightboxShow.classList.add('active');
+//     };
 
 // CLOSE LIGHTBOX
 const closeLightbox = () => {

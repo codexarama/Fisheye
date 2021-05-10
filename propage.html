@@ -62,13 +62,19 @@
       <section class="lightbox">
         <div class="lightbox__modal">
           <div class="lightbox__content">
-            <i class="fas fa-times lightbox__btn lightbox__close" role="button" onclick="closeLightbox()"></i>
+            <a rel="close" href="" role="button">
+              <i class="fas fa-times lightbox__btn lightbox__close" role="button" onclick="closeLightbox()"></i>
+            </a>
             <div id="currentMedia" class="lightbox__show">
               <img src="" alt="" class="lightbox__media">
               <p class="lightbox__title"></p>
             </div>
-            <a rel="prev" href="" role="button"><i class="fas fa-chevron-left lightbox__btn lightbox__prev"></i></a>
-            <a rel="next" href="" role="button"><i class="fas fa-chevron-right lightbox__btn lightbox__next"></i></a>
+            <a rel="prev" href="" role="button">
+              <i class="fas fa-chevron-left lightbox__btn lightbox__prev"></i>
+            </a>
+            <a rel="next" href="" role="button">
+              <i class="fas fa-chevron-right lightbox__btn lightbox__next"></i>
+            </a>
           </div>
         </div>
       </section>

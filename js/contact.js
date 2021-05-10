@@ -94,3 +94,13 @@ form.addEventListener('submit', function (e) {
   console.log(`Message : ${message.value}`);
   closeModal();
 });
+
+// CONFIRMATION D'ENVOI DU MESSAGE
+// form.addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   if (checkValidity) {
+//     modalBody.style.display = 'none';
+//     confirm.style.opacity = '1';
+//     form.reset();
+//   }
+// });

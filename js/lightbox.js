@@ -10,16 +10,16 @@ const setLightbox = () => {
   const medias = document.querySelectorAll('.currentMedia');
   console.log(medias);
   for (let i = 0; i < medias.length; i++) {
-    // let selectedMediaIndex = i;
     let selectMedia = medias[i];
+    let selectedMediaIndex = i;
 
     // quand click sur image
     selectMedia.addEventListener('click', (e) => {
       e.preventDefault();
-      let selectedMediaIndex = i;
+      // let selectedMediaIndex = i;
       console.log(selectMedia); // infos media choisi
       console.log(i); // index media choisi
-      
+
       // OUVRE LIGHTBOX
       // ---------- TEST FONCTION + APPELS ---------- //
       // ---------- NE FONCTIONNE PAS ---------- //

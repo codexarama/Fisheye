@@ -39,19 +39,9 @@ closeModalBtn.forEach((btn) =>
   )
 );
 
-// CONFIRMATION D'ENVOI DU MESSAGE
-form.addEventListener('submit', function (e) {
-  if (checkValidity) {
-    modalBody.style.display = 'none';
-    confirm.style.opacity = '1';
-    form.reset();
-  }
-});
-
 // VERIFICATION DES SAISIES
 const inputs = document.querySelectorAll('input');
 const textarea = document.querySelectorAll('textarea');
-console.log(textarea.value);
 
 const checkValidity = (input) => {
   input.addEventListener('invalid', (e) => {
@@ -95,12 +85,7 @@ const dataSuccess = (input, message) => {
   small.innerText = message;
 };
 
-// recuperation des saisies
-Array.from(inputs).forEach(checkValidity);
-Array.from(textarea).forEach(checkValidity);
-
 // AFFICHE LES SAISIES DANS LA CONSOLE
-// ---------- NE FONCTIONNE PAS ---------- //
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   console.log(`Prénom : ${firstName.value}`);

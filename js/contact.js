@@ -7,10 +7,9 @@ const confirm = document.querySelector('.form__confirmation');
 const submitBtn = document.querySelector('#submit');
 let closeModalBtn = document.querySelectorAll('.form__close');
 // console.log(closeModalBtn);
-const closeConfirmBtn = document.querySelector('.close-confirm');
 
 // FORM
-const form = document.querySelector(".form")
+const form = document.querySelector('.form');
 const formData = document.querySelectorAll('.formData');
 
 // INPUTS
@@ -26,18 +25,22 @@ modalBtn.addEventListener(
   (launchModal = (e) => {
     e.preventDefault();
     modal.style.display = 'block';
-    location.hash = 'me contacter'
+    location.hash = 'me contacter';
   })
 );
 
 // close modal(s) event
-closeModalBtn.forEach((btn) => btn.addEventListener("click", closeModal = () => {
-  modal.style.display = "none";
-}));
+closeModalBtn.forEach((btn) =>
+  btn.addEventListener(
+    'click',
+    (closeModal = () => {
+      modal.style.display = 'none';
+    })
+  )
+);
 
 // CONFIRMATION D'ENVOI DU MESSAGE
 form.addEventListener('submit', function (e) {
-  e.preventDefault();
   if (checkValidity) {
     modalBody.style.display = 'none';
     confirm.style.opacity = '1';
@@ -48,6 +51,7 @@ form.addEventListener('submit', function (e) {
 // VERIFICATION DES SAISIES
 const inputs = document.querySelectorAll('input');
 const textarea = document.querySelectorAll('textarea');
+console.log(textarea.value);
 
 const checkValidity = (input) => {
   input.addEventListener('invalid', (e) => {
@@ -76,10 +80,6 @@ const checkValidity = (input) => {
 
 // CHECKVALIDITY TEXTAREA ?!
 
-// recuperation des saisies
-Array.from(inputs).forEach(checkValidity);
-Array.from(textarea).forEach(checkValidity);
-
 // MESSAGES
 // Error
 const dataError = (input, message) => {
@@ -94,3 +94,18 @@ const dataSuccess = (input, message) => {
   const small = formData.querySelector('small');
   small.innerText = message;
 };
+
+// recuperation des saisies
+Array.from(inputs).forEach(checkValidity);
+Array.from(textarea).forEach(checkValidity);
+
+// AFFICHE LES SAISIES DANS LA CONSOLE
+// ---------- NE FONCTIONNE PAS ---------- //
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  console.log(`Prénom : ${firstName.value}`);
+  console.log(`Nom : ${lastName.value}`);
+  console.log(`Email : ${email.value}`);
+  console.log(`Message : ${message.value}`);
+  closeModal();
+});

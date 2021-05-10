@@ -11,24 +11,17 @@ const likesCount = () => {
       (handleEvent = () => {
         // like.addEventListener('click', () => {
         like.classList.toggle('selected');
-        let input = like.parentElement.children[0];
-        console.log(input); // au click sur "like", l'input "counter" prend le focus
+        let likeCounter = like.parentElement.children[0]; // au click sur "like", l'input "counter" prend le focus
         if (like.classList.contains('selected')) {
           location.hash = "j'aime";
-          likesCounter = parseInt(input.value) + 1;
-          console.log(likesCounter);
-          input.value = likesCounter;
-          input.style.color = '#db8876';
-          // incremente de 1 le compteur global de likes
-          totalCounter.value++;
+          likeCounter.value ++; // incremente de 1 le compteur local de likes
+          likeCounter.style.color = '#db8876';
+          totalCounter.value ++; // incremente de 1 le compteur global de likes
         } else {
           location.hash = "je n'aime plus";
-          likesCounter = parseInt(input.value) - 1;
-          console.log(likesCounter);
-          input.value = likesCounter;
-          input.style.color = '#901c1c';
-          // decremente de 1 le compteur global de likes
-          totalCounter.value--;
+          likeCounter.value --; // decremente de 1 le compteur local de likes
+          likeCounter.style.color = '#901c1c';
+          totalCounter.value --; // decremente de 1 le compteur global de likes
         }
       })
     );

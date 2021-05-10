@@ -40,7 +40,14 @@
   }
 
   &__btn {
+    position: absolute;
+    cursor: pointer;
+    color: $primaire-a;
     opacity: .5;
+    padding: 2%;
+    font-size: 20px;
+    transition: 0.5s ease;
+    user-select: none;
     &:hover {
       opacity: 1;
     }
@@ -48,24 +55,20 @@
 
   &__prev,
   &__next {
-    cursor: pointer;
-    position: absolute;
     top: 50%;
-    width: auto;
     margin-top: -20px;
-    padding: 2%;
-    color: $primaire-a;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.5s ease;
-    user-select: none;
   }
 
   &__prev {
     left: 0;
   }
-  
+
   &__next {
     right: 0;
+  }
+
+  &__close {
+    right: 0;
+    top: 0;
   }
 }

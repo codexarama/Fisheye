@@ -5,7 +5,7 @@ const modalContent = document.querySelector('.form__content');
 const modalBody = document.querySelector('.form__body');
 const confirm = document.querySelector('.form__confirmation');
 const submitBtn = document.querySelector('#submit');
-let closeModalBtn = document.querySelectorAll('.close');
+let closeModalBtn = document.querySelectorAll('.form__close');
 // console.log(closeModalBtn);
 const closeConfirmBtn = document.querySelector('.close-confirm');
 

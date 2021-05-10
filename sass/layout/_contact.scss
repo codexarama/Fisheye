@@ -24,6 +24,27 @@
     color: $secondaire-a;
   }
 
+  &__body {
+    padding: 5px 5%;
+    margin: 10px auto;
+
+    &--title,
+    &--name {
+      font-size: $l;
+      font-weight: $regular;
+      color: $secondaire-a;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 2%;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
   &__confirmation {
     position: fixed;
     z-index: -1;
@@ -39,18 +60,6 @@
     align-items: center;
     color: $primaire-a;
     font-weight: 300;
-  }
-
-  &__body {
-    padding: 5px 5%;
-    margin: 10px auto;
-
-    &--title,
-    &--name {
-      font-size: $l;
-      font-weight: $regular;
-      color: $secondaire-a;
-    }
   }
 }
 
@@ -99,36 +108,6 @@ input {
   text-align: center;
   font-weight: 300;
   color: darkgrey;
-}
-
-.close {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 32px;
-  height: 32px;
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(0.7);
-  z-index: 2;
-}
-
-.close:before,
-.close:after {
-  position: absolute;
-  left: 15px;
-  content: ' ';
-  height: 33px;
-  width: 3px;
-  background-color: #fff;
-}
-
-.close:before {
-  transform: rotate(45deg);
-}
-
-.close:after {
-  transform: rotate(-45deg);
 }
 
 .btn-submit {

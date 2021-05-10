@@ -314,6 +314,23 @@ nav {
   position: relative;
   color: black;
 }
+.form__body {
+  padding: 5px 5%;
+  margin: 10px auto;
+}
+.form__body--title, .form__body--name {
+  font-size: 2em;
+  font-weight: 400;
+  color: black;
+}
+.form__close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  padding: 2%;
+  font-size: 20px;
+  cursor: pointer;
+}
 .form__confirmation {
   position: fixed;
   z-index: -1;
@@ -329,15 +346,6 @@ nav {
   align-items: center;
   color: white;
   font-weight: 300;
-}
-.form__body {
-  padding: 5px 5%;
-  margin: 10px auto;
-}
-.form__body--title, .form__body--name {
-  font-size: 2em;
-  font-weight: 400;
-  color: black;
 }
 
 label {
@@ -387,36 +395,6 @@ input {
   text-align: center;
   font-weight: 300;
   color: darkgrey;
-}
-
-.close {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 32px;
-  height: 32px;
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(0.7);
-  z-index: 2;
-}
-
-.close:before,
-.close:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 33px;
-  width: 3px;
-  background-color: #fff;
-}
-
-.close:before {
-  transform: rotate(45deg);
-}
-
-.close:after {
-  transform: rotate(-45deg);
 }
 
 .btn-submit {
@@ -627,29 +605,31 @@ input {
   margin-top: 5px;
 }
 .lightbox__btn {
+  position: absolute;
+  cursor: pointer;
+  color: white;
   opacity: 0.5;
+  padding: 2%;
+  font-size: 20px;
+  transition: 0.5s ease;
+  user-select: none;
 }
 .lightbox__btn:hover {
   opacity: 1;
 }
 .lightbox__prev, .lightbox__next {
-  cursor: pointer;
-  position: absolute;
   top: 50%;
-  width: auto;
   margin-top: -20px;
-  padding: 2%;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.5s ease;
-  user-select: none;
 }
 .lightbox__prev {
   left: 0;
 }
 .lightbox__next {
   right: 0;
+}
+.lightbox__close {
+  right: 0;
+  top: 0;
 }
 
 .footer {

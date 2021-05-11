@@ -17,8 +17,11 @@ const setGallery = (media) => {
         elmtFactory('p', { class: 'gallery__title' }, `${media.title}`)
       ),
       elmtFactory(
-        'div',
-        { class: 'gallery__likes' },
+        'button',
+        {
+          class: 'gallery__likes',
+          role: 'button'
+        },
         elmtFactory('input', {
           class: 'gallery__likes--count',
           type: 'number',
@@ -27,7 +30,6 @@ const setGallery = (media) => {
         }),
         elmtFactory('i', {
           class: 'fas fa-heart gallery__likes--icon',
-          role: 'button',
         })
       )
     )

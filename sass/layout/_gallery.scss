@@ -51,6 +51,9 @@
   &__likes {
     display: inline-flex;
     justify-content: flex-end;
+    appearance: none;
+    border: none;
+    background-color: transparent;
 
     &--icon {
       cursor: pointer;
@@ -58,7 +61,7 @@
 
       &:hover {
         color: $secondaire-bg;
-        transition: color .5s;
+        transition: color 0.5s;
       }
     }
 

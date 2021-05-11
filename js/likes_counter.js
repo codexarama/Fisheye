@@ -6,6 +6,7 @@ const likesCount = () => {
 
   for (let i = 0; i < likes.length; i++) {
     let like = likes[i];
+    like.setAttribute("aria-label", "likes")
     // handleEvent = () => {
     like.addEventListener('click', () => {
       like.classList.toggle('selected');

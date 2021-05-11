@@ -1,23 +1,16 @@
 // FONCTION : CREATION D'ELEMENTS BALISES DANS LE DOM
-// FACTORY METHOD APPLIQUEE AUX ELEMENTS : type + attributs + hiérarchie
+// FACTORY METHOD APPLIQUEE AUX ELEMENTS : type + attributes + nodes
 const elmtFactory = (type, attribute, ...children) => {
   let elmt = document.createElement(type);
 
   for (key in attribute) {
     elmt.setAttribute(key, attribute[key]);
-    // GESTION DES TYPES DE MEDIA
-    // --------- pas d'erreur console ---------- //
-    // --------- ne fonctionne pas ---------- //
-    // if (key === 'img') return attribute = { src: '/images/photos/' + `${media.image}` };
-    // if (key === 'video') return attribute = { src: '/images/videos/' + `${media.video}` };
   }
 
   children.forEach((child) => {
-    if (typeof child === 'string') {
+    if (typeof child === 'string')
       elmt.appendChild(document.createTextNode(child));
-    } else {
-      elmt.appendChild(child);
-    }
+    else elmt.appendChild(child);
   });
 
   return elmt;

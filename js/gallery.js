@@ -6,28 +6,7 @@ const setGallery = (media) => {
   const gallery = elmtFactory(
     'article',
     { class: 'gallery__card' },
-    elmtFactory(
-      'div',
-      { class: 'gallery__media' },
-      elmtFactory('img', {
-        class: 'currentMedia',
-        // selectionne le media par son index (photo / video indifferent)
-        // ---------- NE FONCTIONNE PAS ---------- //
-        // src: 'images/photos/' + `${media[2]}`,
-        src: 'images/photos/' + `${media.image}`,
-        alt: `${media.title}`,
-        role: 'button',
-      })
-
-      // // GESTION DES TYPES DE MEDIA
-      // // --------- pas d'erreur console ---------- //
-      // // --------- ne fonctionne pas ---------- //
-      //   elmtFactory('img' || "video",
-      // {
-      //   src: 'images/photos/'  + `${media.image}` || 'images/videos/' + `${media.video}`,
-      //   alt: `${media.title}`,
-      // })
-    ),
+    elmtFactory('div', { class: 'gallery__media' }),
     elmtFactory(
       'div',
       { class: 'gallery__content' },
@@ -43,7 +22,7 @@ const setGallery = (media) => {
         elmtFactory('input', {
           class: 'gallery__likes--count',
           type: 'number',
-          readonly: "true",
+          readonly: 'true',
           value: `${media.likes}`,
         }),
         elmtFactory('i', {
@@ -53,6 +32,34 @@ const setGallery = (media) => {
       )
     )
   );
+
+  // CREATION ELEMENT MEDIA SELON TYPE (image / video)
+  const galleryMedia = gallery.querySelector('.gallery__media');
+  console.log(galleryMedia); // ok
+
+  if (media.image != undefined) {
+    console.log(media.image); // recupere les images
+    let mediaType = elmtFactory('img', {
+      class: 'currentMedia',
+      src: 'images/photos/' + `${media.image}`,
+      alt: `${media.title}`,
+      role: 'button',
+    });
+    console.log(mediaType); // cree l'element image
+    galleryMedia.appendChild(mediaType);
+  }
+
+  if (media.video != undefined) {
+    console.log(media.video); // recupere les videos
+    let mediaType = elmtFactory('video', {
+      class: 'currentMedia',
+      src: 'images/videos/' + `${media.video}`,
+      alt: `${media.title}`,
+      role: 'button',
+    });
+    console.log(mediaType); // cree l'element video
+    galleryMedia.appendChild(mediaType);
+  }
 
   sectionGallery.appendChild(gallery);
 };

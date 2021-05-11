@@ -43,6 +43,10 @@
     padding: 2%;
     font-size: 20px;
     cursor: pointer;
+
+    &:hover{
+      color: white;
+    }
   }
 
   &__confirmation {

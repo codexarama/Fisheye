@@ -331,6 +331,9 @@ nav {
   font-size: 20px;
   cursor: pointer;
 }
+.form__close:hover {
+  color: white;
+}
 .form__confirmation {
   position: fixed;
   z-index: -1;
@@ -414,8 +417,8 @@ input {
   margin: 50px 0;
 }
 .filter__title {
-  margin-right: 10px;
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
+  font-size: small;
 }
 .filter__box {
   width: 105px;
@@ -424,7 +427,10 @@ input {
 .filter__box:hover {
   color: white;
 }
-.filter__box.open .filter__select {
+.filter__box.open {
+  border-radius: 3px;
+}
+.filter__box.open .filter__selected {
   border-radius: 3px 3px 0 0;
 }
 .filter__box.open .selected {
@@ -432,20 +438,19 @@ input {
 }
 .filter__selected {
   position: relative;
-}
-.filter__selected i {
-  position: absolute;
-  right: 10px;
-  padding-left: 5px;
+  width: 105px;
+  text-align: left;
 }
 .filter__arrow {
+  position: absolute;
+  margin-top: 12px;
+  margin-left: -20px;
   color: white;
   transition: all 0.5s;
 }
 .filter__box.open .filter__arrow {
-  position: absolute;
-  right: 10px;
   transform: rotateX(180deg);
+  margin-top: 11px;
 }
 .filter__options {
   position: absolute;
@@ -456,9 +461,6 @@ input {
   pointer-events: none;
   z-index: 1;
 }
-.filter__box.open {
-  border-radius: 0 0 3px 3px;
-}
 .filter__box.open .filter__options {
   opacity: 1;
   visibility: visible;
@@ -466,6 +468,7 @@ input {
 }
 .filter__option {
   padding: 10px 0;
+  width: 105px;
   border-top: 1px solid white;
   border-left: 10px solid #901c1c;
   border-right: 10px solid #901c1c;
@@ -474,6 +477,9 @@ input {
   background-color: #db8876;
   border-left: 10px solid #db8876;
   border-right: 10px solid #db8876;
+}
+.filter__option .selected {
+  background-color: #db8876;
 }
 
 @media only screen and (max-width: 600px) {
@@ -526,6 +532,9 @@ input {
 .gallery__likes {
   display: inline-flex;
   justify-content: flex-end;
+  appearance: none;
+  border: none;
+  background-color: transparent;
 }
 .gallery__likes--icon {
   cursor: pointer;

@@ -5,8 +5,8 @@
   margin: 50px 0;
 
   &__title {
-    margin-right: 10px;
-    margin-top: 10px;
+    margin: 10px 10px 0 0;
+    font-size: $s;
   }
 
   &__box {
@@ -17,7 +17,11 @@
     }
   }
 
-  &__box.open .filter__select {
+  &__box.open {
+    border-radius: 3px;
+  }
+
+  &__box.open .filter__selected {
     border-radius: 3px 3px 0 0;
   }
 
@@ -27,23 +31,21 @@
 
   &__selected {
     position: relative;
-
-    & i {
-      position: absolute;
-      right: 10px;
-      padding-left: 5px;
-    }
+    width: 105px;
+    text-align: left;
   }
 
   &__arrow {
+    position: absolute;
+    margin-top: 12px;
+    margin-left: -20px;
     color: white;
     transition: all 0.5s;
   }
 
   &__box.open .filter__arrow {
-    position: absolute;
-    right: 10px;
     transform: rotateX(180deg);
+    margin-top: 11px;
   }
 
   &__options {
@@ -56,10 +58,6 @@
     z-index: 1;
   }
 
-  &__box.open {
-    border-radius: 0 0 3px 3px; // ne fonctionne pas
-  }
-
   &__box.open .filter__options {
     opacity: 1;
     visibility: visible;
@@ -68,6 +66,7 @@
 
   &__option {
     padding: 10px 0;
+    width: 105px;
     border-top: 1px solid white;
     border-left: 10px solid $primaire-bg;
     border-right: 10px solid $primaire-bg;
@@ -79,6 +78,10 @@
       border-left: 10px solid $secondaire-bg;
       border-right: 10px solid $secondaire-bg;
     }
+  }
+
+  &__option .selected {
+    background-color: $secondaire-bg;
   }
 }
 

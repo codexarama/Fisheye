@@ -35,24 +35,24 @@
 
     <!-- choix des options de filtrage de la galerie photos -->
       <section class="filter">
-          <p for="select" class="filter__title">Trier par</p>
-          <ul id="select" class="filter__box">
-            <div class="filter__selected btn" role="button" aria-haspopup="listbox", aria-expanded="">
-              <li class="filter__selected--value">Popularité</li>
-              <i class="fas fa-chevron-down filter__arrow"></i>
-            </div>
-            <ul class="filter__options" role="listbox" aria-labelledby="filtres">
-              <div class="filter__option filter__option--1 selected">
-                <li id="likes" value="likes">Popularité</li>
-              </div>
-              <div class="filter__option filter__option--2 ">
-                <li id="date" value="date">Date</li>
-              </div>
-              <div class="filter__option filter__option--3">
-                <li id="titre" value="titre">Titre</li>
-              </div>
+          <p type="text" class="filter__title">Trier par</p>
+          <div
+          id="listbox"
+          class="filter__box"
+          aria-haspopup="listbox"
+          aria-expanded="true">
+            <input type="text" class="filter__selected btn" readonly>
+            <i class="fas fa-chevron-down filter__arrow"></i>
+            <ul
+            class="filter__options"
+            role="listbox"
+            aria-activedescendant="selected"
+            aria-labelledby="listbox">
+              <li id="likes" class="filter__option filter__option--1 selected">Popularité</li>
+              <li id="date" class="filter__option filter__option--2 ">Date</li>
+              <li id="titre" class="filter__option filter__option--3">Titre</li>
             </ul>
-          </ul>
+          </div>
       </section>
 
       <!-- gallerie virtuelle -->

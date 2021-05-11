@@ -1,7 +1,8 @@
-// CREATION DE LA GALERIE VIRTUELLE
+// CREATION GALERIE VIRTUELLE
 const sectionGallery = document.querySelector('.gallery');
+
 // APPEL FONCTION elmtFactory ()
-// INJECTION DES DONNEES DANS ITEM CORRESPONDANT
+// INJECTION DONNEES ELEMENT CORRESPONDANT
 const setGallery = (media) => {
   const gallery = elmtFactory(
     'article',
@@ -37,29 +38,29 @@ const setGallery = (media) => {
 
   // CREATION ELEMENT MEDIA SELON TYPE (image / video)
   const galleryMedia = gallery.querySelector('.gallery__media');
-  console.log(galleryMedia); // ok
+  // console.log(galleryMedia);
 
   if (media.image != undefined) {
-    console.log(media.image); // recupere les images
+    // console.log(media.image); // recupere images
     let mediaType = elmtFactory('img', {
       class: 'currentMedia',
       src: 'images/photos/' + `${media.image}`,
       alt: `${media.title}`,
       role: 'button',
     });
-    console.log(mediaType); // cree l'element image
+    // console.log(mediaType); // cree element image
     galleryMedia.appendChild(mediaType);
   }
 
   if (media.video != undefined) {
-    console.log(media.video); // recupere les videos
+    // console.log(media.video); // recupere videos
     let mediaType = elmtFactory('video', {
       class: 'currentMedia',
       src: 'images/videos/' + `${media.video}`,
       alt: `${media.title}`,
       role: 'button',
     });
-    console.log(mediaType); // cree l'element video
+    // console.log(mediaType); // cree element video
     galleryMedia.appendChild(mediaType);
   }
 

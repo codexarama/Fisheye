@@ -427,9 +427,6 @@ input {
 .filter__box:hover {
   color: white;
 }
-.filter__box.open {
-  border-radius: 3px;
-}
 .filter__box.open .filter__selected {
   border-radius: 3px 3px 0 0;
 }

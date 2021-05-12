@@ -37,20 +37,41 @@
       <section class="filter">
           <p type="text" class="filter__title">Trier par</p>
           <div
-          id="listbox"
-          class="filter__box"
-          aria-haspopup="listbox"
-          aria-expanded="true">
-            <input type="text" class="filter__selected btn" readonly>
+            class="filter__box">
+            <button
+              role="combobox"
+              aria-haspopup="listbox"
+              aria-expanded="true"
+              id="orderBy"
+              aria-label="Order by"
+              class="filter__selected btn">
+              Popularité
+            </button>
             <i class="fas fa-chevron-down filter__arrow"></i>
             <ul
-            class="filter__options"
-            role="listbox"
-            aria-activedescendant="selected"
-            aria-labelledby="listbox">
-              <li id="likes" class="filter__option filter__option--1 selected">Popularité</li>
-              <li id="date" class="filter__option filter__option--2 ">Date</li>
-              <li id="titre" class="filter__option filter__option--3">Titre</li>
+              tabindex="0"
+              role="listbox"
+              aria-labelledby="orderBy"
+              class="filter__options">
+              <li
+                role='option'
+                id="Popularité"
+                aria-selected="true"
+                class="filter__option filter__option--1 selected">
+                Popularité
+              </li>
+              <li
+                role='option'
+                id="Date"
+                class="filter__option filter__option--2">
+                Date
+              </li>
+              <li
+                role='option'
+                id="Titre"
+                class="filter__option filter__option--3">
+                Titre
+              </li>
             </ul>
           </div>
       </section>
@@ -145,7 +166,8 @@
                   >
                   </textarea>
                 </div>
-                <div class="formData">
+                <!-- <div class="formData"> -->
+                <div>
                   <input
                     class="btn-submit"
                     for="validate"

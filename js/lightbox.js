@@ -74,7 +74,7 @@ const setLightbox = () => {
     // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX
     const showMedia = () => {
       // affiche titre media dans url
-      window.location.hash = selectMedia.alt;
+      window.location.hash = selectMedia.alt + ', closeup view';
       // affiche media + titre dans lightbox
       lightboxMedia.src = selectMedia.src;
       lightboxMedia.alt = selectMedia.alt;

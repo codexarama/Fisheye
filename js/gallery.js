@@ -7,7 +7,10 @@ const setGallery = (media) => {
   const gallery = elmtFactory(
     'article',
     { class: 'gallery__card' },
-    elmtFactory('div', { class: 'gallery__media' }),
+    elmtFactory('a', {
+      class: 'gallery__closeupview',
+      href: `${media.title}` + ', closeup view',
+    }),
     elmtFactory(
       'div',
       { class: 'gallery__content' },
@@ -21,7 +24,7 @@ const setGallery = (media) => {
         'button',
         {
           class: 'gallery__likes',
-          role: 'button'
+          role: 'button',
         },
         elmtFactory('input', {
           class: 'gallery__likes--count',
@@ -37,29 +40,39 @@ const setGallery = (media) => {
   );
 
   // CREATION ELEMENT MEDIA SELON TYPE (image / video)
-  const galleryMedia = gallery.querySelector('.gallery__media');
+  const galleryMedia = gallery.querySelector('.gallery__closeupview');
   // console.log(galleryMedia);
 
   if (media.image != undefined) {
     // console.log(media.image); // recupere images
-    let mediaType = elmtFactory('img', {
-      class: 'currentMedia',
-      src: 'images/photos/' + `${media.image}`,
-      alt: `${media.title}`,
-      role: 'button',
-    });
+    let mediaType = elmtFactory(
+      'div',
+      {
+        class: 'gallery__media',
+      },
+      elmtFactory('img', {
+        class: 'currentMedia',
+        src: 'images/photos/' + `${media.image}`,
+        alt: `${media.title}`,
+      })
+    );
     // console.log(mediaType); // cree element image
     galleryMedia.appendChild(mediaType);
   }
 
   if (media.video != undefined) {
     // console.log(media.video); // recupere videos
-    let mediaType = elmtFactory('video', {
-      class: 'currentMedia',
-      src: 'images/videos/' + `${media.video}`,
-      alt: `${media.title}`,
-      role: 'button',
-    });
+    let mediaType = elmtFactory(
+      'div',
+      {
+        class: 'gallery__media',
+      },
+      elmtFactory('video', {
+        class: 'currentMedia',
+        src: 'images/videos/' + `${media.video}`,
+        alt: `${media.title}`,
+      })
+    );
     // console.log(mediaType); // cree element video
     galleryMedia.appendChild(mediaType);
   }

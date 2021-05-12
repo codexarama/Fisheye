@@ -39,9 +39,30 @@ closeModalBtn.forEach((btn) =>
   )
 );
 
+// AFFICHE LES SAISIES DANS LA CONSOLE
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  console.log(`Prénom : ${firstName.value}`);
+  console.log(`Nom : ${lastName.value}`);
+  console.log(`Email : ${email.value}`);
+  console.log(`Message : ${message.value}`);
+  if (checkValidity) {
+    modalBody.style.display = 'none';
+    confirm.style.opacity = '1';
+    form.reset();
+  }
+  closeModal();
+});
+
 // VERIFICATION DES SAISIES
-const inputs = document.querySelectorAll('input');
-const textarea = document.querySelectorAll('textarea');
+// ---------- NE FONCTIONNE PLUS ---------- //
+const inputs = document.querySelectorAll('.formData input');
+// console.log(inputs);
+const textarea = document.querySelector('textarea');
+// console.log(textarea);
+
+// ---------- A REPRENDRE ---------- //
+// ---------- BOUCLE inputs for.Each input ---------- //
 
 const checkValidity = (input) => {
   input.addEventListener('invalid', (e) => {
@@ -68,6 +89,31 @@ const checkValidity = (input) => {
   });
 };
 
+// const checkValidity = (input) => {
+//   input.addEventListener('invalid', (e) => {
+//     e.preventDefault();
+//     // le format de saisie ne correspond pas au pattern
+//     if (!e.target.validity.valid) {
+//       e.target.parentElement.classList.add('error');
+//       dataError(input, 'Veuillez vérifier votre saisie');
+//     }
+//     // aucun champ n'est rempli
+//     if (e.target.validity.valueMissing) {
+//       submitBtn.style.backgroundColor = 'grey';
+//       dataError(input, 'Veuillez renseigner ce champ');
+//     }
+//   });
+
+//   input.addEventListener('input', (e) => {
+//     // les champs sont valides
+//     if (e.target.validity.valid) {
+//       e.target.parentElement.classList.remove('error');
+//       submitBtn.style.backgroundColor = '#901c1c';
+//       dataSuccess(input, '');
+//     }
+//   });
+// };
+
 // CHECKVALIDITY TEXTAREA ?!
 
 // MESSAGES
@@ -86,14 +132,14 @@ const dataSuccess = (input, message) => {
 };
 
 // AFFICHE LES SAISIES DANS LA CONSOLE
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  console.log(`Prénom : ${firstName.value}`);
-  console.log(`Nom : ${lastName.value}`);
-  console.log(`Email : ${email.value}`);
-  console.log(`Message : ${message.value}`);
-  closeModal();
-});
+// form.addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   console.log(`Prénom : ${firstName.value}`);
+//   console.log(`Nom : ${lastName.value}`);
+//   console.log(`Email : ${email.value}`);
+//   console.log(`Message : ${message.value}`);
+//   closeModal();
+// });
 
 // CONFIRMATION D'ENVOI DU MESSAGE
 // form.addEventListener('submit', function (e) {

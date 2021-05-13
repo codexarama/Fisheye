@@ -51,26 +51,40 @@
   &__likes {
     display: inline-flex;
     justify-content: flex-end;
-    appearance: none;
-    border: none;
-    background-color: transparent;
 
-    &--icon {
+    &--btn {
+      width: 14px;
+      height: 13px;
+      appearance: none;
+      border: none;
+      border-radius: 50%;
+      background-color: transparent;
       cursor: pointer;
       color: $primaire-bg;
 
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px white, 0 0 0 3px $primaire-bg;
+      }
+
       &:hover {
         color: $secondaire-bg;
-        transition: color 0.5s;
+        transition: color 2.5s;
       }
     }
 
-    &--icon.selected {
+    &--btn.selected {
       cursor: pointer;
       color: $secondaire-bg;
 
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px white, 0 0 0 3px $secondaire-bg;
+      }
+
       &:hover {
         color: $primaire-bg;
+        transition: color 2.5s;
       }
     }
 

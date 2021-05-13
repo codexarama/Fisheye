@@ -33,6 +33,10 @@ body li a, body li a:visited {
   text-decoration: none;
   text-align: center;
 }
+body button::-moz-focus-inner,
+body a::-moz-focus-inner {
+  border: 0;
+}
 
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -100,6 +104,12 @@ nav {
   cursor: pointer;
 }
 .btn:hover {
+  background-color: #db8876;
+  color: black;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 5px #db8876;
   background-color: #db8876;
   color: black;
 }
@@ -194,6 +204,10 @@ nav {
   border: solid 1px #901c1c;
   background-color: #901c1c;
   color: white;
+}
+.tags li a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #901c1c;
 }
 
 .card {
@@ -529,24 +543,36 @@ input {
 .gallery__likes {
   display: inline-flex;
   justify-content: flex-end;
+}
+.gallery__likes--btn {
+  width: 14px;
+  height: 13px;
   appearance: none;
   border: none;
+  border-radius: 50%;
   background-color: transparent;
-}
-.gallery__likes--icon {
   cursor: pointer;
   color: #901c1c;
 }
-.gallery__likes--icon:hover {
-  color: #db8876;
-  transition: color 0.5s;
+.gallery__likes--btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #901c1c;
 }
-.gallery__likes--icon.selected {
+.gallery__likes--btn:hover {
+  color: #db8876;
+  transition: color 2.5s;
+}
+.gallery__likes--btn.selected {
   cursor: pointer;
   color: #db8876;
 }
-.gallery__likes--icon.selected:hover {
+.gallery__likes--btn.selected:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #db8876;
+}
+.gallery__likes--btn.selected:hover {
   color: #901c1c;
+  transition: color 2.5s;
 }
 .gallery__likes--count {
   border: none;

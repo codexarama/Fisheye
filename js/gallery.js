@@ -21,10 +21,9 @@ const setGallery = (media) => {
         elmtFactory('p', { class: 'gallery__title' }, `${media.title}`)
       ),
       elmtFactory(
-        'button',
+        'div',
         {
           class: 'gallery__likes',
-          role: 'button',
         },
         elmtFactory('input', {
           class: 'gallery__likes--count',
@@ -32,9 +31,15 @@ const setGallery = (media) => {
           readonly: 'true',
           value: `${media.likes}`,
         }),
-        elmtFactory('i', {
-          class: 'fas fa-heart gallery__likes--icon',
-        })
+        elmtFactory(
+          'button',
+          { class: 'gallery__likes--btn',
+            role: 'button'
+          },
+          elmtFactory('i', {
+            class: 'fas fa-heart gallery__likes--icon',
+          })
+        )
       )
     )
   );

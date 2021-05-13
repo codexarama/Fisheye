@@ -14,6 +14,14 @@
     background-color: $secondaire-bg;
     color: $secondaire-a;
   }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px white, 0 0 0 5px $secondaire-bg;
+    background-color: $secondaire-bg;
+    color: $secondaire-a;
+
+  }
 }
 
 // bouton "passez au contenu"

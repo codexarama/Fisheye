@@ -7,9 +7,8 @@ const setGallery = (media) => {
   const gallery = elmtFactory(
     'article',
     { class: 'gallery__card' },
-    elmtFactory('a', {
-      class: 'gallery__closeupview',
-      href: `${media.title}` + ', closeup view',
+    elmtFactory('div', {
+      class: 'gallery__media',
     }),
     elmtFactory(
       'div',
@@ -18,7 +17,14 @@ const setGallery = (media) => {
       elmtFactory(
         'div',
         { class: 'gallery__infos' },
-        elmtFactory('p', { class: 'gallery__title' }, `${media.title}`)
+        elmtFactory(
+          'p',
+          {
+            class: 'gallery__title',
+            tabindex: '0',
+          },
+          `${media.title}`
+        )
       ),
       elmtFactory(
         'div',
@@ -33,9 +39,7 @@ const setGallery = (media) => {
         }),
         elmtFactory(
           'button',
-          { class: 'gallery__likes--btn',
-            role: 'button'
-          },
+          { class: 'gallery__likes--btn', role: 'button' },
           elmtFactory('i', {
             class: 'fas fa-heart gallery__likes--icon',
           })
@@ -45,39 +49,29 @@ const setGallery = (media) => {
   );
 
   // CREATION ELEMENT MEDIA SELON TYPE (image / video)
-  const galleryMedia = gallery.querySelector('.gallery__closeupview');
+  const galleryMedia = gallery.querySelector('.gallery__media');
   // console.log(galleryMedia);
 
   if (media.image != undefined) {
     // console.log(media.image); // recupere images
-    let mediaType = elmtFactory(
-      'div',
-      {
-        class: 'gallery__media',
-      },
-      elmtFactory('img', {
-        class: 'currentMedia',
-        src: 'images/photos/' + `${media.image}`,
-        alt: `${media.title}`,
-      })
-    );
+    let mediaType = elmtFactory('img', {
+      class: 'currentMedia',
+      src: 'images/photos/' + `${media.image}`,
+      alt: `${media.title}`,
+      tabindex: '0',
+    });
     // console.log(mediaType); // cree element image
     galleryMedia.appendChild(mediaType);
   }
 
   if (media.video != undefined) {
     // console.log(media.video); // recupere videos
-    let mediaType = elmtFactory(
-      'div',
-      {
-        class: 'gallery__media',
-      },
-      elmtFactory('video', {
-        class: 'currentMedia',
-        src: 'images/videos/' + `${media.video}`,
-        alt: `${media.title}`,
-      })
-    );
+    let mediaType = elmtFactory('video', {
+      class: 'currentMedia',
+      src: 'images/videos/' + `${media.video}`,
+      alt: `${media.title}`,
+      tabindex: '0',
+    });
     // console.log(mediaType); // cree element video
     galleryMedia.appendChild(mediaType);
   }

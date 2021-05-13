@@ -6,40 +6,51 @@ const lightboxTitle = document.querySelector('.lightbox__title');
 const prev = document.querySelector('.lightbox__prev');
 const next = document.querySelector('.lightbox__next');
 
-// LAUNCH LIGHTBOX
 const setLightbox = () => {
   const medias = document.querySelectorAll('.currentMedia');
   // console.log(medias);
 
-  for (let i = 0; i < medias.length; i++) {
-    let selectMedia = medias[i];
-    let selectedMediaIndex = i;
+  for (let j = 0; j < medias.length; j++) {
+    let selectMedia = medias[j];
+    let selectedMediaIndex = j;
 
-    // quand click sur image
-    selectMedia.addEventListener('click', (e) => {
-      e.preventDefault();
-      selectMedia.classList.add('selected');
-      // console.log(selectedMediaIndex); // index media choisi
-      // console.log(selectMedia); // infos media choisi
+    // IDENTIFIE LE MEDIA CHOISI
+    // quand click sur media
+    selectMedia.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      // ACCESSIBILITE
+      // navigation clavier sur image : "entree" = "click"
+      if (event.keycode == 13) selectMedia.click(); // NE FONCTIONNE PAS
 
       // OUVRE LA LIGHTBOX
       lightbox.style.display = 'flex';
       lightboxShow.classList.add('active');
 
+      // affecte 'selected' au media choisi
+      selectMedia.classList.add('selected');
+      // console.log(selectedMediaIndex); // index media choisi
+      // console.log(selectMedia); // infos media choisi
+
       // AFFICHE LE MEDIA CHOISI
       showMedia();
 
+      // IDENTIFIE LE MEDIA PRECEDENT
       // quand click sur prev
       prev.addEventListener('click', (e) => {
         e.preventDefault();
+
+        // retire 'selected' du media choisi
         selectMedia.classList.remove('selected');
 
-        // index -1
+        // lui affecte index -1
         selectedMediaIndex--;
         selectMedia = medias[selectedMediaIndex];
-        selectMedia.classList.add('selected');
         // console.log(selectedMediaIndex); // index media precedent
         // console.log(selectMedia); // infos media precedent
+
+        // ajoute 'selected' au nouveau media choisi
+        selectMedia.classList.add('selected');
 
         // AFFICHE LE MEDIA PRECEDENT
         showMedia();
@@ -49,17 +60,22 @@ const setLightbox = () => {
         if (selectedMediaIndex < medias.length) next.style.display = 'block';
       });
 
+      // IDENTIFIE LE MEDIA SUIVANT
       // quand click sur next
       next.addEventListener('click', (e) => {
         e.preventDefault();
+
+        // retire 'selected' du media choisi
         selectMedia.classList.remove('selected');
 
-        // index +1
+        // lui affecte index -1
         selectedMediaIndex++;
         selectMedia = medias[selectedMediaIndex];
-        selectMedia.classList.add('selected');
         // console.log(selectedMediaIndex); // index media suivant
         // console.log(selectMedia); // infos media suivant
+
+        // ajoute 'selected' au nouveau media choisi
+        selectMedia.classList.add('selected');
 
         // AFFICHE LE MEDIA SUIVANT
         showMedia();

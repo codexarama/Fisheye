@@ -28,4 +28,10 @@ body {
       text-align: center;
     }
   }
+
+  // supprime le pseudo element Firefox qui affiche une bordure en pointille
+  button::-moz-focus-inner,
+  a::-moz-focus-inner {
+    border: 0;
+  }
 }

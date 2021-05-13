@@ -21,7 +21,7 @@
   <body>
     <!-- <button class="btn btn-homepage evitement"><a href="#contenu">Passer au contenu</a></button> -->
     <!-- <a class="btn btn-homepage evitement" role="button" href="#contenu">Passer au contenu</a> -->
-    <span class="evitement"><a class="evitement__link btn btn-homepage" role="button" href="#contenu">Passer au contenu</a></span>
+    <span class="evitement" tabindex="-1"><a class="evitement__link btn btn-homepage" role="button" href="#contenu">Passer au contenu</a></span>
     <header class="header">
 
       <img
@@ -31,7 +31,6 @@
       />
       <nav aria-label="photographer categories">
         <ul class="tags" aria-label="photographer categories">
-          <!-- <li class="tag"><a href="#contenu?tag=portrait" rel="tag">#Portrait</a></li> -->
           <li class="tag"><a href="?tag=portrait" rel="tag" role="button">#Portrait</a></li>
           <li class="tag"><a href="?tag=art" rel="tag" role="button">#Art</a></li>
           <li class="tag"><a href="?tag=architecture" rel="tag" role="button">#Architecture</a></li>
@@ -47,7 +46,8 @@
       <section id="contenu" tabindex="-1"></section>
     </main>
     <script type="text/javascript" src="js/elmt_factory.js"></script>
-    <script type="text/javascript" src="js/handleEvents.js"></script>
+    <script type="text/javascript" src="js/handle_focus.js"></script>
+    <!-- <script type="text/javascript" src="js/handleEvents.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/home_page.js"></script>
   </body>

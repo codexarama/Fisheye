@@ -37,11 +37,11 @@
       <section class="filter">
           <p type="text" class="filter__title">Trier par</p>
           <div
-            class="filter__box">
+            class="filter__box"
+            aria-expanded="false">
             <button
               role="combobox"
               aria-haspopup="listbox"
-              aria-expanded="true"
               id="orderBy"
               aria-label="Order by"
               class="filter__selected btn">
@@ -196,7 +196,8 @@
 
     <!-- appel des scripts js -->
     <script type="text/javascript" src="js/elmt_factory.js"></script>
-    <script type="text/javascript" src="js/handleEvents.js"></script>
+    <script type="text/javascript" src="js/handle_focus.js"></script>
+    <!-- <script type="text/javascript" src="js/handleEvents.js"></script> -->
     <script type="text/javascript" src="js/gallery.js"></script>
     <script type="text/javascript" src="js/profile.js"></script>
     <script type="text/javascript" src="js/sort.js"></script>

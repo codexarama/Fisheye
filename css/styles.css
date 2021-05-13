@@ -228,7 +228,7 @@ nav {
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.card__image img:hover {
+.card__image img:hover, .card__image img:focus {
   transform: scale(1.25);
   transform-origin: 50% 50%;
 }
@@ -270,7 +270,7 @@ nav {
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.id__image img:hover {
+.id__image img:hover, .id__image img:focus {
   transform: scale(1.25);
   transform-origin: 50% 50%;
 }
@@ -522,7 +522,7 @@ input {
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.gallery__media img:hover, .gallery__media video:hover {
+.gallery__media img:hover, .gallery__media img:focus, .gallery__media video:hover, .gallery__media video:focus {
   transform: scale(1.25);
   transform-origin: 50% 50%;
 }
@@ -538,7 +538,10 @@ input {
   justify-content: space-between;
 }
 .gallery__title {
-  width: 100%;
+  width: 88%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .gallery__likes {
   display: inline-flex;

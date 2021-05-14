@@ -142,40 +142,42 @@ nav {
 }
 
 .evitement {
-  display: inline-flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.btn-homepage {
-  padding: 3px 6px;
-}
-.btn-homepage a {
+  position: fixed;
+  width: 90%;
+  margin: 5px auto;
+  text-align: center;
   color: white;
 }
-.btn-homepage a:hover {
+.evitement__link {
+  width: 130px;
+  padding: 3px 6px;
+  transform-origin: center center;
+}
+.evitement__link:hover {
   color: black;
 }
 
 @media only screen and (max-width: 600px) {
-  .btn-homepage {
+  .evitement {
     display: none;
+    position: fixed;
+    top: 92%;
+    transition: all 1s ease;
+  }
+  .evitement__link {
+    transform-origin: center center;
+  }
+
+  .evitement.scroll {
+    display: block;
   }
 }
-.testLikeIcon {
-  cursor: pointer;
-}
-
-.testLikeCount {
-  pointer-events: none;
-}
-
 .header {
   display: inline-flex;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 25px;
+  margin-top: 25px;
 }
 .header__logo {
   width: 200px;
@@ -210,17 +212,17 @@ nav {
     display: block;
     width: 90%;
     margin: auto;
+    position: relative;
   }
   .header__logo {
-    width: 150px;
+    width: 125px;
     margin: 25px 0;
-    padding-right: 10px;
   }
   .header__headline {
     position: absolute;
-    top: 40px;
-    right: 10%;
-    font-size: medium;
+    top: 36px;
+    right: 0;
+    font-size: small;
   }
 }
 .tags li a {
@@ -273,7 +275,7 @@ nav {
 @media only screen and (max-width: 600px) {
   .card {
     width: 100%;
-    margin-bottom: 25px;
+    padding: 0 0 25px;
   }
 }
 .id {
@@ -640,9 +642,6 @@ input {
   }
   .gallery__media img, .gallery__media video {
     width: 100%;
-  }
-  .gallery__likes--count {
-    margin-right: 20px;
   }
 }
 .lightbox__modal {

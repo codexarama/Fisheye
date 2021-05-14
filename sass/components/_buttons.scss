@@ -19,40 +19,40 @@
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px white, 0 0 0 6px $secondaire-bg;
-
   }
 }
 
 // bouton "passez au contenu"
 // page d'accueil
 .evitement {
-  display: inline-flex;
-  width: 100%;
-  justify-content: center;
-}
+  position: fixed;
+  width: 90%;
+  margin: 5px auto;
+  text-align: center;
+  color: $primaire-a;
 
-.btn-homepage {
-  padding: 3px 6px;
+  &__link {
+    width: 130px;
+    padding: 3px 6px;
+    transform-origin: center center;
 
-  & a {
-    color: $primaire-a;
-  }
-
-  & a:hover {
-    color: $secondaire-a;
+    &:hover {
+      color: $secondaire-a;
+    }
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .btn-homepage {
+  .evitement {
     display: none;
+    position: fixed;
+    top: 92%;
+    transition: all 1s ease; // ne fonctionne pas
+    &__link {
+      transform-origin: center center;
+    }
   }
-}
-
-.testLikeIcon {
-  cursor: pointer;
-}
-
-.testLikeCount {
-  pointer-events: none;
+  .evitement.scroll {
+    display: block;
+  }
 }

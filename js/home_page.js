@@ -41,7 +41,16 @@ function fetchData() {
         }
       }
     })
-  // GESTION DES ERREURS
-  .catch((error) => console.log(error.message));
+
+    // GESTION DES ERREURS
+    .catch((error) => console.log(error.message));
 }
 fetchData();
+
+// GESTION DU BOUTON D'EVITEMENT SELON SCROLL
+// mobile screens
+const evitement = document.querySelector('.evitement');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 250) evitement.classList.add('scroll');
+  else evitement.classList.remove('scroll');
+});

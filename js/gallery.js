@@ -33,7 +33,7 @@ const setGallery = (media) => {
         },
         elmtFactory('input', {
           class: 'gallery__likes--count',
-          type: 'number',
+          type: 'text',
           readonly: 'true',
           value: `${media.likes}`,
         }),

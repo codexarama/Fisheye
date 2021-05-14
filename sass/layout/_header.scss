@@ -7,16 +7,23 @@
 
   &__logo {
     width: 200px;
-    padding-right: 10px;
+    padding: 5px 5px 0;
   }
 
   &__headline {
-    padding-left: 10px;
+    padding: 0 5px;
+    text-align: left;
   }
 }
 
-.nosPhotographes {
-  text-align: left;
+.nosPhotographes,
+.photographerId h2 {
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+  }
 }
 
 .banner {
@@ -25,7 +32,7 @@
 
   &__logo {
     width: 150px;
-    padding-right: 10px;
+    padding: 5px 5px 0;
   }
 }
 
@@ -33,7 +40,7 @@
   .header {
     display: block;
     width: 90%;
-    margin:auto;
+    margin: auto;
 
     &__logo {
       width: 150px;

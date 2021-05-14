@@ -24,6 +24,7 @@ body a,
 body a:visited {
   text-decoration: none;
   text-align: center;
+  border-radius: 3px;
 }
 body li {
   list-style: none;
@@ -36,6 +37,10 @@ body li a, body li a:visited {
 body button::-moz-focus-inner,
 body a::-moz-focus-inner {
   border: 0;
+}
+
+main {
+  padding-bottom: 25px;
 }
 
 body {
@@ -65,17 +70,41 @@ nav {
   font-size: 2em;
   font-weight: 400;
   color: #d3573c;
+  border-radius: 3px;
+  line-height: 1, 5em;
+}
+.card__name:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .card__location {
   font-size: medium;
   color: #901c1c;
+  border-radius: 3px;
+  line-height: 1, 5em;
+}
+.card__location:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .card__tagline {
   font-weight: 700;
+  border-radius: 3px;
+  line-height: 1.5em;
+}
+.card__tagline:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .card__price {
   font-size: xx-small;
   font-weight: 300;
+  border-radius: 3px;
+  line-height: 2em;
+}
+.card__price:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
 .filter__title, .filter__select {
@@ -103,15 +132,13 @@ nav {
   font-weight: 700;
   cursor: pointer;
 }
-.btn:hover {
+.btn:hover, .btn:focus {
   background-color: #db8876;
   color: black;
 }
 .btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px white, 0 0 0 5px #db8876;
-  background-color: #db8876;
-  color: black;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #db8876;
 }
 
 .evitement {
@@ -152,14 +179,21 @@ nav {
 }
 .header__logo {
   width: 200px;
-  padding-right: 10px;
+  padding: 5px 5px 0;
 }
 .header__headline {
-  padding-left: 10px;
+  padding: 0 5px;
+  text-align: left;
 }
 
-.nosPhotographes {
-  text-align: left;
+.nosPhotographes,
+.photographerId h2 {
+  border-radius: 3px;
+}
+.nosPhotographes:focus,
+.photographerId h2:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
 .banner {
@@ -168,7 +202,7 @@ nav {
 }
 .banner__logo {
   width: 150px;
-  padding-right: 10px;
+  padding: 5px 5px 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -207,13 +241,13 @@ nav {
 }
 .tags li a:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #901c1c;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
 .card {
   width: 33%;
   text-align: center;
-  margin-bottom: 50px;
+  padding: 25px 0;
 }
 .card__image {
   width: 125px;
@@ -533,15 +567,18 @@ input {
   margin: 10px 0;
 }
 .gallery__infos {
-  width: 100%;
   display: inline-flex;
   justify-content: space-between;
 }
 .gallery__title {
-  width: 88%;
+  border-radius: 3px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.gallery__title:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .gallery__likes {
   display: inline-flex;
@@ -559,7 +596,7 @@ input {
 }
 .gallery__likes--btn:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #901c1c;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .gallery__likes--btn:hover {
   color: #db8876;
@@ -571,25 +608,30 @@ input {
 }
 .gallery__likes--btn.selected:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #db8876;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
 .gallery__likes--btn.selected:hover {
   color: #901c1c;
   transition: color 2.5s;
 }
 .gallery__likes--count {
+  width: 30px;
+  background-color: transparent;
   border: none;
-  width: 50px;
-  padding: 0;
+  border-radius: 3px;
+  padding: 0 2px;
+  margin-right: 3px;
   pointer-events: none;
   text-align: right;
-  background-color: transparent;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: xx-small;
-  font-weight: 700;
+  font-size: inherit;
+  font-weight: inherit;
   color: #901c1c;
-  position: absolute;
-  margin-right: 3px;
+  user-select: none;
+}
+.gallery__likes--count:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
 @media only screen and (max-width: 600px) {
@@ -672,7 +714,7 @@ input {
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 175px;
+  width: 160px;
   padding: 10px;
   background-color: #db8876;
   border-radius: 5px 0 0 0;
@@ -684,17 +726,39 @@ input {
 }
 
 footer input {
-  margin-right: -5px;
-  width: 50px;
-  text-align: right;
+  width: 35px;
   background-color: transparent;
   border: none;
+  border-radius: 3px;
   pointer-events: none;
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: xx-small;
-  font-weight: 700;
+  margin-right: 5px;
   padding: 0;
+  text-align: right;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+}
+footer input:focus {
   outline: none;
+  box-shadow: 0 0 0 2px #db8876, 0 0 0 4px black;
+}
+
+footer i {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+footer i:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #db8876, 0 0 0 4px black;
+}
+
+footer p {
+  border-radius: 3px;
+}
+footer p:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #db8876, 0 0 0 4px black;
 }
 
 @media only screen and (max-width: 600px) {

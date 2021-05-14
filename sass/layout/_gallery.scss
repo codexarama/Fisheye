@@ -40,16 +40,20 @@
   }
 
   &__infos {
-    width: 100%;
     display: inline-flex;
     justify-content: space-between;
   }
 
   &__title {
-    width: 88%;
+    border-radius: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+    }
   }
 
   &__likes {
@@ -68,7 +72,7 @@
 
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px white, 0 0 0 3px $primaire-bg;
+        box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
       }
 
       &:hover {
@@ -83,7 +87,7 @@
 
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px white, 0 0 0 3px $secondaire-bg;
+        box-shadow: 0 0 0 2px white, 0 0 0 4px $secondaire-bg;
       }
 
       &:hover {
@@ -93,18 +97,24 @@
     }
 
     &--count {
+      width: 30px;
+      background-color: transparent;
       border: none;
-      width: 50px;
-      padding: 0;
+      border-radius: 3px;
+      padding: 0 2px;
+      margin-right: 3px;
       pointer-events: none;
       text-align: right;
-      background-color: transparent;
       font-family: $type;
-      font-size: $xs;
-      font-weight: $bold;
+      font-size: inherit;
+      font-weight: inherit;
       color: $secondaire-txt;
-      position: absolute;
-      margin-right: 3px;
+      user-select: none;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+      }
     }
   }
 }

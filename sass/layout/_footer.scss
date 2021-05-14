@@ -3,7 +3,7 @@
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 175px;
+  width: 160px;
   padding: 10px;
   background-color: $secondaire-bg;
   border-radius: 5px 0 0 0;
@@ -16,17 +16,42 @@
 }
 
 footer input {
-  margin-right: -5px;
-  width: 50px;
-  text-align: right;
+  width: 35px;
   background-color: transparent;
   border: none;
+  border-radius: 3px;
   pointer-events: none;
-  font-family: $type;
-  font-size: $xs;
-  font-weight: $bold;
+  margin-right: 5px;
   padding: 0;
-  outline: none;
+  text-align: right;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: $bold;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $secondaire-bg, 0 0 0 4px $secondaire-a;
+  }
+}
+
+footer i {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $secondaire-bg, 0 0 0 4px $secondaire-a;
+  }
+}
+
+footer p {
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $secondaire-bg, 0 0 0 4px $secondaire-a;
+  }
 }
 
 @media only screen and (max-width: 600px) {

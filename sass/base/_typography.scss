@@ -27,25 +27,52 @@ nav {
     font-size: $l;
     font-weight: $regular;
     color: $primaire-txt;
+    border-radius: 3px;
+    line-height: 1,5em;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+    }
   }
 
   &__location {
     font-size: $m;
     color: $secondaire-txt;
+    border-radius: 3px;
+    line-height: 1,5em;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+    }
   }
 
   &__tagline {
     font-weight: $bold;
+    border-radius: 3px;
+    line-height: 1.5em;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+    }
   }
 
   &__price {
     font-size: $xs;
     font-weight: $light;
+    border-radius: 3px;
+    line-height: 2em;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+    }
   }
 }
 
 .filter {
-
   &__title,
   &__select {
     font-weight: $bold;

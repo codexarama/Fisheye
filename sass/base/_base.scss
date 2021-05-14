@@ -16,6 +16,7 @@ body {
   a:visited {
     text-decoration: none;
     text-align: center;
+    border-radius: 3px;
   }
 
   li {
@@ -34,4 +35,8 @@ body {
   a::-moz-focus-inner {
     border: 0;
   }
+}
+
+main {
+  padding-bottom: 25px;;
 }

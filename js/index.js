@@ -15,6 +15,7 @@ const setCard = (photographer) => {
         // CREE UNE url SPECIFIQUE POUR CHAQUE PHOTOGRAPHE (selon id)
         // OUVRE LA PAGE PRO TYPE DU PHOTOGRAPHE CORRESPONDANT
         href: 'propage.html?id=' + `${photographer.id}`,
+        title: `${photographer.name}`,
         class: 'photographerId',
       },
       elmtFactory(
@@ -23,18 +24,30 @@ const setCard = (photographer) => {
         elmtFactory('img', {
           src: 'images/portraits/' + `${photographer.portrait}`,
           alt: `${photographer.name}`,
-          tabindex: '0'
+          tabindex: '0',
         })
       ),
-      elmtFactory('h2', { class: 'card__name', tabindex: '0' }, `${photographer.name}`)
+      elmtFactory(
+        'h2',
+        { class: 'card__name', tabindex: '0' },
+        `${photographer.name}`
+      )
     ),
     elmtFactory(
       'p',
       { class: 'card__location', tabindex: '0' },
       `${photographer.city}` + ', ' + `${photographer.country}`
     ),
-    elmtFactory('p', { class: 'card__tagline', tabindex: '0' }, `${photographer.tagline}`),
-    elmtFactory('p', { class: 'card__price', tabindex: '0' }, `${photographer.price}` + '€'),
+    elmtFactory(
+      'p',
+      { class: 'card__tagline', tabindex: '0' },
+      `${photographer.tagline}`
+    ),
+    elmtFactory(
+      'p',
+      { class: 'card__price', tabindex: '0' },
+      `${photographer.price}` + '€'
+    ),
     elmtFactory('ul', { class: 'tags' })
   );
 
@@ -48,8 +61,9 @@ const setCard = (photographer) => {
         // CREE UNE url SPECIFIQUE POUR CHAQUE TAG (au clic)
         {
           href: '?tag=' + `${photographer.tags[j]}`,
-          class: `${photographer.tags[j]}`,
           rel: 'tag',
+          title:  `${photographer.tags[j]}`,
+          class: `${photographer.tags[j]}`,
         },
         '#' + `${photographer.tags[j]}`
       )

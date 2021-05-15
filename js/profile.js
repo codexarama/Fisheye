@@ -56,8 +56,9 @@ const setId = (photographer) => {
         'a',
         {
           href: `index.html?tag=${photographer.tags[j]}`,
-          class: `${photographer.tags[j]}`,
           rel: 'tag',
+          title: `${photographer.tags[j]}`,
+          class: `${photographer.tags[j]}`,
         },
         '#' + `${photographer.tags[j]}`
       )

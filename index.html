@@ -20,9 +20,8 @@
 <html>
   <body>
     <div class="evitement">
-    <a tabindex="0" class="evitement__link btn" role="button" href="#contenu">Passer au contenu</a>
+    <a tabindex="0" class="evitement__link btn" role="button" href="#contenu" title="Passer au contenu">Passer au contenu</a>
   </div>
-    <!-- <a tabindex="0" class="evitement btn" role="button" href="#contenu">Passer au contenu</a> -->
     <header class="header">
 
       <img
@@ -32,19 +31,19 @@
       />
       <nav aria-label="photographer categories">
         <ul class="tags" aria-label="photographer categories">
-          <li class="tag"><a href="?tag=portrait" rel="tag" role="button">#Portrait</a></li>
-          <li class="tag"><a href="?tag=art" rel="tag" role="button">#Art</a></li>
-          <li class="tag"><a href="?tag=architecture" rel="tag" role="button">#Architecture</a></li>
-          <li class="tag"><a href="?tag=sport" rel="tag" role="button">#Sport</a></li>
-          <li class="tag"><a href="?tag=travel" rel="tag" role="button">#Travel</a></li>
-          <li class="tag"><a href="?tag=animals" rel="tag" role="button">#Animals</a></li>
-          <li class="tag"><a href="?tag=events" rel="tag" role="button">#Events</a></li>
+          <li class="tag"><a href="?tag=portrait" rel="tag" role="button" title="Portrait">#Portrait</a></li>
+          <li class="tag"><a href="?tag=art" rel="tag" role="button" title="#Art">#Art</a></li>
+          <li class="tag"><a href="?tag=architecture" rel="tag" role="button" title="Architecture">#Architecture</a></li>
+          <li class="tag"><a href="?tag=sport" rel="tag" role="button" title="Sport">#Sport</a></li>
+          <li class="tag"><a href="?tag=travel" rel="tag" role="button" title="Travel">#Travel</a></li>
+          <li class="tag"><a href="?tag=animals" rel="tag" role="button" title="Animals">#Animals</a></li>
+          <li class="tag"><a href="?tag=events" rel="tag" role="button" title="Events">#Events</a></li>
         </ul>
       </nav>
-      <a href="index.html" class="nosPhotographes"><h1 class="header__headline">Nos Photographes</h1></a>
+      <a href="index.html" class="nosPhotographes" title="Homepage"><h1 class="header__headline">Nos Photographes</h1></a>
     </header>
     <main role="main">
-      <section id="contenu" tabindex="-1"></section>
+      <section id="contenu" tabindex="-1" aria-label="Photographers"></section>
     </main>
     <script type="text/javascript" src="js/elmt_factory.js"></script>
     <script type="text/javascript" src="js/handle_focus.js"></script>

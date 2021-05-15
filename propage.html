@@ -20,7 +20,7 @@
 <html>
   <body>
     <header class="banner">
-      <a href="index.html" class="banner__link"
+      <a href="index.html" class="banner__link" title="Homepage"
         ><img
           src="images/logo/logo_fisheye.svg"
           class="banner__logo"
@@ -30,7 +30,7 @@
     <main>
       <!-- profil du photographe -->
       <section class="id">
-        <button type="button" id="modalBtn" class="btn btn-contact">Contactez-moi</button>
+        <button title="Me contacter" type="button" id="modalBtn" class="btn btn-contact">Contactez-moi</button>
       </section>
 
     <!-- choix des options de filtrage de la galerie photos -->
@@ -54,7 +54,7 @@
               aria-labelledby="orderBy"
               class="filter__options">
               <li
-                tabindex="0"
+                tabindex="-1"
                 role='option'
                 id="Popularité"
                 aria-selected="true"
@@ -86,19 +86,19 @@
       <section class="lightbox">
         <div class="lightbox__modal">
           <div class="lightbox__content">
-            <a rel="close" href="" role="button">
-              <i class="fas fa-times lightbox__btn lightbox__close" role="button" onclick="closeLightbox()"></i>
-            </a>
-            <div id="currentMedia" class="lightbox__show">
+            <button title="Close dialog" role="button" class="lightbox__btn lightbox__close" onclick="closeLightbox()">
+              <i class="fas fa-times"></i>
+            </button>
+            <div aria-label="image closeup view" class="lightbox__show">
               <img src="" alt="" class="lightbox__media">
               <p class="lightbox__title"></p>
             </div>
-            <a rel="prev" href="" role="button">
-              <i class="fas fa-chevron-left lightbox__btn lightbox__prev"></i>
-            </a>
-            <a rel="next" href="" role="button">
-              <i class="fas fa-chevron-right lightbox__btn lightbox__next"></i>
-            </a>
+            <button title="Previous image" role="button" class="lightbox__btn lightbox__prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button title="Next image" role="button" class="lightbox__btn lightbox__next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </section>

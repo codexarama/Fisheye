@@ -10,7 +10,7 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: white;
   }
 
   &__show {
@@ -34,22 +34,33 @@
 
   &__title {
     width: 100%;
-    color: $primaire-a;
     text-align: center;
     margin-top: 5px;
+    color: $secondaire-txt;
+    font-size: $m;
   }
 
   &__btn {
     position: absolute;
     cursor: pointer;
-    color: $primaire-a;
-    opacity: .5;
     padding: 2%;
+    border-radius: 3px;
+    background-color: transparent;
+    appearance: none;
+    border: none;
+    outline: none;
+    color: $secondaire-txt;
     font-size: 20px;
     transition: 0.5s ease;
     user-select: none;
-    &:hover {
-      opacity: 1;
+    &:hover,
+    &:focus {
+      color: $primaire-txt;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $secondaire-bg;
     }
   }
 

@@ -1,12 +1,13 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
 
   &__card {
     margin-bottom: 15px;
+    width: 200px;
   }
 
   &__media {
@@ -40,6 +41,7 @@
   }
 
   &__infos {
+    width: 150px;
     display: inline-flex;
     justify-content: space-between;
   }
@@ -59,6 +61,7 @@
   &__likes {
     display: inline-flex;
     justify-content: flex-end;
+    align-items: center;
 
     &--btn {
       width: 14px;
@@ -97,7 +100,7 @@
     }
 
     &--count {
-      width: 30px;
+      width: 35px;
       background-color: transparent;
       border: none;
       border-radius: 3px;
@@ -107,7 +110,7 @@
       text-align: right;
       font-family: $type;
       font-size: inherit;
-      font-weight: inherit;
+      font-weight: $bold;
       color: $secondaire-txt;
       user-select: none;
 

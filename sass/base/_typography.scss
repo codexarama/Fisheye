@@ -73,6 +73,10 @@ nav {
 }
 
 .filter {
+  &__title {
+    font-size: $m;
+  }
+  
   &__title,
   &__select {
     font-weight: $bold;
@@ -86,7 +90,7 @@ nav {
 
 .gallery {
   color: $secondaire-txt;
-  font-weight: $bold;
+  font-size: $m;
 }
 
 .footer {

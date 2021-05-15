@@ -107,6 +107,9 @@ nav {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
+.filter__title {
+  font-size: medium;
+}
 .filter__title, .filter__select {
   font-weight: 700;
 }
@@ -116,7 +119,7 @@ nav {
 
 .gallery {
   color: #901c1c;
-  font-weight: 700;
+  font-size: medium;
 }
 
 .footer {
@@ -468,7 +471,6 @@ input {
 }
 .filter__title {
   margin: 10px 10px 0 0;
-  font-size: small;
 }
 .filter__box {
   width: 105px;
@@ -537,12 +539,13 @@ input {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
 }
 .gallery__card {
   margin-bottom: 15px;
+  width: 200px;
 }
 .gallery__media {
   width: 200px;
@@ -569,6 +572,7 @@ input {
   margin: 10px 0;
 }
 .gallery__infos {
+  width: 150px;
   display: inline-flex;
   justify-content: space-between;
 }
@@ -585,6 +589,7 @@ input {
 .gallery__likes {
   display: inline-flex;
   justify-content: flex-end;
+  align-items: center;
 }
 .gallery__likes--btn {
   width: 14px;
@@ -617,7 +622,7 @@ input {
   transition: color 2.5s;
 }
 .gallery__likes--count {
-  width: 30px;
+  width: 35px;
   background-color: transparent;
   border: none;
   border-radius: 3px;
@@ -627,7 +632,7 @@ input {
   text-align: right;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: 700;
   color: #901c1c;
   user-select: none;
 }
@@ -655,7 +660,7 @@ input {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: white;
 }
 .lightbox__show {
   animation-name: modalopen;
@@ -676,22 +681,31 @@ input {
 }
 .lightbox__title {
   width: 100%;
-  color: white;
   text-align: center;
   margin-top: 5px;
+  color: #901c1c;
+  font-size: medium;
 }
 .lightbox__btn {
   position: absolute;
   cursor: pointer;
-  color: white;
-  opacity: 0.5;
   padding: 2%;
+  border-radius: 3px;
+  background-color: transparent;
+  appearance: none;
+  border: none;
+  outline: none;
+  color: #901c1c;
   font-size: 20px;
   transition: 0.5s ease;
   user-select: none;
 }
-.lightbox__btn:hover {
-  opacity: 1;
+.lightbox__btn:hover, .lightbox__btn:focus {
+  color: #d3573c;
+}
+.lightbox__btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
 .lightbox__prev, .lightbox__next {
   top: 50%;

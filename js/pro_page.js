@@ -50,11 +50,13 @@ function fetchData() {
       const galleryCard = document.getElementsByClassName('gallery__card');
 
       const launchGallery = () => {
+        // ---------- SUPPRIMER SI POSSIBLE ---------- //
         for (let i = 0; i < photographerWorks.length; i++) {
           // affiche la galerie triee par popularite (par defaut)
           location.hash = 'filtre popularite';
           setGallery(photographerWorks.sort(filterBy('likes', 'desc'))[i]);
         }
+        // ------------------------------------------ //
 
         for (const option of document.querySelectorAll('.filter__option')) {
           option.addEventListener('click', function () {
@@ -90,10 +92,12 @@ function fetchData() {
             setLightbox();
           });
         }
+        // ---------- SUPPRIMER SI POSSIBLE ---------- //
         // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
         likesCount();
         // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX (galerie par defaut)
         setLightbox();
+        // ------------------------------------------ //
       };
       launchGallery();
 
@@ -107,7 +111,11 @@ function fetchData() {
         photographerWorks.forEach((work) => (totalLikes += work.likes));
         totalCounter.value = `${totalLikes}`;
       };
-      totalLikesCounter()
+      totalLikesCounter();
+
+      // AFFICHE LE PRIX PAR JOUR
+      const pricePerDay = document.querySelector("#pricePerDay")
+      pricePerDay.textContent = photographerData.price + ' € / jour';
 
       // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
       const formName = document.querySelector('.form__body--name');

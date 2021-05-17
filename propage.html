@@ -37,11 +37,11 @@
       <section class="filter">
           <p type="text" class="filter__title">Trier par</p>
           <div
-            class="filter__box"
-            aria-expanded="false">
+            aria-expanded="false"
+            role="combobox"
+            class="filter__box">
             <button
-              role="combobox"
-              aria-haspopup="listbox"
+              aria-owns="listbox"
               id="orderBy"
               aria-label="Order by"
               class="filter__selected btn">
@@ -49,29 +49,24 @@
             </button>
             <i class="fas fa-chevron-down filter__arrow"></i>
             <ul
-              tabindex="-1"
               role="listbox"
               aria-labelledby="orderBy"
               class="filter__options">
               <li
-                tabindex="-1"
                 role='option'
-                id="Popularité"
-                aria-selected="true"
+                id="popularite"
                 class="filter__option filter__option--1 selected">
                 Popularité
               </li>
               <li
-                tabindex="-1"
                 role='option'
-                id="Date"
+                id="date"
                 class="filter__option filter__option--2">
                 Date
               </li>
               <li
-                tabindex="-1"
                 role='option'
-                id="Titre"
+                id="titre"
                 class="filter__option filter__option--3">
                 Titre
               </li>
@@ -193,7 +188,7 @@
         <i tabindex="0"  class="fas fa-heart"></i>
       </div>
       <div class="footer__content">
-        <p tabindex="0">300€ / jour</p>
+        <p tabindex="0" id="pricePerDay"></p>
       </div>
     </footer>
 

@@ -11,14 +11,10 @@ const options = [...listbox.children];
 // console.log(options);
 
 // IDENTITFIE OPTION CHOISIE
-// navigation souris
+// NAVIGATION SOURIS
 listbox.addEventListener('click', (event) => {
   const selectedOption = event.target.closest('li');
   if (!selectedOption) return;
-
-  // ACCESSIBILITE
-  // attribue valeur aria-activedescendant
-  listbox.setAttribute('aria-activedescendant', selectedOption.id);
 
   // retire "selected" sur ancienne option
   // affecte "selected" sur nouvelle option
@@ -39,31 +35,81 @@ window.addEventListener('click', function (e) {
   }
 });
 
+// IDENTITFIE OPTION CHOISIE
 // NAVIGATION CLAVIER
-let listboxBtn = document.querySelector('#orderBy');
+const showOption = document.querySelector('.filter__selected');
 
-// listboxBtn = listbox;
-// console.log(listboxBtn);
+// filtre choisi = activedescendant
+const getActiveDescendant = () => {
+  const activeDescendant = showOption.getAttribute('aria-activedescendant');
+  return document.querySelector('#' + activeDescendant);
+};
 
-listbox.addEventListener('keydown', (event) => {
+const setActiveDescendant = (option) => {
+  if (!option) return;
+  const id = option.id;
+  const selectedOption = listbox.querySelector('#' + id);
+
+  // gestion des styles au focus
+  // ATTENTION ecrire mots composes en Camel
+  // ---------- NE FONCTIONNE PAS ---------- //
+  // let styles = {
+  //   background: '#db8876',
+  //   borderLeft: '10px solid #db8876',
+  //   borderRight: '10px solid #db8876',
+  //   color: 'black',
+  //   fontWeight: '700',
+  // };
+  // console.log(styles);
+
+  // retire "selected" + "aria-selected=true" sur ancienne option
+  showOption.setAttribute('aria-activedescendant', id);
+  options.forEach((option) => {
+    option.classList.remove('selected');
+    option.removeAttribute('aria-selected');
+    // if (!option.classList.contains("selected"))
+    // option.setAttribute(
+    //   'style',
+    //   'background: #db8876; border-left: 10px solid #db8876; border-right: 10px solid #db8876; color: black; font-weight: 700;'
+    // );
+    // option.removeAttribute('style');
+  });
+
+  // affecte "selected" + "aria-selected=true" sur nouvelle option
+  selectedOption.classList.add('selected');
+  selectedOption.setAttribute('aria-selected', 'true');
+  // selectedOption.removeAttribute('style');
+  // selectedOption.setAttribute(
+  //   'style',
+  //   'background: #db8876; border-left: 10px solid #db8876; border-right: 10px solid #db8876; color: black; font-weight: 700;'
+  // );
+
+  // remplace texte bouton par nom option choisie
+  showOption.textContent = selectedOption.textContent;
+};
+
+// si flèche haut / bas pressee
+showOption.addEventListener('keydown', (event) => {
   const { key } = event;
-  if (key !== 'ArrowDown') return;
+  if (key !== 'ArrowDown' && key !== 'ArrowUp') return;
+  event.preventDefault();
 
-  listbox.setAttribute('aria-activedescendant', selectedOption.id);
-  const activeElementID = listbox.getAttribute('aria-activedescendant');
-  console.log(activeElementID);
-  const activeElement = listbox.querySelector('#' + activeElementID);
-  console.log(activeElement);
-  // const selectedOption = activeElement.nextElementSibling;
-  // const nextElement = activeElement.nextElementSibling;
+  // filtre choisi = activedescendant
+  const activeDescendant = getActiveDescendant(showOption);
+  // console.log(activeDescendant);
 
-  // if (nextElement) {
-  //   // attribue valeur aria-activedescendant
-  //   listbox.setAttribute('aria-activedescendant', selectedOption.id);
+  if (!activeDescendant) {
+    const firstOption = options[1]; // !0 car 1er element de la liste selectionne par defaut
+    const lastOption = options[options.length - 1];
 
-  //   // retire "selected" sur ancienne option
-  //   // affecte "selected" sur nouvelle option
-  //   options.forEach((option) => option.classList.remove('selected'));
-  //   selectedOption.classList.add('selected');
-  // }
+    // recupere choix si premier / dernier de la liste
+    if (key === 'ArrowDown') return setActiveDescendant(firstOption);
+    if (key === 'ArrowUp') return setActiveDescendant(lastOption);
+  }
+
+  // recupere choix si entre premier / dernier de la liste
+  if (key === 'ArrowDown')
+    return setActiveDescendant(activeDescendant.nextElementSibling);
+  if (key === 'ArrowUp')
+    return setActiveDescendant(activeDescendant.previousElementSibling);
 });

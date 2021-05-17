@@ -33,7 +33,7 @@ nav {
     font-weight: $regular;
     color: $primaire-txt;
     border-radius: 3px;
-    line-height: 1, 5em;
+    line-height: 1.5em;
 
     &:focus {
       outline: none;
@@ -42,10 +42,10 @@ nav {
   }
 
   &__location {
-    font-size: $l;
+    font-size: $xl;
     color: $secondaire-txt;
     border-radius: 3px;
-    line-height: 1, 5em;
+    line-height: 1.5em;
 
     &:focus {
       outline: none;
@@ -86,6 +86,7 @@ nav {
   &__select,
   &__options {
     color: white;
+    font-size: $s;
   }
 }
 
@@ -108,7 +109,6 @@ nav {
     }
     &__tagline {
       font-size: $xs;
-
     }
     &__price {
       font-size: $xs;

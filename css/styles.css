@@ -17,7 +17,7 @@ Tags: web, gastronomic restaurant, order online, no wait;
 body {
   box-sizing: border-box;
   width: 90%;
-  max-width: 1150px;
+  max-width: 1000px;
   margin: 10px auto;
 }
 body a,
@@ -75,17 +75,17 @@ nav {
   font-weight: 400;
   color: #d3573c;
   border-radius: 3px;
-  line-height: 1, 5em;
+  line-height: 1.5em;
 }
 .card__name:focus {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .card__location {
-  font-size: larger;
+  font-size: x-large;
   color: #901c1c;
   border-radius: 3px;
-  line-height: 1, 5em;
+  line-height: 1.5em;
 }
 .card__location:focus {
   outline: none;
@@ -116,6 +116,7 @@ nav {
 }
 .filter__select, .filter__options {
   color: white;
+  font-size: small;
 }
 
 .gallery {

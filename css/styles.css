@@ -384,7 +384,7 @@ nav {
   margin: 10px auto;
 }
 .form__body--title, .form__body--name {
-  font-size: larger;
+  font-size: x-large;
   font-weight: 400;
   color: black;
 }
@@ -582,7 +582,7 @@ input {
   margin: 10px 0;
 }
 .gallery__infos {
-  width: 150px;
+  width: 212px;
 }
 .gallery__title {
   border-radius: 3px;

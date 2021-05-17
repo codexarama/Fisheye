@@ -9,11 +9,7 @@
   }
 
   &__box {
-    width: 105px;
     cursor: pointer;
-    &:hover {
-      color: $primaire-a;
-    }
   }
 
   &__box.open .filter__selected {
@@ -25,22 +21,28 @@
   }
 
   &__selected {
-    position: relative;
     width: 105px;
     text-align: left;
+
+    &:hover,
+    &:active {
+      background-color: $primaire-bg;
+      color: $primaire-a;
+    }
   }
 
   &__arrow {
     position: absolute;
-    margin-top: 12px;
-    margin-left: -20px;
+    margin-top: 3px;
+    margin-left: -32px;
+    padding: 10px;
     color: white;
     transition: all 0.5s;
   }
 
   &__box.open .filter__arrow {
     transform: rotateX(180deg);
-    margin-top: 11px;
+    margin-top: 2px;
   }
 
   &__options {
@@ -72,11 +74,9 @@
       background-color: $secondaire-bg;
       border-left: 10px solid $secondaire-bg;
       border-right: 10px solid $secondaire-bg;
+      color: $secondaire-a;
+      font-weight: 700;
     }
-  }
-
-  &__option .selected {
-    background-color: $secondaire-bg;
   }
 }
 

@@ -3,20 +3,19 @@
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 160px;
+  width: 150px;
   padding: 10px;
   background-color: $secondaire-bg;
   border-radius: 5px 0 0 0;
   right: 0;
 
   &__content {
-    width: 50%;
     display: inline-flex;
   }
 }
 
 footer input {
-  width: 35px;
+  width: 30px;
   background-color: transparent;
   border: none;
   border-radius: 3px;

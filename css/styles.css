@@ -473,11 +473,7 @@ input {
   margin: 10px 10px 0 0;
 }
 .filter__box {
-  width: 105px;
   cursor: pointer;
-}
-.filter__box:hover {
-  color: white;
 }
 .filter__box.open .filter__selected {
   border-radius: 3px 3px 0 0;
@@ -486,20 +482,24 @@ input {
   display: none;
 }
 .filter__selected {
-  position: relative;
   width: 105px;
   text-align: left;
 }
+.filter__selected:hover, .filter__selected:active {
+  background-color: #901c1c;
+  color: white;
+}
 .filter__arrow {
   position: absolute;
-  margin-top: 12px;
-  margin-left: -20px;
+  margin-top: 3px;
+  margin-left: -32px;
+  padding: 10px;
   color: white;
   transition: all 0.5s;
 }
 .filter__box.open .filter__arrow {
   transform: rotateX(180deg);
-  margin-top: 11px;
+  margin-top: 2px;
 }
 .filter__options {
   position: absolute;
@@ -526,9 +526,8 @@ input {
   background-color: #db8876;
   border-left: 10px solid #db8876;
   border-right: 10px solid #db8876;
-}
-.filter__option .selected {
-  background-color: #db8876;
+  color: black;
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 600px) {
@@ -545,7 +544,6 @@ input {
 }
 .gallery__card {
   margin-bottom: 15px;
-  width: 200px;
 }
 .gallery__media {
   width: 200px;
@@ -662,6 +660,9 @@ input {
   overflow: auto;
   background-color: white;
 }
+.lightbox__content {
+  position: relative;
+}
 .lightbox__show {
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -675,13 +676,11 @@ input {
 }
 .lightbox__media {
   max-width: 100%;
-  max-height: 750px;
+  max-height: 700px;
   border-radius: 3px;
   margin: auto;
 }
 .lightbox__title {
-  width: 100%;
-  text-align: center;
   margin-top: 5px;
   color: #901c1c;
   font-size: medium;
@@ -712,34 +711,49 @@ input {
   margin-top: -20px;
 }
 .lightbox__prev {
-  left: 0;
+  left: 15px;
 }
 .lightbox__next {
-  right: 0;
+  right: 15px;
 }
 .lightbox__close {
-  right: 0;
+  right: 15px;
   top: 0;
+  padding-top: 0;
 }
 
+@media only screen and (max-width: 600px) {
+  .lightbox__btn {
+    padding: 1%;
+    font-size: 12px;
+  }
+  .lightbox__prev {
+    left: 5px;
+  }
+  .lightbox__next {
+    right: 5px;
+  }
+  .lightbox__close {
+    right: 5px;
+  }
+}
 .footer {
   position: fixed;
   display: inline-flex;
   justify-content: space-between;
   bottom: 0;
-  width: 160px;
+  width: 150px;
   padding: 10px;
   background-color: #db8876;
   border-radius: 5px 0 0 0;
   right: 0;
 }
 .footer__content {
-  width: 50%;
   display: inline-flex;
 }
 
 footer input {
-  width: 35px;
+  width: 30px;
   background-color: transparent;
   border: none;
   border-radius: 3px;

@@ -25,34 +25,25 @@
 // bouton "passez au contenu"
 // page d'accueil
 .evitement {
-  position: fixed;
-  width: 90%;
-  margin: 5px auto;
-  text-align: center;
-  color: $primaire-a;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
 
   &__link {
-    width: 130px;
+    position: fixed;
     padding: 3px 6px;
-    transform-origin: center center;
-
-    &:hover {
-      color: $secondaire-a;
-    }
   }
 }
 
 @media only screen and (max-width: 600px) {
   .evitement {
     display: none;
-    position: fixed;
-    top: 92%;
-    transition: all 1s ease; // ne fonctionne pas
     &__link {
-      transform-origin: center center;
+      top: 92%;
     }
   }
   .evitement.scroll {
-    display: block;
+    display: inline-flex;
+    transition: all 1s ease; // ne fonctionne pas
   }
 }

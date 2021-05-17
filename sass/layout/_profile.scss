@@ -18,14 +18,14 @@
   }
 
   &__image {
-    width: 125px;
-    height: 125px;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
     overflow: hidden;
 
     & img {
-      width: 125px;
-      height: 125px;
+      width: 175px;
+      height: 175px;
       object-fit: cover;
       transition: all 0.5s ease;
 

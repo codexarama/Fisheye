@@ -1,7 +1,7 @@
 .tags {
   li a {
     text-align: center;
-    font-size: $xs;
+    font-size: $s;
     border-radius: 25px;
     border: solid 1px $secondaire-border;
     margin: 0 2px;
@@ -21,5 +21,13 @@
   & li a:focus {
     outline: none;
     box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tags {
+    li a {
+      font-size: $xs;
+    }
   }
 }

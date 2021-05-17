@@ -2,13 +2,18 @@ body {
   @include font();
 }
 
-.btn-homepage {
+.evitement {
   font-size: $xs;
+  color: $primaire-a;
+
+  &:hover {
+    color: $secondaire-a;
+  }
 }
 
 .header {
   &__tags {
-    font-size: $xs;
+    font-size: $s;
   }
 
   &__headline {
@@ -24,11 +29,11 @@ nav {
 
 .card {
   &__name {
-    font-size: $l;
+    font-size: $xxl;
     font-weight: $regular;
     color: $primaire-txt;
     border-radius: 3px;
-    line-height: 1,5em;
+    line-height: 1, 5em;
 
     &:focus {
       outline: none;
@@ -37,10 +42,10 @@ nav {
   }
 
   &__location {
-    font-size: $m;
+    font-size: $l;
     color: $secondaire-txt;
     border-radius: 3px;
-    line-height: 1,5em;
+    line-height: 1, 5em;
 
     &:focus {
       outline: none;
@@ -60,7 +65,7 @@ nav {
   }
 
   &__price {
-    font-size: $xs;
+    font-size: $s;
     font-weight: $light;
     border-radius: 3px;
     line-height: 2em;
@@ -73,10 +78,6 @@ nav {
 }
 
 .filter {
-  &__title {
-    font-size: $m;
-  }
-  
   &__title,
   &__select {
     font-weight: $bold;
@@ -90,9 +91,27 @@ nav {
 
 .gallery {
   color: $secondaire-txt;
-  font-size: $m;
 }
 
 .footer {
   font-weight: $bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    &__name {
+      font-size: $l;
+    }
+
+    &__location {
+      font-size: 0.9em;
+    }
+    &__tagline {
+      font-size: $xs;
+
+    }
+    &__price {
+      font-size: $xs;
+    }
+  }
 }

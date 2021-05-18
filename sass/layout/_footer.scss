@@ -11,6 +11,7 @@
 
   &__content {
     display: inline-flex;
+    align-items: center;
   }
 }
 
@@ -34,8 +35,10 @@ footer input {
 }
 
 footer i {
-  width: 13px;
-  height: 13px;
+  padding-top: 1px;
+  width: 14px;
+  height: 14px;
+  font-size: $s;
   border-radius: 50%;
 
   &:focus {

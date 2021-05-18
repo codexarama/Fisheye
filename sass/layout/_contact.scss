@@ -74,12 +74,6 @@ label {
   margin: 5px 0;
 }
 
-input {
-  padding: 8px;
-  border: 0.8px solid #ccc;
-  outline: none;
-}
-
 .text-control,
 .text-area {
   margin: 0;
@@ -87,13 +81,24 @@ input {
   width: 100%;
   border-radius: 3px;
   font-size: medium;
+  border: 0.8px solid #ccc;
+  outline: none;
 }
+
 .tex-control {
   height: 50px;
 }
 .text-area {
   height: 150px;
 }
+
+// .text-control:invalid {
+//   border: 2px solid black;
+// }
+
+// .text-area:invalid {
+//   border: 2px solid black;
+// }
 
 .formData small {
   padding-left: 5px;

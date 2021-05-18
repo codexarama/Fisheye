@@ -33,7 +33,6 @@
 
   &__arrow {
     position: absolute;
-    margin-top: 3px;
     margin-left: -32px;
     padding: 10px;
     color: white;
@@ -42,7 +41,6 @@
 
   &__box.open .filter__arrow {
     transform: rotateX(180deg);
-    margin-top: 2px;
   }
 
   &__options {

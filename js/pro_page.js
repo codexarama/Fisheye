@@ -34,29 +34,16 @@ function fetchData() {
       );
       console.log(photographerWorks); // array media by ID
 
-      // ---------- A RESOUDRE ---------- //
-      // LANCE L'AFFICHAGE DE LA GALERIE FILTREE PAR POPULARITE PAR DEFAUT
-      // PB : ATTRIBUT "selected" EST DEJA POSITIONNE SUR "popularite"
-      // enventListener SE DECLANCHE AU CLICK DONC "selected" N'EST PAS DETECTE
-      // AU CHARGEMENT DE LA PAGE
-
-      // ---------- NE FONCTIONNE PAS ---------- //
-      // window.onload = () => {
-      //   launchGallery();
-      // };
-
       // AFFICHE LA GALLERIE SELON FILTRE CHOISI
       const gallery = document.getElementsByClassName('gallery')[0];
       const galleryCard = document.getElementsByClassName('gallery__card');
 
       const launchGallery = () => {
-        // ---------- SUPPRIMER SI POSSIBLE ---------- //
         for (let i = 0; i < photographerWorks.length; i++) {
           // affiche la galerie triee par popularite (par defaut)
           location.hash = 'filtre popularite';
           setGallery(photographerWorks.sort(filterBy('likes', 'desc'))[i]);
         }
-        // ------------------------------------------ //
 
         for (const option of document.querySelectorAll('.filter__option')) {
           option.addEventListener('click', function () {
@@ -92,17 +79,12 @@ function fetchData() {
             setLightbox();
           });
         }
-        // ---------- SUPPRIMER SI POSSIBLE ---------- //
         // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
         likesCount();
         // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX (galerie par defaut)
         setLightbox();
-        // ------------------------------------------ //
       };
       launchGallery();
-
-      // ---------- NE FONCTIONNE PAS ---------- //
-      // (function() {launchGallery()})();
 
       // AFFICHE LE NOMBRE TOTAL DE LIKES DU PHOTOGRAPHE
       const totalLikesCounter = () => {

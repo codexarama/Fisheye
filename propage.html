@@ -120,9 +120,9 @@
                   <label for="firstName">Prénom</label>
                   <small id="errorFirst"></small>
                   <input
-                    class="text-control"
                     type="text"
                     id="firstName"
+                    class="text-control"
                     name="firstName"
                     pattern="^\D*$"
                     required
@@ -132,9 +132,9 @@
                   <label for="lastName">Nom</label>
                   <small id="errorLast"></small>
                   <input
-                    class="text-control"
                     type="text"
                     id="lastName"
+                    class="text-control"
                     name="lastName"
                     pattern="^\D*$"
                     required
@@ -144,34 +144,36 @@
                   <label for="email">E-mail</label>
                   <small id="errorEmail"></small>
                   <input
-                    class="text-control"
                     type="email"
                     id="email"
+                    class="text-control"
                     name="email"
                     autocapitalize="none"
                     required
                   />
                 </div>
                 <div class="formData">
-                  <label for="massage">Message</label>
+                  <label for="message">Message</label>
                   <small id="errorMessage"></small>
                   <textarea
-                  class="text-control text-area"
+                  type="text"
                   id="message"
+                  class="text-control text-area"
                   name="message"
+                  rows="5"
+                  cols="50"
                   pattern="^\D*$"
                   required
                   >
                   </textarea>
                 </div>
-                <!-- <div class="formData"> -->
                 <div>
                   <input
+                    type="submit"
+                    id="submit"
                     class="btn-submit"
                     for="validate"
                     name="validate"
-                    type="submit"
-                    id="submit"
                     value="Envoyer"
                   />
                   <!-- <small id="errorForm">error</small> -->

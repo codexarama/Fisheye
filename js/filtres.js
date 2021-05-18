@@ -38,6 +38,7 @@ window.addEventListener('click', function (e) {
 // IDENTITFIE OPTION CHOISIE
 // NAVIGATION CLAVIER
 const showOption = document.querySelector('.filter__selected');
+const arrowUpBtn = document.querySelector('.filter__arrow');
 
 // filtre choisi = activedescendant
 const getActiveDescendant = () => {
@@ -48,7 +49,7 @@ const getActiveDescendant = () => {
 const setActiveDescendant = (option) => {
   if (!option) return;
   const id = option.id;
-  const selectedOption = listbox.querySelector('#' + id);
+  let selectedOption = listbox.querySelector('#' + id);
 
   // gestion des styles au focus
   // ATTENTION ecrire mots composes en Camel
@@ -83,6 +84,14 @@ const setActiveDescendant = (option) => {
   //   'style',
   //   'background: #db8876; border-left: 10px solid #db8876; border-right: 10px solid #db8876; color: black; font-weight: 700;'
   // );
+
+  // retourne fleche bouton quant atteint 1er ou dernier item de la liste
+  if (options[0].classList.contains('selected'))
+    arrowUpBtn.style.transform = 'rotateX(0deg)';
+  // console.log(options[0]);
+  if (options[options.length - 1].classList.contains('selected'))
+    arrowUpBtn.style.transform = 'rotateX(180deg)';
+  // console.log(options[options.length - 1]);
 
   // remplace texte bouton par nom option choisie
   showOption.textContent = selectedOption.textContent;

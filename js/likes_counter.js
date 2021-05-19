@@ -5,25 +5,42 @@ const likesCount = () => {
 
   for (let i = 0; i < likes.length; i++) {
     let like = likes[i];
-    like.setAttribute("aria-label", "likes")
+    // ajoute attributs ACCESSIBILITE
+    like.setAttribute('aria-label', 'likes');
+    like.setAttribute('title', 'Add a like');
+
     like.addEventListener('click', (event) => {
+      // ajoute toggle "selected"
       like.classList.toggle('selected');
-      let likeCounter = like.parentElement.children[0]; // au click sur "like", l'input "counter" prend le focus
+      // au click sur "like", focus sur input "counter"
+      let likeCounter = like.parentElement.children[0];
+      // si "selected"
       if (like.classList.contains('selected')) {
+        // affiche mention dans url
         location.hash = "j'aime";
-        likeCounter.value++; // incremente de 1 le compteur local de likes
+        // affiche info-bulle action
+        like.setAttribute('title', 'Remove like');
+        // + 1 au compteur local
+        likeCounter.value++;
+        // change couleur
         likeCounter.style.color = '#db8876';
-        totalCounter.value++; // incremente de 1 le compteur global de likes
+        // + 1 au compteur global
+        totalCounter.value++;
       } else {
+        // affiche mention dans url
         location.hash = "je n'aime plus";
-        likeCounter.value--; // decremente de 1 le compteur local de likes
+        // affiche info-bulle action
+        like.setAttribute('title', 'Add a like');
+        // - 1 au compteur local
+        likeCounter.value--;
+        // change couleur
         likeCounter.style.color = '#901c1c';
-        totalCounter.value--; // decremente de 1 le compteur global de likes
+        // - 1 au compteur global
+        totalCounter.value--;
       }
-      // ACCESSIBILITE
-      // navigation clavier sur btn "like" : "entree" = "click"
+      // ACCESSIBILITE btn "like" navigation clavier
+      // "entree" = "click"
       if (event.keycode == 13) like.click();
     });
   }
 };
-

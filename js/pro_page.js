@@ -6,12 +6,13 @@ function fetchData() {
   fetch(url)
     .then((response) => response.json())
 
-    // RECUPERATION DES DONNEES
+    // RECUPERE DONNEES
     .then((data) => {
       // console.log(data);
 
+      // ----- profile section ----- //
       // RECUPERE L'ID DU PHOTOGRAPHE QUAND SA CARTE EST CLIQUEE
-      // source index : CARD href = `propage.html?id=$photographers.id`
+      // via href photographer card (home page)
       const getId = (urlId, id) => {
         urlId = new URL(document.location).searchParams;
         id = urlId.get('id');
@@ -19,74 +20,84 @@ function fetchData() {
       };
       console.log(getId()); // n° id
 
-      // CIBLE LES DONNEES EN FONCTION DU PHOTOGRAPHE CHOISI
+      // ----- gestion donnees ----- //
+      // RECUPERE LES DONNEES DU PHOTOGRAPHE CHOISI
       const photographerData = data.photographers.filter(
         (elmt) => elmt.id == getId()
       )[0];
       console.log(photographerData); // array data by ID
 
-      // AFFICHE LE PROFIL DU PHOTOGRAPHE CORRESPONDANT
+      // AFFICHE SON PROFIL
       setId(photographerData);
 
-      // CIBLE LES MEDIA EN FONCTION DU PHOTOGRAPHE CHOISI
+      // RECUPERE SES MEDIAS
       const photographerWorks = data.media.filter(
         (elmt) => elmt.photographerId == getId()
       );
       console.log(photographerWorks); // array media by ID
 
-      // AFFICHE LA GALLERIE SELON FILTRE CHOISI
+      // ----- gallery section  ----- //
+      // AFFICHE SA GALLERIE SELON FILTRE CHOISI
       const gallery = document.getElementsByClassName('gallery')[0];
       const galleryCard = document.getElementsByClassName('gallery__card');
 
       const launchGallery = () => {
         for (let i = 0; i < photographerWorks.length; i++) {
-          // affiche la galerie triee par popularite (par defaut)
+          // affiche filtre par defaut dans url
           location.hash = 'filtre popularite';
+          // affiche galerie triee par popularite (par defaut)
           setGallery(photographerWorks.sort(filterBy('likes', 'desc'))[i]);
         }
 
         for (const option of document.querySelectorAll('.filter__option')) {
-          option.addEventListener('click', function () {
+          option.addEventListener('click', () => {
             for (let j = 0; j < galleryCard.length; j++) {
-              // reset la gallerie si autre option choisie
+              // reset gallerie si autre option choisie
               while (galleryCard.length > 0) {
                 gallery.removeChild(galleryCard[0]);
               }
             }
 
             for (let i = 0; i < photographerWorks.length; i++) {
-              // affiche la galerie triee par date
+              // si filtre "date" choisi
               if (option.classList.contains('filter__option--2')) {
+                // affiche filtre correspondant dans url
                 location.hash = 'filtre date';
+                // affiche galerie triee par date
                 setGallery(photographerWorks.sort(filterBy('date', 'desc'))[i]);
               }
-              // affiche la galerie triee par titre
+              // si filtre "titre" choisi
               if (option.classList.contains('filter__option--3')) {
+                // affiche filtre correspondant dans url
                 location.hash = 'filtre titre';
+                // affiche galerie triee par titre
                 setGallery(photographerWorks.sort(filterBy('title'))[i]);
               }
-              // affiche la galerie triee par popularite
+              // si filtre "popularite" choisi
               if (option.classList.contains('filter__option--1')) {
+                // affiche filtre correspondant dans url
                 location.hash = 'filtre popularite';
+                // affiche galerie triee par popularite
                 setGallery(
                   photographerWorks.sort(filterBy('likes', 'desc'))[i]
                 );
               }
             }
-            // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
+            // ACTUALISE COMPTEUR DE LIKES
             likesCount();
-            // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX (galerie filtree)
+            // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie filtree)
             setLightbox();
           });
         }
-        // COMPTE LES LIKES : INCREMENTE / DECREMENTE DE 1 AU CLIC
+        // ACTUALISE COMPTEUR DE LIKES
         likesCount();
-        // AFFICHE LE MEDIA CHOISI DANS LA LIGHTBOX (galerie par defaut)
+        // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie par defaut)
         setLightbox();
       };
       launchGallery();
 
-      // AFFICHE LE NOMBRE TOTAL DE LIKES DU PHOTOGRAPHE
+      // ----- footer section  ----- //
+      // AFFICHE NOMBRE TOTAL DE LIKES
       const totalLikesCounter = () => {
         const totalCounter = document.querySelector('#total-likes');
         totalLikes = 0;
@@ -95,16 +106,17 @@ function fetchData() {
       };
       totalLikesCounter();
 
-      // AFFICHE LE PRIX PAR JOUR
-      const pricePerDay = document.querySelector("#pricePerDay")
+      // AFFICHE PRIX PAR JOUR
+      const pricePerDay = document.querySelector('#pricePerDay');
       pricePerDay.textContent = photographerData.price + ' € / jour';
 
-      // AFFICHE LE NOM DU PHOTOGRAPHE EN TITRE DU FORMULAIRE DE CONTACT
+      // ----- contact form  ----- //
+      // AFFICHE NOM PHOTOGRAPHE EN TITRE DU FORMULAIRE
       const formName = document.querySelector('.form__body--name');
       formName.textContent = photographerData.name;
     })
 
-    // AFFICHE LES ERREURS EN CONSOLE
+    // AFFICHE ERREURS CONSOLE
     .catch((error) => console.log(error.message));
 }
 

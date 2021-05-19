@@ -5,7 +5,14 @@
   margin: 50px 0;
 
   &__title {
-    margin: 10px 10px 0 0;
+    padding: 10px 10px 0 0;
+    border-radius: 3px;
+    &:focus {
+      padding: 10px 10px 0 10px;
+      margin-left: -10px;
+      outline: none;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $secondaire-a;
+    }
   }
 
   &__box {

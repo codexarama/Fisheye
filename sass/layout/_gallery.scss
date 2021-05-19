@@ -17,6 +17,14 @@
     overflow: hidden;
     cursor: pointer;
 
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px white, 0 0 0 6px $primaire-bg;
+    }
+  }
+
+  &__link {
+
     & img,
     & video {
       width: 275px;

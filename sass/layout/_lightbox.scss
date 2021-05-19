@@ -13,10 +13,6 @@
     background-color: white;
   }
 
-  &__content {
-    position: relative;
-  }
-
   &__show {
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
@@ -73,17 +69,16 @@
   }
 
   &__prev {
-    left: 15px;
+    left: 0;
   }
 
   &__next {
-    right: 15px;
+    right: 0;
   }
 
   &__close {
-    right: 15px;
-    top: 0;
-    padding-top: 0;
+    right: 0;
+    top: 4px;
   }
 }
 

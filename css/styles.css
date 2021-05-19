@@ -79,7 +79,7 @@ nav {
 }
 .card__name:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
 .card__location {
   font-size: x-large;
@@ -98,7 +98,7 @@ nav {
 }
 .card__tagline:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
 .card__price {
   font-size: small;
@@ -108,7 +108,7 @@ nav {
 }
 .card__price:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
 
 .filter__title, .filter__select {
@@ -478,7 +478,14 @@ label {
   margin: 50px 0;
 }
 .filter__title {
-  margin: 10px 10px 0 0;
+  padding: 10px 10px 0 0;
+  border-radius: 3px;
+}
+.filter__title:focus {
+  padding: 10px 10px 0 10px;
+  margin-left: -10px;
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
 .filter__box {
   cursor: pointer;
@@ -559,13 +566,17 @@ label {
   overflow: hidden;
   cursor: pointer;
 }
-.gallery__media img, .gallery__media video {
+.gallery__media:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #901c1c;
+}
+.gallery__link img, .gallery__link video {
   width: 275px;
   height: 275px;
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.gallery__media img:hover, .gallery__media img:focus, .gallery__media video:hover, .gallery__media video:focus {
+.gallery__link img:hover, .gallery__link img:focus, .gallery__link video:hover, .gallery__link video:focus {
   transform: scale(1.25);
   transform-origin: 50% 50%;
 }
@@ -705,14 +716,14 @@ label {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
 .lightbox__prev, .lightbox__next {
-  top: 50%;
-  margin-top: -20px;
+  top: 45%;
 }
 .lightbox__prev {
   left: 0;
 }
 .lightbox__next {
   right: 0;
+  margin-top: -5px;
 }
 .lightbox__close {
   right: 0;

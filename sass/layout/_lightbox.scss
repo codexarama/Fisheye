@@ -64,8 +64,7 @@
 
   &__prev,
   &__next {
-    top: 50%;
-    margin-top: -20px;
+    top: 45%;
   }
 
   &__prev {
@@ -74,6 +73,7 @@
 
   &__next {
     right: 0;
+    margin-top: -5px;
   }
 
   &__close {

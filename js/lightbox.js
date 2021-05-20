@@ -9,126 +9,122 @@ const video = document.createElement('video');
 video.classList.add('lightbox__media');
 video.id = 'videoType';
 
-// LAUNCH LIGHTBOX
-const setLightbox = () => {
-  const medias = document.querySelectorAll('.currentMedia');
-  // console.log(medias);
+// OUVRE LA LIGHTBOX
+const openLightbox = () => {
+  lightbox.focus();
+  lightbox.style.display = 'flex';
+  lightboxShow.classList.add('active');
+};
+
+const displayLightbox = () => {
+  const medias = document.querySelectorAll('.gallery__link');
+  console.log(medias);
 
   for (let i = 0; i < medias.length; i++) {
-    let selectMedia = medias[i];
-    let selectedMediaIndex = i;
+    mediaLink = medias[i];
 
-    // quand click sur media
-    selectMedia.addEventListener('click', (event) => {
+    // quand click sur lien
+    mediaLink.addEventListener('click', (event) => {
       event.preventDefault();
-
-      // ---------- NE FONCTIONNE PAS ---------- //
-      // "click" sur btn = "entree" au clavier
-      // if (event.keycode == 13) selectMedia.click(); // NE FONCTIONNE PAS
-
+      // OUVRE LA LIGHTBOX (appel fonction)
+      openLightbox();
+      // recupere image correspondante
+      selectedMedia = medias[i].querySelector('.currentMedia');
       // affecte 'selected' au media choisi
-      selectMedia.classList.add('selected');
-      // console.log(selectedMediaIndex); // index media choisi
-      // console.log(selectMedia); // infos media choisi
-
-      // OUVRE LA LIGHTBOX
-      lightbox.style.display = 'flex';
-      // lui affecte 'active'
-      lightboxShow.classList.add('active');
-
-      // GERE BTNS NAVIGATION ENTRE MEDIAS PRECEDENTS ET SUIVANTS
-      // btn "previous" invisible si 1er media choisi
-      if (selectedMediaIndex == 0) prev.style.display = 'none';
-      // btn "next" visible quand index media < nb total medias
-      if (selectedMediaIndex < medias.length) next.style.display = 'block';
-      // btn "next" invisible si dernier media choisi
-      if (selectedMediaIndex == medias.length - 1) next.style.display = 'none';
-      // btn "previous" visible quand index media > 0
-      if (selectedMediaIndex > 0) prev.style.display = 'block';
-
-      // AFFICHE MEDIA CHOISI
+      selectedMedia.classList.add('selected');
+      console.log(selectedMedia);
+      // recupere index media choisi
+      selectedMediaIndex = i;
+      console.log(selectedMediaIndex);
+      // affiche fleches navigation previous / next (appel fonction)
+      lightboxNav();
+      // AFFICHE MEDIA CHOISI DANS LIGHTBOX (appel fonction)
       showMedia();
 
-      // IDENTIFIE MEDIA PRECEDENT
-      // quand click sur prev
+      // quand click sur fleche gauche ("previous")
       prev.addEventListener('click', (event) => {
         event.preventDefault();
-
-        // ---------- NE FONCTIONNE PAS ---------- //
-        // "fleche droite" au clavier = "click" sur btn
+        // -------------------------------------------------------------------------
+        // "fleche gauche" au clavier = "click" sur btn
         // if (event.keycode == 37) prev.click(); // NE FONCTIONNE PAS
-
         // retire 'selected' du media choisi
-        selectMedia.classList.remove('selected');
-
+        // -------------------------------------------------------------------------
+        selectedMedia.classList.remove('selected');
+        console.log(selectedMedia);
         // lui affecte index -1
         selectedMediaIndex--;
-        // console.log(selectedMediaIndex); // index media precedent
-        selectMedia = medias[selectedMediaIndex];
-        // console.log(selectMedia); // infos media precedent
-
+        console.log(selectedMediaIndex);
+        selectedMedia =
+          medias[selectedMediaIndex].querySelector('.currentMedia');
+        console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
-        selectMedia.classList.add('selected');
-
-        // AFFICHE LE MEDIA PRECEDENT
+        selectedMedia.classList.add('selected');
+        console.log(selectedMedia);
+        // affiche fleches navigation previous / next (appel fonction)
+        lightboxNav();
+        // AFFICHE LE MEDIA PRECEDENT (appel fonction)
         showMedia();
-
-        // GERE BTNS NAVIGATION ENTRE MEDIAS PRECEDENTS ET SUIVANTS
-        // btn "previous" invisible si arrive au 1er media
-        if (selectedMediaIndex == 0) prev.style.display = 'none';
-        // btn "next" visible quand index media < nb total medias
-        if (selectedMediaIndex < medias.length) next.style.display = 'block';
       });
 
-      // IDENTIFIE MEDIA SUIVANT
-      // quand click sur next
+      // quand click sur fleche droite ("next")
       next.addEventListener('click', (event) => {
         event.preventDefault();
-
-        // ---------- NE FONCTIONNE PAS ---------- //
+        // -------------------------------------------------------------------------
         // "fleche droite" au clavier = "click" sur btn
         // if (event.keycode == 39) next.click(); // NE FONCTIONNE PAS
         // if(event.keycode == 13) event.keycode == 39; // NE FONCTIONNE PAS
-
-        // retire 'selected' du media choisi
-        selectMedia.classList.remove('selected');
-
+        // -------------------------------------------------------------------------
+        selectedMedia.classList.remove('selected');
+        console.log(selectedMedia);
         // lui affecte index +1
         selectedMediaIndex++;
-        // console.log(selectedMediaIndex); // index media suivant
-        selectMedia = medias[selectedMediaIndex];
-        // console.log(selectMedia); // infos media suivant
-
-        // ajoute 'selected' au media precedent celui choisi
-        selectMedia.classList.add('selected');
-
-        // AFFICHE LE MEDIA SUIVANT
+        console.log(selectedMediaIndex);
+        selectedMedia =
+          medias[selectedMediaIndex].querySelector('.currentMedia');
+        console.log(selectedMedia);
+        // ajoute 'selected' au media precedant celui choisi
+        selectedMedia.classList.add('selected');
+        console.log(selectedMedia);
+        // affiche fleches navigation previous / next (appel fonction)
+        lightboxNav();
+        // AFFICHE LE MEDIA PRECEDENT (appel fonction)
         showMedia();
-
-        // GERE BTNS NAVIGATION ENTRE MEDIAS PRECEDENTS ET SUIVANTS
-        // btn "next" invisible quand arrive au dernier media
-        if (selectedMediaIndex == medias.length - 1)
-          next.style.display = 'none';
-        // btn "previous" visible quand index media > 0
-        if (selectedMediaIndex > 0) prev.style.display = 'block';
       });
     });
+
+    // AFFICHE fleches NAVIGATION (previous / next)
+    const lightboxNav = () => {
+      // btn "previous" invisible si 1er media choisi
+      if (selectedMediaIndex == 0) prev.style.display = 'none';
+      // btn "previous" visible quand index media > 0
+      if (selectedMediaIndex > 0) prev.style.display = 'block';
+      // btn "next" visible quand index media < nb total medias
+      if (selectedMediaIndex < medias.length) next.style.display = 'block';
+      // btn "next" invisible si dernier media choisi
+      if (selectedMediaIndex == medias.length - 1)
+        // if (selectedMediaIndex == mediaLink.length - 1)
+        next.style.display = 'none';
+    };
 
     // AFFICHE MEDIA CHOISI DANS LIGHTBOX
     const showMedia = () => {
       // affiche titre media dans url
-      window.location.hash = selectMedia.alt;
+      window.location.hash =
+        medias[selectedMediaIndex].title + ', closeup view';
+      console.log(medias[selectedMediaIndex].title);
       // affiche media + titre dans lightbox
-      lightboxMedia.src = selectMedia.src;
-      lightboxMedia.alt = selectMedia.alt;
-      lightboxTitle.textContent = selectMedia.alt;
+      lightboxMedia.src = selectedMedia.src;
+      lightboxMedia.alt = medias[selectedMediaIndex].title + ', closeup view';
+      lightboxTitle.textContent = medias[selectedMediaIndex].title;
       // affiche media type video
       // console.log(typeof selectMedia.alt === 'undefined'); // true si media = video
-      if (typeof selectMedia.alt === 'undefined') {
+      if (typeof selectedMedia.alt === 'undefined') {
         lightboxMedia.replaceWith(video);
-        video.src = selectMedia.src;
-        video.alt = selectMedia.alt;
-        lightboxTitle.textContent = selectMedia.alt;
+        window.location.hash =
+          medias[selectedMediaIndex].title + ', closeup view';
+        video.src = selectedMedia.src;
+        video.alt = medias[selectedMediaIndex].title + ', closeup view';
+        lightboxTitle.textContent = medias[selectedMediaIndex].title;
       } else {
         video.replaceWith(lightboxMedia);
       }
@@ -137,7 +133,8 @@ const setLightbox = () => {
 };
 
 // CLOSE LIGHTBOX
-const closeLightbox = (event) => {
+const closeLightbox = () => {
+  // const closeLightbox = (event) => {
   // if (event.keycode == 27) closeLightbox.onclick(); // NE FONCTIONNE PAS
   lightbox.style.display = 'none';
   lightboxShow.classList.remove('active');

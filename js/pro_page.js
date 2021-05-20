@@ -86,15 +86,17 @@ function fetchData() {
             // ACTUALISE COMPTEUR DE LIKES
             likesCount();
             // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie filtree)
-            setLightbox();
+            displayLightbox();
           });
         }
         // ACTUALISE COMPTEUR DE LIKES
         likesCount();
         // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie par defaut)
-        setLightbox();
+        displayLightbox();
       };
       launchGallery();
+
+      // openLightbox();
 
       // ----- footer section  ----- //
       // AFFICHE NOMBRE TOTAL DE LIKES
@@ -114,10 +116,10 @@ function fetchData() {
       // AFFICHE NOM PHOTOGRAPHE EN TITRE DU FORMULAIRE
       const formName = document.querySelector('.form__body--name');
       formName.textContent = photographerData.name;
-    })
+    });
 
-    // AFFICHE ERREURS CONSOLE
-    .catch((error) => console.log(error.message));
+  // AFFICHE ERREURS CONSOLE
+  // .catch((error) => console.log(error.message));
 }
 
 fetchData();

@@ -8,14 +8,17 @@ const setGallery = (media) => {
   const gallery = elmtFactory(
     'article',
     { class: 'gallery__card' },
-    elmtFactory('div', {
-      tabindex: '0',
-      class: 'gallery__media',
-    },
-      elmtFactory('a', {
-        href: "#",
-        title: `${media.title}` + ', closeup view',
-        class: 'gallery__link'
+    elmtFactory(
+      'a',
+      {
+        href: '#',
+        title: `${media.title}`,
+        class: 'gallery__link',
+        // onclick: openLightbox(),
+      },
+
+      elmtFactory('div', {
+        class: 'gallery__media',
       })
     ),
     elmtFactory(
@@ -57,30 +60,30 @@ const setGallery = (media) => {
   );
 
   // CREATION ELEMENT MEDIA SELON TYPE (image / video)
-  const galleryMedia = gallery.querySelector('.gallery__link');
+  const galleryMedia = gallery.querySelector('.gallery__media');
   // console.log(galleryMedia);
 
   // creation media IMAGE
   if (media.image != undefined) {
     // console.log(media.image); // recupere images
     let mediaType = elmtFactory('img', {
-      tabindex: "0",
+      tabindex: '0',
       class: 'currentMedia',
       src: 'images/photos/' + `${media.image}`,
-      alt: `${media.title}`,
+      alt: '',
     });
     // console.log(mediaType); // cree element image
     galleryMedia.appendChild(mediaType);
   }
 
   // creation media VIDEO
-    if (media.video != undefined) {
+  if (media.video != undefined) {
     // console.log(media.video); // recupere videos
     let mediaType = elmtFactory('video', {
-      tabindex: "0",
+      tabindex: '0',
       class: 'currentMedia',
       src: 'images/videos/' + `${media.video}`,
-      alt: `${media.title}`,
+      alt: '',
     });
     // console.log(mediaType); // cree element video
     galleryMedia.appendChild(mediaType);

@@ -23,6 +23,7 @@ modalBtn.addEventListener(
   'click',
   (launchModal = (e) => {
     e.preventDefault();
+    modal.focus();
     modal.style.display = 'block';
     location.hash = 'me contacter';
   })

@@ -23,7 +23,7 @@ const setCard = (photographer) => {
         { class: 'card__image' },
         elmtFactory('img', {
           src: 'images/portraits/' + `${photographer.portrait}`,
-          alt: `${photographer.name}`,
+          alt: "",
           tabindex: '0',
         })
       ),

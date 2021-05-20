@@ -79,7 +79,8 @@
 
       <!-- lightbox -->
       <section class="lightbox">
-        <div class="lightbox__modal">
+        <div id="openLightbox" class="lightbox__modal">
+        <!-- <div tabindex="-1" class="lightbox__modal"> -->
           <div class="lightbox__content">
             <button title="Close dialog" role="button" class="lightbox__btn lightbox__close" onclick="closeLightbox()">
               <i class="fas fa-times"></i>
@@ -88,12 +89,12 @@
               <img src="" alt="" id="imageType" class="lightbox__media">
               <p class="lightbox__title"></p>
             </div>
-            <button title="Previous image" role="button" class="lightbox__btn lightbox__prev">
+            <a title="Previous image" role="link" class="lightbox__btn lightbox__prev">
               <i class="fas fa-chevron-left"></i>
-            </button>
-            <button title="Next image" role="button" class="lightbox__btn lightbox__next">
+            </a>
+            <a title="Next image" role="link" class="lightbox__btn lightbox__next">
               <i class="fas fa-chevron-right"></i>
-            </button>
+            </a>
           </div>
         </div>
       </section>

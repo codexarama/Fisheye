@@ -17,14 +17,6 @@
     overflow: hidden;
     cursor: pointer;
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px white, 0 0 0 6px $primaire-bg;
-    }
-  }
-
-  &__link {
-
     & img,
     & video {
       width: 275px;
@@ -36,9 +28,41 @@
       &:focus {
         transform: scale(1.25);
         transform-origin: 50% 50%;
+        outline: none;
+        box-shadow: 0 0 0 3px white, 0 0 0 6px $primaire-bg;
       }
     }
   }
+  // &__media {
+  //   width: 275px;
+  //   height: 275px;
+  //   border-radius: 3px;
+  //   margin: auto;
+  //   overflow: hidden;
+  //   cursor: pointer;
+
+  //   &:focus {
+  //     outline: none;
+  //     box-shadow: 0 0 0 3px white, 0 0 0 6px $primaire-bg;
+  //   }
+  // }
+
+  // &__link {
+
+  //   & img,
+  //   & video {
+  //     width: 275px;
+  //     height: 275px;
+  //     object-fit: cover;
+  //     transition: all 0.5s ease;
+
+  //     &:hover,
+  //     &:focus {
+  //       transform: scale(1.25);
+  //       transform-origin: 50% 50%;
+  //     }
+  //   }
+  // }
 
   &__content {
     width: 100%;

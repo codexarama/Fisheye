@@ -61,7 +61,7 @@ body {
   font-size: small;
 }
 .header__headline {
-  font-size: larger;
+  font-size: large;
   color: #901c1c;
 }
 
@@ -71,7 +71,7 @@ nav {
 }
 
 .card__name {
-  font-size: 2em;
+  font-size: xx-large;
   font-weight: 400;
   color: #d3573c;
   border-radius: 3px;
@@ -82,7 +82,7 @@ nav {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
 .card__location {
-  font-size: x-large;
+  font-size: large;
   color: #901c1c;
   border-radius: 3px;
   line-height: 1.5em;
@@ -129,7 +129,7 @@ nav {
 
 @media only screen and (max-width: 600px) {
   .card__name {
-    font-size: larger;
+    font-size: large;
   }
   .card__location {
     font-size: 0.9em;
@@ -566,19 +566,17 @@ label {
   overflow: hidden;
   cursor: pointer;
 }
-.gallery__media:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px white, 0 0 0 6px #901c1c;
-}
-.gallery__link img, .gallery__link video {
+.gallery__media img, .gallery__media video {
   width: 275px;
   height: 275px;
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.gallery__link img:hover, .gallery__link img:focus, .gallery__link video:hover, .gallery__link video:focus {
+.gallery__media img:hover, .gallery__media img:focus, .gallery__media video:hover, .gallery__media video:focus {
   transform: scale(1.25);
   transform-origin: 50% 50%;
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #901c1c;
 }
 .gallery__content {
   width: 100%;
@@ -692,7 +690,6 @@ label {
 .lightbox__title {
   margin-top: 5px;
   color: #901c1c;
-  font-size: medium;
 }
 .lightbox__btn {
   position: absolute;

@@ -15,7 +15,6 @@ const setCard = (photographer) => {
         // CREE UNE url SPECIFIQUE POUR CHAQUE PHOTOGRAPHE (selon id)
         // OUVRE LA PAGE PRO TYPE DU PHOTOGRAPHE CORRESPONDANT
         href: 'propage.html?id=' + `${photographer.id}`,
-        title: `${photographer.name}`,
         class: 'photographerId',
       },
       elmtFactory(

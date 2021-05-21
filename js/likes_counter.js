@@ -6,14 +6,13 @@ const likesCount = () => {
   for (let i = 0; i < likes.length; i++) {
     let like = likes[i];
     // ajoute attributs ACCESSIBILITE
-    like.setAttribute('aria-label', 'likes');
-    like.setAttribute('title', 'Add a like');
+    like.setAttribute('title', 'Add like');
 
     like.addEventListener('click', (event) => {
       // ajoute toggle "selected"
       like.classList.toggle('selected');
       // au click sur "like", focus sur input "counter"
-      let likeCounter = like.parentElement.children[0];
+      let likeCounter = like.parentElement.children[1];
       // si "selected"
       if (like.classList.contains('selected')) {
         // affiche mention dans url
@@ -38,6 +37,7 @@ const likesCount = () => {
         // - 1 au compteur global
         totalCounter.value--;
       }
+
       // ACCESSIBILITE btn "like" navigation clavier
       // "entree" = "click"
       if (event.keycode == 13) like.click();

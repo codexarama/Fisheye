@@ -18,14 +18,14 @@ function fetchData() {
         id = urlId.get('id');
         return id;
       };
-      console.log(getId()); // n° id
+      // console.log(getId()); // n° id
 
       // ----- gestion donnees ----- //
       // RECUPERE LES DONNEES DU PHOTOGRAPHE CHOISI
       const photographerData = data.photographers.filter(
         (elmt) => elmt.id == getId()
       )[0];
-      console.log(photographerData); // array data by ID
+      // console.log(photographerData); // array data by ID
 
       // AFFICHE SON PROFIL
       setId(photographerData);
@@ -34,7 +34,7 @@ function fetchData() {
       const photographerWorks = data.media.filter(
         (elmt) => elmt.photographerId == getId()
       );
-      console.log(photographerWorks); // array media by ID
+      // console.log(photographerWorks); // array media by ID
 
       // ----- gallery section  ----- //
       // AFFICHE SA GALLERIE SELON FILTRE CHOISI
@@ -96,7 +96,38 @@ function fetchData() {
       };
       launchGallery();
 
-      // openLightbox();
+      // ----- labels + inputs likes counter ----- //
+      function setAttributes(elmt, attribute) {
+        for (let key in attribute) {
+          elmt.setAttribute(key, attribute[key]);
+        }
+      }
+
+      // LABELS : ajout id & for
+      const likeCounterLabel = document.querySelectorAll(
+        '.gallery__likes--label'
+      );
+      // console.log(likeCounterLabel);
+      for (let i = 0; i < likeCounterLabel.length; i++) {
+        let label = likeCounterLabel[i];
+        // console.log(label);
+        setAttributes(label, {
+          id: 'likes-counter' + i,
+          for: 'likes' + i,
+        });
+      }
+
+      // INPUTS : ajout id
+      const likeCounterInput = document.querySelectorAll(
+        '.gallery__likes--count'
+      );
+      for (let i = 0; i < likeCounterInput.length; i++) {
+        let input = likeCounterInput[i];
+        // console.log(input);
+        setAttributes(input, {
+          id: 'likes' + i,
+        });
+      }
 
       // ----- footer section  ----- //
       // AFFICHE NOMBRE TOTAL DE LIKES
@@ -115,7 +146,7 @@ function fetchData() {
       // ----- contact form  ----- //
       // NOM ACCESSIBLE
       const formAria = document.querySelector('#form-dialog');
-      formAria.setAttribute('aria-label', 'contacter + photographerData.name')
+      formAria.setAttribute('aria-label', 'contacter + photographerData.name');
       // AFFICHE NOM PHOTOGRAPHE EN TITRE DU FORMULAIRE
       const formName = document.querySelector('.form__body--name');
       formName.textContent = photographerData.name;

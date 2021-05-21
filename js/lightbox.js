@@ -18,7 +18,7 @@ const openLightbox = () => {
 
 const displayLightbox = () => {
   const medias = document.querySelectorAll('.gallery__link');
-  console.log(medias);
+  // ---------- console.log(medias);
 
   for (let i = 0; i < medias.length; i++) {
     mediaLink = medias[i];
@@ -32,10 +32,10 @@ const displayLightbox = () => {
       selectedMedia = medias[i].querySelector('.currentMedia');
       // affecte 'selected' au media choisi
       selectedMedia.classList.add('selected');
-      console.log(selectedMedia);
+      // ---------- console.log(selectedMedia);
       // recupere index media choisi
       selectedMediaIndex = i;
-      console.log(selectedMediaIndex);
+      // ---------- console.log(selectedMediaIndex);
       // affiche fleches navigation previous / next (appel fonction)
       lightboxNav();
       // AFFICHE MEDIA CHOISI DANS LIGHTBOX (appel fonction)
@@ -50,16 +50,16 @@ const displayLightbox = () => {
         // retire 'selected' du media choisi
         // -------------------------------------------------------------------------
         selectedMedia.classList.remove('selected');
-        console.log(selectedMedia);
+        // ---------- console.log(selectedMedia);
         // lui affecte index -1
         selectedMediaIndex--;
-        console.log(selectedMediaIndex);
+        // ---------- console.log(selectedMediaIndex);
         selectedMedia =
           medias[selectedMediaIndex].querySelector('.currentMedia');
-        console.log(selectedMedia);
+        // ---------- console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
         selectedMedia.classList.add('selected');
-        console.log(selectedMedia);
+        // ---------- console.log(selectedMedia);
         // affiche fleches navigation previous / next (appel fonction)
         lightboxNav();
         // AFFICHE LE MEDIA PRECEDENT (appel fonction)
@@ -75,16 +75,16 @@ const displayLightbox = () => {
         // if(event.keycode == 13) event.keycode == 39; // NE FONCTIONNE PAS
         // -------------------------------------------------------------------------
         selectedMedia.classList.remove('selected');
-        console.log(selectedMedia);
+        // ---------- console.log(selectedMedia);
         // lui affecte index +1
         selectedMediaIndex++;
-        console.log(selectedMediaIndex);
+        // ---------- console.log(selectedMediaIndex);
         selectedMedia =
           medias[selectedMediaIndex].querySelector('.currentMedia');
-        console.log(selectedMedia);
+        // ---------- console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
         selectedMedia.classList.add('selected');
-        console.log(selectedMedia);
+        // ---------- console.log(selectedMedia);
         // affiche fleches navigation previous / next (appel fonction)
         lightboxNav();
         // AFFICHE LE MEDIA PRECEDENT (appel fonction)
@@ -111,13 +111,13 @@ const displayLightbox = () => {
       // affiche titre media dans url
       window.location.hash =
         medias[selectedMediaIndex].title + ', closeup view';
-      console.log(medias[selectedMediaIndex].title);
+      // ---------- console.log(medias[selectedMediaIndex].title);
       // affiche media + titre dans lightbox
       lightboxMedia.src = selectedMedia.src;
       lightboxMedia.alt = medias[selectedMediaIndex].title + ', closeup view';
       lightboxTitle.textContent = medias[selectedMediaIndex].title;
       // affiche media type video
-      // console.log(typeof selectMedia.alt === 'undefined'); // true si media = video
+      // ---------- console.log(typeof selectMedia.alt === 'undefined'); // true si media = video
       if (typeof selectedMedia.alt === 'undefined') {
         lightboxMedia.replaceWith(video);
         window.location.hash =

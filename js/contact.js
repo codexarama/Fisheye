@@ -55,16 +55,16 @@ modalCloseBtn.forEach((btn) =>
 // -------------------------------------------------------------------------------
 // Failed to execute 'addEventListener' on 'EventTarget':
 // 2 arguments required, but only 1 present
-form.addEventListener(
-  ('keydown',
-  (e) => {
-    const keyCode = e.keyCode ? e.keyCode : e.which;
+// form.addEventListener(
+//   ('keydown',
+//   (e) => {
+//     const keyCode = e.keyCode ? e.keyCode : e.which;
 
-    if (modal.hasAttributes('aria-hidden') == 'false' && keyCode === 27) {
-      closeModal();
-    }
-  })
-);
+//     if (modal.hasAttributes('aria-hidden') == 'false' && keyCode === 27) {
+//       closeModal();
+//     }
+//   })
+// );
 // -------------------------------------------------------------------------------
 
 // VERIFICATION DES SAISIES

@@ -310,6 +310,7 @@ nav {
 }
 .id {
   background-color: #fafafa;
+  border-radius: 3px;
   padding: 25px;
 }
 .id__card {

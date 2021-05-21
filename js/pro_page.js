@@ -113,6 +113,9 @@ function fetchData() {
       pricePerDay.textContent = photographerData.price + ' € / jour';
 
       // ----- contact form  ----- //
+      // NOM ACCESSIBLE
+      const formAria = document.querySelector('#form-dialog');
+      formAria.setAttribute('aria-label', 'contacter + photographerData.name')
       // AFFICHE NOM PHOTOGRAPHE EN TITRE DU FORMULAIRE
       const formName = document.querySelector('.form__body--name');
       formName.textContent = photographerData.name;

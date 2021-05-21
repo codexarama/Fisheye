@@ -1,11 +1,14 @@
 // DOM Elements
-const modalBtn = document.querySelector('#modalBtn');
+const modalOpenBtn = document.querySelector('#modalBtn');
+const modalCloseBtn = document.querySelectorAll('.form__close');
+console.log(modalCloseBtn);
+const body = document.querySelector('#body');
+const mainContent = document.querySelector('#main-content');
 const modal = document.querySelector('.form__modal');
 const modalContent = document.querySelector('.form__content');
 const modalBody = document.querySelector('.form__body');
 const confirm = document.querySelector('.form__confirmation');
 const submitBtn = document.querySelector('#submit');
-let closeModalBtn = document.querySelectorAll('.form__close');
 
 // FORM
 const form = document.querySelector('.form');
@@ -18,25 +21,37 @@ const email = document.querySelector('#email');
 const message = document.querySelector('#message');
 
 // EVENEMENTS MODAL
-// launch modal event
-modalBtn.addEventListener(
-  'click',
-  (launchModal = (e) => {
-    e.preventDefault();
-    modal.focus();
-    modal.style.display = 'block';
-    location.hash = 'me contacter';
-  })
-);
+// open modal
+const openModal = () => {
+  mainContent.setAttribute('arias-hidden', 'true');
+  modal.setAttribute('aria-hidden', 'false');
+  body.classList.add('no-scroll');
+  modal.style.display = 'block';
+  location.hash = 'me contacter';
+  // -------------------------------------------------------------------------------
+  // modalCloseBtn.focus();  // Cannot read property 'focus' of undefined at closeModal
+  // -------------------------------------------------------------------------------
+};
 
-// close modal(s) event
-closeModalBtn.forEach((btn) =>
-  btn.addEventListener(
-    'click',
-    (closeModal = () => {
-      modal.style.display = 'none';
-    })
-  )
+modalOpenBtn.addEventListener('click', () => {
+  openModal();
+});
+
+// close modal(s)
+const closeModal = () => {
+  mainContent.setAttribute('arias-hidden', 'false');
+  modal.setAttribute('aria-hidden', 'true');
+  body.classList.remove('no-scroll');
+  modal.style.display = 'none';
+  // -------------------------------------------------------------------------------
+  // modalOpenBtn.focus(); // Cannot read property 'focus' of undefined at openModal
+  // -------------------------------------------------------------------------------
+};
+
+modalCloseBtn.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    closeModal();
+  })
 );
 
 // VERIFICATION DES SAISIES

@@ -18,7 +18,7 @@
   ></script>
 </head>
 <html>
-  <body>
+  <body id="body">
     <header class="banner">
       <a href="index.html" class="banner__link" title="Homepage"
         ><img
@@ -27,7 +27,7 @@
           alt="Fisheye Home page"
       /></a>
     </header>
-    <main>
+    <main id="main-content">
       <!-- profil du photographe -->
       <section class="id">
         <button title="Me contacter" type="button" id="modalBtn" class="btn btn-contact">Contactez-moi</button>
@@ -79,7 +79,7 @@
 
       <!-- lightbox -->
       <section class="lightbox">
-        <div id="openLightbox" class="lightbox__modal">
+        <div aria-label="Image closeup view" id="openLightbox" class="lightbox__modal">
         <!-- <div tabindex="-1" class="lightbox__modal"> -->
           <div class="lightbox__content">
             <button title="Close dialog" role="button" class="lightbox__btn lightbox__close" onclick="closeLightbox()">
@@ -101,7 +101,11 @@
 
       <!-- formulaire de contact -->
       <section class="form">
-        <div class="form__modal">
+        <div
+        role="dialog"
+        class="form__modal"
+        id="form-dialog"
+        aria-labelledby="form-title">
           <div class="form__content">
             <div class="form__confirmation">
               <i class="fas fa-times form__close" role="button"></i>
@@ -109,7 +113,10 @@
             </div>
             <i class="fas fa-times form__close" role="button"></i>
             <div class="form__body">
-              <h2 class="form__body--title">Contactez-moi</h2>
+              <h2
+              id="form-title"
+              class="form__body--title">
+              Contactez-moi</h2>
               <h2 class="form__body--name"></h2>
               <form
                 name="contact"
@@ -118,64 +125,86 @@
                 methode="POST"
               >
                 <div class="formData">
-                  <label for="firstName">Prénom</label>
+                  <label
+                  id="label-firstName"
+                  for="firstName">
+                  Prénom</label>
                   <small id="errorFirst"></small>
                   <input
                     type="text"
                     id="firstName"
+                    aria-labelledby="label-firstName"
+                    aria-required="true"
                     class="text-control"
                     name="firstName"
                     pattern="^\D*$"
-                    required
                   />
                 </div>
                 <div class="formData">
-                  <label for="lastName">Nom</label>
+                  <label
+                  id="label-lastName"
+                  for="lastName">
+                  Nom
+                  </label>
                   <small id="errorLast"></small>
                   <input
                     type="text"
                     id="lastName"
+                    aria-labelledby="label-lastName"
+                    aria-required="true"
                     class="text-control"
                     name="lastName"
                     pattern="^\D*$"
-                    required
                   />
                 </div>
                 <div class="formData">
-                  <label for="email">E-mail</label>
+                  <label
+                  id="label-email"
+                  for="email">
+                  E-mail
+                  </label>
                   <small id="errorEmail"></small>
                   <input
                     type="email"
                     id="email"
+                    aria-labelledby="label-email"
+                    aria-required="true"
                     class="text-control"
                     name="email"
                     autocapitalize="none"
-                    required
                   />
                 </div>
                 <div class="formData">
-                  <label for="message">Message</label>
+                  <label
+                  id="label-message"
+                  for="message">
+                  Message
+                  </label>
                   <small id="errorMessage"></small>
                   <textarea
                   type="text"
                   id="message"
+                  aria-labelledby="label-message"
+                  aria-required="true"
                   class="text-control text-area"
                   name="message"
                   rows="5"
                   cols="50"
                   pattern="^\D*$"
-                  required
                   >
                   </textarea>
                 </div>
                 <div>
                   <input
-                    type="submit"
-                    id="submit"
-                    class="btn-submit"
-                    for="validate"
-                    name="validate"
-                    value="Envoyer"
+                  title="Send"
+                  type="submit"
+                  id="submit"
+                  class="btn-submit"
+                  for="validate"
+                  name="validate"
+                  value="Envoyer"
+                  cols="20"
+                  rows="5"
                   />
                   <!-- <small id="errorForm">error</small> -->
                 </div>

@@ -64,6 +64,7 @@
     opacity: 1;
     visibility: visible;
     pointer-events: all;
+    border-radius: 0 0 3px 3px;
   }
 
   &__option {
@@ -72,6 +73,10 @@
     border-top: 1px solid white;
     border-left: 10px solid $primaire-bg;
     border-right: 10px solid $primaire-bg;
+
+    &--3 {
+      border-radius: 0 0 3px 3px;
+    }
 
     &--1:hover,
     &--2:hover,

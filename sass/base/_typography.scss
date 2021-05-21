@@ -101,16 +101,26 @@ nav {
 @media only screen and (max-width: 600px) {
   .card {
     &__name {
+      font-size: $xl;
+    }
+
+    &__price {
+      font-size: $s;
+    }
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .card {
+    &__name {
       font-size: $l;
     }
 
     &__location {
-      font-size: 0.9em;
+      font-size: $s;
     }
+
     &__tagline {
-      font-size: $xs;
-    }
-    &__price {
       font-size: $xs;
     }
   }

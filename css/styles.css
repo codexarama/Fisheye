@@ -129,15 +129,20 @@ nav {
 
 @media only screen and (max-width: 600px) {
   .card__name {
+    font-size: x-large;
+  }
+  .card__price {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .card__name {
     font-size: large;
   }
   .card__location {
-    font-size: 0.9em;
+    font-size: small;
   }
   .card__tagline {
-    font-size: xx-small;
-  }
-  .card__price {
     font-size: xx-small;
   }
 }
@@ -234,6 +239,16 @@ nav {
     right: 0;
     font-size: small;
   }
+
+  .banner {
+    width: 90%;
+    margin: 25px auto;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .banner {
+    width: 100%;
+  }
 }
 .tags li a {
   text-align: center;
@@ -256,7 +271,7 @@ nav {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 426px) {
   .tags li a {
     font-size: xx-small;
   }
@@ -287,7 +302,7 @@ nav {
   margin-top: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 426px) {
   .card {
     width: 100%;
     padding: 0 0 25px;
@@ -326,21 +341,45 @@ nav {
   transform-origin: 50% 50%;
 }
 
+@media only screen and (max-width: 769px) {
+  .id {
+    width: 100%;
+  }
+  .id__contact {
+    position: fixed;
+    margin-top: 10px;
+    bottom: 25px;
+    width: 175px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .id__image {
+    width: 125px;
+    height: 125px;
+    margin-right: 10px;
+  }
+  .id__image img {
+    width: 125px;
+    height: 125px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .id {
-    padding: 0;
+    width: 90%;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .id {
+    width: 100%;
     margin-bottom: 50px;
+    padding: 0;
   }
   .id__infos {
     margin-left: 10px;
-    width: 70%;
-  }
-  .id__contact {
-    margin-top: 10px;
-    position: fixed;
-    bottom: 25px;
-    width: 90%;
-    text-align: center;
+    width: 65%;
   }
   .id__image {
     width: 85px;
@@ -356,6 +395,10 @@ nav {
     margin-bottom: 10px;
   }
 }
+.no-scroll {
+  overflow: hidden;
+}
+
 .form__modal {
   display: none;
   position: fixed;
@@ -543,7 +586,7 @@ label {
   font-weight: 700;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 769px) {
   .filter {
     display: none;
   }
@@ -647,16 +690,51 @@ label {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 769px) {
+  .gallery {
+    margin-top: 50px;
+  }
+  .gallery__card {
+    width: 45%;
+  }
   .gallery__media {
     width: 100%;
-    height: 200px;
+    height: 225px;
   }
   .gallery__media img, .gallery__media video {
     width: 100%;
+    height: 225px;
+  }
+  .gallery__infos {
+    width: 185px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .gallery__card {
+    width: 90%;
+  }
+  .gallery__media {
+    height: 250px;
+  }
+  .gallery__media img, .gallery__media video {
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .gallery__card {
+    width: 100%;
+  }
+  .gallery__media {
+    height: 200px;
+  }
+  .gallery__media img, .gallery__media video {
     height: 200px;
   }
 }
+.no-scroll {
+  overflow: hidden;
+}
+
 .lightbox__modal {
   display: none;
   align-items: center;
@@ -727,7 +805,7 @@ label {
   top: 4px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 426px) {
   .lightbox__btn {
     padding: 1%;
     font-size: 12px;

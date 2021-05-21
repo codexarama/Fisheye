@@ -1,7 +1,6 @@
 // DOM Elements
 const modalOpenBtn = document.querySelector('#modalBtn');
 const modalCloseBtn = document.querySelectorAll('.form__close');
-console.log(modalCloseBtn);
 const body = document.querySelector('#body');
 const mainContent = document.querySelector('#main-content');
 const modal = document.querySelector('.form__modal');
@@ -27,9 +26,9 @@ const openModal = () => {
   modal.setAttribute('aria-hidden', 'false');
   body.classList.add('no-scroll');
   modal.style.display = 'block';
-  location.hash = 'me contacter';
+  location.hash = 'contacter photographe';
   // -------------------------------------------------------------------------------
-  // modalCloseBtn.focus();  // Cannot read property 'focus' of undefined at closeModal
+  // modalCloseBtn.focus();  // is not a function
   // -------------------------------------------------------------------------------
 };
 
@@ -43,9 +42,7 @@ const closeModal = () => {
   modal.setAttribute('aria-hidden', 'true');
   body.classList.remove('no-scroll');
   modal.style.display = 'none';
-  // -------------------------------------------------------------------------------
-  // modalOpenBtn.focus(); // Cannot read property 'focus' of undefined at openModal
-  // -------------------------------------------------------------------------------
+  modalOpenBtn.focus();
 };
 
 modalCloseBtn.forEach((btn) =>
@@ -53,6 +50,22 @@ modalCloseBtn.forEach((btn) =>
     closeModal();
   })
 );
+
+// close modal when escape key is pressed
+// -------------------------------------------------------------------------------
+// Failed to execute 'addEventListener' on 'EventTarget':
+// 2 arguments required, but only 1 present
+form.addEventListener(
+  ('keydown',
+  (e) => {
+    const keyCode = e.keyCode ? e.keyCode : e.which;
+
+    if (modal.hasAttributes('aria-hidden') == 'false' && keyCode === 27) {
+      closeModal();
+    }
+  })
+);
+// -------------------------------------------------------------------------------
 
 // VERIFICATION DES SAISIES
 const inputs = document.querySelectorAll('.formData input');
@@ -88,8 +101,10 @@ const checkValidity = () => {
 
 checkValidity();
 
+// -------------------------------------------------------------------------------
 // ---------- CHECKVALIDITY NE FONCTIONNE PAS sur TEXTAREA ---------- //
 // ---------- POURQUOI ?! ---------- //
+// -------------------------------------------------------------------------------
 
 // MESSAGES
 // Error
@@ -113,10 +128,11 @@ form.addEventListener('submit', function (e) {
   if (checkValidity) {
     modalBody.style.display = 'none';
     confirm.style.opacity = '1';
-    form.reset();
+    // -------------------------------------------------------------------------------
+    // form.reset(); // is not a function
+    // -------------------------------------------------------------------------------
+    // closeModal();
   }
-
-  closeModal();
 
   console.log(`Prénom : ${firstName.value}`);
   console.log(`Nom : ${lastName.value}`);

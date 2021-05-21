@@ -354,6 +354,7 @@ nav {
     right: 50%;
     transform: translateX(-50%);
     text-align: center;
+    z-index: 1;
   }
   .id__image {
     width: 125px;

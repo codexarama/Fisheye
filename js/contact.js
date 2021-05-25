@@ -36,7 +36,7 @@ modalOpenBtn.addEventListener('click', () => {
   openModal();
 });
 
-// close modal(s)
+// close modal(s) ("click" event)
 const closeModal = () => {
   mainContent.setAttribute('arias-hidden', 'false');
   modal.setAttribute('aria-hidden', 'true');
@@ -51,21 +51,10 @@ modalCloseBtn.forEach((btn) =>
   })
 );
 
-// close modal when escape key is pressed
-// -------------------------------------------------------------------------------
-// Failed to execute 'addEventListener' on 'EventTarget':
-// 2 arguments required, but only 1 present
-// form.addEventListener(
-//   ('keydown',
-//   (e) => {
-//     const keyCode = e.keyCode ? e.keyCode : e.which;
-
-//     if (modal.hasAttributes('aria-hidden') == 'false' && keyCode === 27) {
-//       closeModal();
-//     }
-//   })
-// );
-// -------------------------------------------------------------------------------
+// close modal(s) ("escape" event)
+document.addEventListener('keydown', (keyboardEvent) => {
+  if (keyboardEvent.keyCode == 27) closeModal();
+});
 
 // VERIFICATION DES SAISIES
 const inputs = document.querySelectorAll('.formData input');
@@ -101,11 +90,6 @@ const checkValidity = () => {
 
 checkValidity();
 
-// -------------------------------------------------------------------------------
-// ---------- CHECKVALIDITY NE FONCTIONNE PAS sur TEXTAREA ---------- //
-// ---------- POURQUOI ?! ---------- //
-// -------------------------------------------------------------------------------
-
 // MESSAGES
 // Error
 const dataError = (input, message) => {
@@ -131,7 +115,6 @@ form.addEventListener('submit', function (e) {
     // -------------------------------------------------------------------------------
     // form.reset(); // is not a function
     // -------------------------------------------------------------------------------
-    // closeModal();
   }
 
   console.log(`Prénom : ${firstName.value}`);

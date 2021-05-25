@@ -47,8 +47,9 @@ const displayLightbox = () => {
         // -------------------------------------------------------------------------
         // "fleche gauche" au clavier = "click" sur btn
         // if (event.keycode == 37) prev.click(); // NE FONCTIONNE PAS
-        // retire 'selected' du media choisi
+        // console.log(event.keycode);
         // -------------------------------------------------------------------------
+        // retire 'selected' du media choisi
         selectedMedia.classList.remove('selected');
         // ---------- console.log(selectedMedia);
         // lui affecte index -1
@@ -101,9 +102,7 @@ const displayLightbox = () => {
       // btn "next" visible quand index media < nb total medias
       if (selectedMediaIndex < medias.length) next.style.display = 'block';
       // btn "next" invisible si dernier media choisi
-      if (selectedMediaIndex == medias.length - 1)
-        // if (selectedMediaIndex == mediaLink.length - 1)
-        next.style.display = 'none';
+      if (selectedMediaIndex == medias.length - 1) next.style.display = 'none';
     };
 
     // AFFICHE MEDIA CHOISI DANS LIGHTBOX
@@ -132,10 +131,8 @@ const displayLightbox = () => {
   }
 };
 
-// CLOSE LIGHTBOX
+// CLOSE LIGHTBOX ("clik" event)
 const closeLightbox = () => {
-  // const closeLightbox = (event) => {
-  // if (event.keycode == 27) closeLightbox.onclick(); // NE FONCTIONNE PAS
   lightbox.style.display = 'none';
   lightboxShow.classList.remove('active');
   const medias = document.querySelectorAll('.currentMedia');
@@ -144,3 +141,8 @@ const closeLightbox = () => {
     selectedMedia.classList.remove('selected');
   }
 };
+
+// CLOSE LIGHTBOX ("escape" event)
+document.addEventListener('keydown', (keyboardEvent) => {
+  if (keyboardEvent.keyCode == 27) closeLightbox();
+});

@@ -14,7 +14,6 @@ const setGallery = (media) => {
         href: '#',
         title: `${media.title}`,
         class: 'gallery__link',
-        // onclick: openLightbox(),
       },
 
       elmtFactory('div', {
@@ -42,8 +41,7 @@ const setGallery = (media) => {
         {
           class: 'gallery__likes',
         },
-        elmtFactory('label',
-        {
+        elmtFactory('label', {
           class: 'gallery__likes--label',
         }),
         elmtFactory('input', {
@@ -65,31 +63,31 @@ const setGallery = (media) => {
 
   // CREATION ELEMENT MEDIA SELON TYPE (image / video)
   const galleryMedia = gallery.querySelector('.gallery__media');
-  // console.log(galleryMedia);
 
   // creation media IMAGE
+  // recupere images
   if (media.image != undefined) {
-    // console.log(media.image); // recupere images
+    // cree element image via factory method
     let mediaType = elmtFactory('img', {
       tabindex: '0',
       class: 'currentMedia',
       src: 'images/photos/' + `${media.image}`,
       alt: '',
     });
-    // console.log(mediaType); // cree element image
+    // insere elmt image dans carte type galerie
     galleryMedia.appendChild(mediaType);
   }
 
   // creation media VIDEO
   if (media.video != undefined) {
-    // console.log(media.video); // recupere videos
+    // cree element video via factory method
     let mediaType = elmtFactory('video', {
       tabindex: '0',
       class: 'currentMedia',
       src: 'images/videos/' + `${media.video}`,
       alt: '',
     });
-    // console.log(mediaType); // cree element video
+    // insere elmt video dans carte type galerie
     galleryMedia.appendChild(mediaType);
   }
 

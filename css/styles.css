@@ -789,6 +789,20 @@ label {
   transition: 0.5s ease;
   user-select: none;
 }
+.lightbox__btn--prev, .lightbox__btn--next {
+  top: 45%;
+}
+.lightbox__btn--prev {
+  left: 0;
+}
+.lightbox__btn--next {
+  right: 0;
+  margin-top: -5px;
+}
+.lightbox__btn--close {
+  right: 0;
+  top: 4px;
+}
 .lightbox__btn:hover, .lightbox__btn:focus {
   color: #d3573c;
 }
@@ -796,33 +810,19 @@ label {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
-.lightbox__prev, .lightbox__next {
-  top: 45%;
-}
-.lightbox__prev {
-  left: 0;
-}
-.lightbox__next {
-  right: 0;
-  margin-top: -5px;
-}
-.lightbox__close {
-  right: 0;
-  top: 4px;
-}
 
 @media only screen and (max-width: 426px) {
   .lightbox__btn {
     padding: 1%;
     font-size: 12px;
   }
-  .lightbox__prev {
+  .lightbox__btn--prev {
     left: 5px;
   }
-  .lightbox__next {
+  .lightbox__btn--next {
     right: 5px;
   }
-  .lightbox__close {
+  .lightbox__btn--close {
     right: 5px;
   }
 }

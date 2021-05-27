@@ -2,19 +2,10 @@
 // page pro photographe : "contactez-moi", "envoyez" (formulaire), "filtre"
 
 .btn {
-  background-color: $primaire-bg;
-  border: none;
+  border: unset;
+  cursor: pointer;
   border-radius: 3px;
   padding: 10px;
-  color: $primaire-a;
-  font-weight: 700;
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background-color: $secondaire-bg;
-    color: $secondaire-a;
-  }
 
   &:focus {
     outline: none;

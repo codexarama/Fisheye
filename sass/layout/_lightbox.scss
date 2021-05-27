@@ -42,18 +42,14 @@
   }
 
   &__btn {
+    all: unset;
     position: absolute;
     cursor: pointer;
-    padding: 2%;
-    border-radius: 3px;
-    background-color: transparent;
-    appearance: none;
-    border: none;
-    outline: none;
     color: $secondaire-txt;
     font-size: 20px;
     transition: 0.5s ease;
-    user-select: none;
+    padding: 2%;
+    border-radius: 3px;
 
     &--prev,
     &--next {
@@ -76,7 +72,7 @@
 
     &:hover,
     &:focus {
-      color: $primaire-txt;
+      color: $secondaire-bg;
     }
 
     &:focus {

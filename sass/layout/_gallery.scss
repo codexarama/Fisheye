@@ -17,6 +17,11 @@
     overflow: hidden;
     cursor: pointer;
 
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px white, 0 0 0 6px $primaire-bg;
+    }
+
     & img,
     & video {
       width: 275px;
@@ -75,7 +80,7 @@
 
       &:hover {
         color: $secondaire-bg;
-        transition: color 2.5s;
+        transition: color 0.5s;
       }
     }
 
@@ -90,24 +95,21 @@
 
       &:hover {
         color: $primaire-bg;
-        transition: color 2.5s;
+        transition: color 0.5s;
       }
     }
 
     &--count {
+      all: unset;
       width: 35px;
-      background-color: transparent;
-      border: none;
       border-radius: 3px;
       padding: 0 2px;
       margin-right: 3px;
-      pointer-events: none;
       text-align: right;
       font-family: $type;
       font-size: inherit;
       font-weight: $bold;
       color: $secondaire-txt;
-      user-select: none;
 
       &:focus {
         outline: none;
@@ -146,7 +148,6 @@
   .gallery {
     &__card {
       width: 90%;
-      // margin: auto;
     }
 
     &__media {
@@ -164,7 +165,6 @@
   .gallery {
     &__card {
       width: 100%;
-      // margin: auto;
     }
 
     &__media {

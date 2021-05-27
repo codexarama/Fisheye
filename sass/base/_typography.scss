@@ -27,6 +27,20 @@ nav {
   line-height: 2em;
 }
 
+.btn {
+  font-size: $s;
+  font-weight: 700;
+  background-color: $primaire-bg;
+  color: $primaire-a;
+
+  &:hover,
+  &:focus {
+    background-color: $secondaire-bg;
+    color: $secondaire-a;
+  }
+
+}
+
 .card {
   &__name {
     font-size: $xxl;

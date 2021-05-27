@@ -70,6 +70,17 @@ nav {
   line-height: 2em;
 }
 
+.btn {
+  font-size: small;
+  font-weight: 700;
+  background-color: #901c1c;
+  color: white;
+}
+.btn:hover, .btn:focus {
+  background-color: #db8876;
+  color: black;
+}
+
 .card__name {
   font-size: xx-large;
   font-weight: 400;
@@ -147,17 +158,10 @@ nav {
   }
 }
 .btn {
-  background-color: #901c1c;
-  border: none;
+  border: unset;
+  cursor: pointer;
   border-radius: 3px;
   padding: 10px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-}
-.btn:hover, .btn:focus {
-  background-color: #db8876;
-  color: black;
 }
 .btn:focus {
   outline: none;
@@ -397,12 +401,9 @@ nav {
     margin-bottom: 10px;
   }
 }
-.no-scroll {
-  overflow: hidden;
-}
-
 .form__modal {
   display: none;
+  align-items: center;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -414,10 +415,10 @@ nav {
 }
 .form__content {
   margin: 5% auto;
-  width: 100%;
+  width: 90%;
+  min-width: 320px;
   max-width: 425px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  max-height: 555px;
   background: #db8876;
   border-radius: 5px;
   overflow: hidden;
@@ -474,7 +475,6 @@ label {
   padding: 8px;
   width: 100%;
   border-radius: 3px;
-  font-size: medium;
   border: 0.8px solid #ccc;
   outline: none;
 }
@@ -513,7 +513,6 @@ label {
   border: 0;
   margin: 20px auto 10px;
   padding: 15px 30px;
-  font-size: medium;
   color: #fff;
   cursor: pointer;
 }
@@ -615,6 +614,10 @@ label {
   overflow: hidden;
   cursor: pointer;
 }
+.gallery__media:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #901c1c;
+}
 .gallery__media img, .gallery__media video {
   width: 275px;
   height: 275px;
@@ -662,7 +665,7 @@ label {
 }
 .gallery__likes--btn:hover {
   color: #db8876;
-  transition: color 2.5s;
+  transition: color 0.5s;
 }
 .gallery__likes--btn.selected {
   cursor: pointer;
@@ -674,22 +677,19 @@ label {
 }
 .gallery__likes--btn.selected:hover {
   color: #901c1c;
-  transition: color 2.5s;
+  transition: color 0.5s;
 }
 .gallery__likes--count {
+  all: unset;
   width: 35px;
-  background-color: transparent;
-  border: none;
   border-radius: 3px;
   padding: 0 2px;
   margin-right: 3px;
-  pointer-events: none;
   text-align: right;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: inherit;
   font-weight: 700;
   color: #901c1c;
-  user-select: none;
 }
 .gallery__likes--count:focus {
   outline: none;
@@ -776,18 +776,14 @@ label {
   color: #901c1c;
 }
 .lightbox__btn {
+  all: unset;
   position: absolute;
   cursor: pointer;
-  padding: 2%;
-  border-radius: 3px;
-  background-color: transparent;
-  appearance: none;
-  border: none;
-  outline: none;
   color: #901c1c;
   font-size: 20px;
   transition: 0.5s ease;
-  user-select: none;
+  padding: 2%;
+  border-radius: 3px;
 }
 .lightbox__btn--prev, .lightbox__btn--next {
   top: 45%;
@@ -804,7 +800,7 @@ label {
   top: 4px;
 }
 .lightbox__btn:hover, .lightbox__btn:focus {
-  color: #d3573c;
+  color: #db8876;
 }
 .lightbox__btn:focus {
   outline: none;
@@ -898,6 +894,9 @@ footer p:focus {
     width: 90%;
     margin: 25px auto;
   }
+}
+.no-scroll {
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=styles.css.map */

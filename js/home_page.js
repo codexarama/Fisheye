@@ -54,3 +54,8 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 250) evitement.classList.add('scroll');
   else evitement.classList.remove('scroll');
 });
+
+// DEMONSTRATION ACCESSIBLITE
+// document.addEventListener('keydown', (KeyboardEvent) => {
+//   console.log(KeyboardEvent.key);
+// });

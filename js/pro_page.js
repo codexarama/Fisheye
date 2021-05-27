@@ -157,3 +157,8 @@ function fetchData() {
 }
 
 fetchData();
+
+// DEMONSTRATION ACCESSIBLITE
+// document.addEventListener('keydown', (KeyboardEvent) => {
+//   console.log(KeyboardEvent.key);
+// });

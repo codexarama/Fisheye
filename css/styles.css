@@ -259,11 +259,12 @@ nav {
   font-size: small;
   border-radius: 25px;
   border: solid 1px lightgray;
+  background-color: white;
   margin: 0 2px;
   padding: 0 5px;
   color: #901c1c;
 }
-.tags li a:hover, .tags li a:focus {
+.tags li a.selected, .tags li a:hover, .tags li a:focus {
   cursor: pointer;
   border-radius: 25px;
   border: solid 1px #901c1c;

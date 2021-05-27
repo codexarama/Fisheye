@@ -17,6 +17,7 @@ const setGallery = (media) => {
       },
 
       elmtFactory('div', {
+        tabindex: '0',
         class: 'gallery__media',
       })
     ),

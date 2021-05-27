@@ -1,5 +1,5 @@
 // OUVRE - FERME LISTBOX
-document.querySelector('.filter').addEventListener('click', function () {
+document.querySelector('.filter').addEventListener('click', () => {
   this.querySelector('.filter__box').classList.toggle('open');
   this.querySelector('.filter__box').removeAttribute('aria-expanded');
   this.querySelector('.filter__box').setAttribute('aria-expanded', 'true');

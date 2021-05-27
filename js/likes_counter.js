@@ -40,7 +40,7 @@ const likesCount = () => {
 
       // ACCESSIBILITE btn "like" navigation clavier
       // "entree" = "click"
-      if (event.keycode == 13) like.click();
+      if (event.keyCode === 13) like.click();
     });
   }
 };

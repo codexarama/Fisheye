@@ -5,17 +5,28 @@ const lightboxMedia = document.querySelector('.lightbox__media');
 const lightboxTitle = document.querySelector('.lightbox__title');
 const prev = document.querySelector('.lightbox__btn--prev');
 const next = document.querySelector('.lightbox__btn--next');
+const lightboxCloseBtn = document.querySelector('.lightbox__btn--close');
+
+// CREATION ELEMENT VIDEO
 const video = document.createElement('video');
 video.classList.add('lightbox__media');
 video.id = 'videoType';
 
-// OUVRE LA LIGHTBOX
+// FONCTION : OUVRE LIGHTBOX
 const openLightbox = () => {
-  lightbox.focus();
+  // desactive "main"
+  mainContent.setAttribute('arias-hidden', 'true');
+  // active modal
+  lightbox.setAttribute('aria-hidden', 'false');
+  // stop scroll arriere plan
+  body.classList.add('no-scroll');
+  // affiche contenu modal
   lightbox.style.display = 'flex';
+  // ajoute "active" au block qui affiche les elements
   lightboxShow.classList.add('active');
 };
 
+// FONCTION : AFFICHE MEDIA CHOISI
 const displayLightbox = () => {
   const medias = document.querySelectorAll('.gallery__link');
   // ---------- console.log(medias);
@@ -28,14 +39,13 @@ const displayLightbox = () => {
       event.preventDefault();
       // OUVRE LA LIGHTBOX (appel fonction)
       openLightbox();
+      // focus dans lightbox (bouton "fermer")
+      lightboxCloseBtn.focus();
       // recupere image correspondante
       selectedMedia = medias[i].querySelector('.currentMedia');
       // affecte 'selected' au media choisi
       selectedMedia.classList.add('selected');
       // ---------- console.log(selectedMedia);
-      // recupere index media choisi
-      selectedMediaIndex = i;
-      // ---------- console.log(selectedMediaIndex);
       // affiche fleches navigation previous / next (appel fonction)
       lightboxNav();
       // AFFICHE MEDIA CHOISI DANS LIGHTBOX (appel fonction)
@@ -44,51 +54,39 @@ const displayLightbox = () => {
       // quand click sur fleche gauche ("previous")
       prev.addEventListener('click', (event) => {
         event.preventDefault();
-        // -------------------------------------------------------------------------
-        // "fleche gauche" au clavier = "click" sur btn
-        // if (event.keycode == 37) prev.click(); // NE FONCTIONNE PAS
-        // console.log(event.keycode);
-        // -------------------------------------------------------------------------
         // retire 'selected' du media choisi
         selectedMedia.classList.remove('selected');
         // ---------- console.log(selectedMedia);
         // lui affecte index -1
-        selectedMediaIndex--;
-        // ---------- console.log(selectedMediaIndex);
-        selectedMedia =
-          medias[selectedMediaIndex].querySelector('.currentMedia');
+        i--; // ---------- console.log(i);
+        selectedMedia = medias[i].querySelector('.currentMedia');
         // ---------- console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
         selectedMedia.classList.add('selected');
         // ---------- console.log(selectedMedia);
         // affiche fleches navigation previous / next (appel fonction)
         lightboxNav();
-        // AFFICHE LE MEDIA PRECEDENT (appel fonction)
+        // AFFICHE MEDIA PRECEDENT (appel fonction)
         showMedia();
       });
 
       // quand click sur fleche droite ("next")
       next.addEventListener('click', (event) => {
         event.preventDefault();
-        // -------------------------------------------------------------------------
-        // "fleche droite" au clavier = "click" sur btn
-        // if (event.keycode == 39) next.click(); // NE FONCTIONNE PAS
-        // if(event.keycode == 13) event.keycode == 39; // NE FONCTIONNE PAS
-        // -------------------------------------------------------------------------
+        // retire 'selected' du media choisi
         selectedMedia.classList.remove('selected');
         // ---------- console.log(selectedMedia);
         // lui affecte index +1
-        selectedMediaIndex++;
-        // ---------- console.log(selectedMediaIndex);
-        selectedMedia =
-          medias[selectedMediaIndex].querySelector('.currentMedia');
+        i++;
+        // ---------- console.log(i);
+        selectedMedia = medias[i].querySelector('.currentMedia');
         // ---------- console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
         selectedMedia.classList.add('selected');
         // ---------- console.log(selectedMedia);
         // affiche fleches navigation previous / next (appel fonction)
         lightboxNav();
-        // AFFICHE LE MEDIA PRECEDENT (appel fonction)
+        // AFFICHE MEDIA PRECEDENT (appel fonction)
         showMedia();
       });
     });
@@ -96,34 +94,43 @@ const displayLightbox = () => {
     // AFFICHE fleches NAVIGATION (previous / next)
     const lightboxNav = () => {
       // btn "previous" invisible si 1er media choisi
-      if (selectedMediaIndex == 0) prev.style.display = 'none';
+      if (i == 0) {
+        prev.style.display = 'none';
+        next.focus();
+      }
       // btn "previous" visible quand index media > 0
-      if (selectedMediaIndex > 0) prev.style.display = 'block';
+      if (i > 0) {
+        prev.style.display = 'block';
+      }
       // btn "next" visible quand index media < nb total medias
-      if (selectedMediaIndex < medias.length) next.style.display = 'block';
+      if (i < medias.length) {
+        next.style.display = 'block';
+      }
       // btn "next" invisible si dernier media choisi
-      if (selectedMediaIndex == medias.length - 1) next.style.display = 'none';
+      if (i == medias.length - 1) {
+        next.style.display = 'none';
+        prev.focus();
+      }
     };
 
     // AFFICHE MEDIA CHOISI DANS LIGHTBOX
     const showMedia = () => {
       // affiche titre media dans url
-      window.location.hash =
-        medias[selectedMediaIndex].title + ', closeup view';
-      // ---------- console.log(medias[selectedMediaIndex].title);
+      window.location.hash = medias[i].title + ', closeup view';
+      // ---------- console.log(medias[i].title);
       // affiche media + titre dans lightbox
       lightboxMedia.src = selectedMedia.src;
-      lightboxMedia.alt = medias[selectedMediaIndex].title + ', closeup view';
-      lightboxTitle.textContent = medias[selectedMediaIndex].title;
+      lightboxMedia.alt = medias[i].title + ', closeup view';
+      lightboxTitle.textContent = medias[i].title;
       // affiche media type video
-      // ---------- console.log(typeof selectMedia.alt === 'undefined'); // true si media = video
+      // ---------- console.log(typeof selectMedia.alt === 'undefined');
+      // true si media = video
       if (typeof selectedMedia.alt === 'undefined') {
         lightboxMedia.replaceWith(video);
-        window.location.hash =
-          medias[selectedMediaIndex].title + ', closeup view';
+        window.location.hash = medias[i].title + ', closeup view';
         video.src = selectedMedia.src;
-        video.alt = medias[selectedMediaIndex].title + ', closeup view';
-        lightboxTitle.textContent = medias[selectedMediaIndex].title;
+        video.alt = medias[i].title + ', closeup view';
+        lightboxTitle.textContent = medias[i].title;
       } else {
         video.replaceWith(lightboxMedia);
       }
@@ -131,10 +138,68 @@ const displayLightbox = () => {
   }
 };
 
+// // FONCTION : GESTION NAVIGATION CLAVIER
+// // "fleche doite" ou "gauche" = "entree"
+
+// document.addEventListener('keydown', (KeyboardEvent) => {
+//   console.log(KeyboardEvent.key);
+
+//   // if (next.focus() && KeyboardEvent.keyCode === 39) {
+//   if (next.focus()) {
+//     console.log("next"); // ne fonctionne pas
+//   }
+// });
+
+// // -------------------------------------------------------------------------
+// document.addEventListener('keydown', (KeyboardEvent) => {
+//   console.log(KeyboardEvent.key);
+//   if (KeyboardEvent.keyCode === 37) {
+//     console.log('a');
+//     prev.click;
+//     console.log('b');
+//   }
+//   if (KeyboardEvent.keyCode === 39) {
+//     console.log('c');
+//     next.click;
+//     console.log('d');
+//   }
+// });
+
+// // const keybordPrevNExt = (event) => {
+// // };
+// // -------------------------------------------------------------------------
+// // const keybordPrevNExt = (event) => {
+// //   console.log(event.key);
+// //   let enter = event.keyCode === 13;
+// //   if (event.keyCode === 39) {
+// //     event.preventDefault();
+// //     enter;
+// //   }
+// // };
+// // -------------------------------------------------------------------------
+// // const keybordPrevNExt = (event) => {
+// //   console.log(event.key);
+// //   let enter = event.keyCode === 13;
+// //   let arrowRight = event.keyCode === 39;
+// //   arrowRight = enter;
+// // };
+// // -------------------------------------------------------------------------
+
 // CLOSE LIGHTBOX ("clik" event)
 const closeLightbox = () => {
+  // active main
+  mainContent.setAttribute('arias-hidden', 'false');
+  // dasactive modal
+  lightbox.setAttribute('aria-hidden', 'true');
+  // annule stop scroll
+  body.classList.remove('no-scroll');
+  // masque modal
   lightbox.style.display = 'none';
+  // retire "active" du block qui affiche les elements
   lightboxShow.classList.remove('active');
+  // focus sur bouton "contactez-moi"
+  formOpenBtn.focus();
+
   const medias = document.querySelectorAll('.currentMedia');
   for (let i = 0; i < medias.length; i++) {
     let selectedMedia = medias[i];
@@ -143,6 +208,6 @@ const closeLightbox = () => {
 };
 
 // CLOSE LIGHTBOX ("escape" event)
-document.addEventListener('keydown', (keyboardEvent) => {
-  if (keyboardEvent.keyCode == 27) closeLightbox();
+document.addEventListener('keydown', (event) => {
+  if (event.keyCode === 27) closeLightbox();
 });

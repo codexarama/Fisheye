@@ -9,65 +9,80 @@ function fetchData() {
     .then((data) => {
       console.log(data);
 
-      // RECUPERE LE TAG CHOISI
-      // TAG href = `index.html?tag=${photographer.tags}`
-      // const urlParams = window.location.search;
-      // console.log(urlParams); // ?tag="portrait" (...)
-      const getTag = (urlTag, tag) => {
-        urlTag = new URL(document.location).searchParams;
-        tag = urlTag.get('tag');
-        return tag;
-      };
-      console.log(getTag());
-
       const tags = document.querySelectorAll('.tag a');
 
       for (let i = 0; i < tags.length; i++) {
+        // quand click sur tag
         tags[i].addEventListener('click', (event) => {
           event.preventDefault();
+          // ajoute toggle "selected"
           tags[i].classList.toggle('selected');
-          // console.log(tags[i]);
-          let selectedTags = tags[i].classList.contains('selected');
-          if (selectedTags) console.log(tags);
-          if (!selectedTags) console.log(tags);
-          // affiche tableau tags complet avec a ou a.selected actualisé à chaque click
-          tagsList = document.querySelectorAll('a.selected');
-          console.log(tagsList); // affiche tableau contenant uniquement les tags selectionnes
+          const selected = document.querySelectorAll('a.selected');
+          // tableau des tags choisis
+          let tagsList = Array.from(selected).map((elmt) => {
+            elmt = elmt.title;
+            return elmt;
+          });
+          console.log(tagsList);
 
-          // ---------------------------------------------------------------------------------
-          for (let i = 0; i < data.photographers.length; i++) {
-            // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
-              const tagsFilter = data.photographers[i].tags.filter((elmt) => elmt == getTag());
-              console.log(tagsFilter);
-          }
-          // ---------------------------------------------------------------------------------
+          // pour chaque tag du tableau
+          tagsList.forEach((tag) => {
+            // affiche photographe(s) dont tag(s) correspond(ent)
+            for (let j = 0; j < data.photographers.length; j++) {
+              console.log(data.photographers[j].tags); // liste des tags de chaque photographe
+              const selectedTags = data.photographers[j].tags.filter(
+                (elmt) => elmt == tag
+              );
+              // selectionne tag correspondant pour chaque photographe si true
+              console.log(selectedTags);
+            }
+          });
         });
       }
+    })
 
-      // for (let i = 0; i < data.photographers.length; i++) {
-      //   // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
-      //   let selectedTag = data.photographers[i].tags.filter(
-      //     (elmt) => elmt == getTag()
-      //   );
-      //   // console.log(data.photographers[i].tags);
-      //   console.log(selectedTag); // tableau du tag sélectionné correspondant si true pour chaque photographe
+    // ----------------------------------------------------------------------------------------------
+    // PREMIERE VERSION
+    // CHAQUE CLIC SUR UN TAG AFFICHE LES PHOTOGRAPHES QUI ONT CE TAG
+    // NE FONCTIONNE PAS POUR SELECTION MULTIPLE DE TAGS
+    // PAGE WEB SE RECHARGE A CHAQUE CLIC SUR UN TAG
 
-      //   if (getTag() == null) {
-      //     // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
-      //     setCard(data.photographers[i]);
-      //   } else {
-      //     for (let j = 0; j < selectedTag.length; j++) {
-      //       // AFFICHE LA CARTE DES PHOTOGRAPHES DONT UN TAG CORRESPOND A CELUI CHOISI
-      //       if (selectedTag[j].length > 0) {
-      //         setCard(data.photographers[i]);
-      //       }
-      //     }
-      //   }
-      // }
-    });
+    // // RECUPERE LE TAG CHOISI
+    // // TAG href = `index.html?tag=${photographer.tags}`
+    // // const urlParams = window.location.search;
+    // // console.log(urlParams); // ?tag="portrait" (...)
+    // const getTag = (urlTag, tag) => {
+    //   urlTag = new URL(document.location).searchParams;
+    //   tag = urlTag.get('tag');
+    //   return tag;
+    // };
+    // console.log(getTag());
 
-  // GESTION DES ERREURS
-  // .catch((error) => console.log(error.message));
+    // for (let i = 0; i < data.photographers.length; i++) {
+    //   // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
+    //   let selectedTag = data.photographers[i].tags.filter(
+    //     (elmt) => elmt == getTag()
+    //   );
+    //   // console.log(data.photographers[i].tags);
+    //   console.log(selectedTag); // tableau du tag sélectionné correspondant si true pour chaque photographe
+
+    //   if (getTag() == null) {
+    //     // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
+    //     setCard(data.photographers[i]);
+    //   } else {
+    //     for (let j = 0; j < selectedTag.length; j++) {
+    //       // AFFICHE LA CARTE DES PHOTOGRAPHES DONT UN TAG CORRESPOND A CELUI CHOISI
+    //       if (selectedTag[j].length > 0) {
+    //         setCard(data.photographers[i]);
+    //       }
+    //     }
+    //   }
+    // }
+    // });
+    // ----------------------------------------------------------------------------------------------
+
+    // GESTION DES ERREURS
+    .catch((error) => console.log(error.message));
 }
 fetchData();
 

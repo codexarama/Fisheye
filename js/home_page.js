@@ -9,15 +9,40 @@ function fetchData() {
     .then((data) => {
       console.log(data);
 
+
+      // AFFICHE LA CARTE DE CHAQUE PHOTOGRAPHE
+      for (let i = 0; i < data.photographers.length; i++) {
+        setCard(data.photographers[i]);
+      }
+
+      // DOM elements
+      const photographers = document.getElementsByClassName('photographers')[0];
+      console.log(photographers);
+      const photographersCard = document.getElementsByClassName('card');
+      console.log(photographersCard);
+
       const tags = document.querySelectorAll('.tag a');
 
       for (let i = 0; i < tags.length; i++) {
         // quand click sur tag
         tags[i].addEventListener('click', (event) => {
+
+          // NE FONCTIONNE PAS -------------------------------------------------
+          // for (let y = 0; y < photographersCard.length; y++) {
+          //   while (photographersCard.length > 0) {
+          //     photographers.removeChild(photographersCard);
+          //     console.log('coucou'); // zero retour console
+          //   }
+          //   photographersCard.removeChild(photographersCard)[0];
+          // }
+          // -------------------------------------------------
+
           event.preventDefault();
+
           // ajoute toggle "selected"
           tags[i].classList.toggle('selected');
           const selected = document.querySelectorAll('a.selected');
+
           // tableau des tags choisis
           let tagsList = Array.from(selected).map((elmt) => {
             elmt = elmt.title;
@@ -35,6 +60,28 @@ function fetchData() {
               );
               // selectionne tag correspondant pour chaque photographe si true
               console.log(selectedTags);
+
+              for (let k = 0; k < selectedTags.length; k++) {
+
+                // AFFICHE LA CARTE DES PHOTOGRAPHES SI TAG(S) CORRESPONDANT(S)
+                // PROBLEME 1 : SUPPRIMER LES CARTES DE LA SECTION CHARGEES PAR DEFAUT
+                // PROBLEME 2 : SUPPRIMER LES CARTES DE LA SECTION A CHAQUE NOUVELLE SELECTION DE FILTRE
+
+                if (selectedTags[k].length > 0) {
+                  // NE FONCTIONNE PAS -------------------------------------------------
+                  // for (let y = 0; y < photographersCard.length; y++) {
+                  //   while (photographersCard.length > 0) {
+                  //     photographers.removeChild(photographersCard);
+                  //     console.log('coucou'); // zero retour console
+                  //   }
+                  //   photographersCard.removeChild(photographersCard)[0];
+                  // }
+                  // -------------------------------------------------
+
+                  // console.log(photographers); // zero acces
+                  setCard(data.photographers[j]);
+                }
+              }
             }
           });
         });

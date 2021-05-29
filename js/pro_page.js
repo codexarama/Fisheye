@@ -37,10 +37,11 @@ function fetchData() {
       // console.log(photographerWorks); // array media by ID
 
       // ----- gallery section  ----- //
-      // AFFICHE SA GALLERIE SELON FILTRE CHOISI
+      // DOM elements
       const gallery = document.getElementsByClassName('gallery')[0];
       const galleryCard = document.getElementsByClassName('gallery__card');
 
+      // AFFICHE SA GALLERIE SELON FILTRE CHOISI
       const launchGallery = () => {
         for (let i = 0; i < photographerWorks.length; i++) {
           // affiche filtre par defaut dans url

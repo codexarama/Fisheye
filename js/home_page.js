@@ -9,35 +9,30 @@ function fetchData() {
     .then((data) => {
       console.log(data);
 
-
       // AFFICHE LA CARTE DE CHAQUE PHOTOGRAPHE
       for (let i = 0; i < data.photographers.length; i++) {
-        setCard(data.photographers[i]);
+        setPhotographers(data.photographers[i]);
       }
 
       // DOM elements
-      const photographers = document.getElementsByClassName('photographers')[0];
-      console.log(photographers);
-      const photographersCard = document.getElementsByClassName('card');
-      console.log(photographersCard);
+      const photographersSection =
+        document.getElementsByClassName('photographers')[0];
+      console.log(photographersSection);
+
+      // AFFICHE PHOTOGRAPHES SELON FILTRE(S) CHOISI(S)
+      // ---------------------------------------------------------------------- //
+      // SI AUCUN TAG CHOISI > AFFICHAGE PAR DEFAUT DE TOUS LES PHOTOGRAPHES
+      // SI 2 TAGS CORRESPONDENT AU MEME PHOTOGRAPHE > NE L'AFFICHER QU'1 FOIS
+      // ---------------------------------------------------------------------- //
 
       const tags = document.querySelectorAll('.tag a');
-
       for (let i = 0; i < tags.length; i++) {
         // quand click sur tag
         tags[i].addEventListener('click', (event) => {
-
-          // NE FONCTIONNE PAS -------------------------------------------------
-          // for (let y = 0; y < photographersCard.length; y++) {
-          //   while (photographersCard.length > 0) {
-          //     photographers.removeChild(photographersCard);
-          //     console.log('coucou'); // zero retour console
-          //   }
-          //   photographersCard.removeChild(photographersCard)[0];
-          // }
-          // -------------------------------------------------
-
           event.preventDefault();
+
+          // SUPPRIME LES CARTES DEJA CHARGEES
+          photographersSection.innerHTML = '';
 
           // ajoute toggle "selected"
           tags[i].classList.toggle('selected');
@@ -54,82 +49,70 @@ function fetchData() {
           tagsList.forEach((tag) => {
             // affiche photographe(s) dont tag(s) correspond(ent)
             for (let j = 0; j < data.photographers.length; j++) {
-              console.log(data.photographers[j].tags); // liste des tags de chaque photographe
-              const selectedTags = data.photographers[j].tags.filter(
+              // liste des tags de chaque photographe
+              console.log(data.photographers[j].tags);
+              // tag choisi = tag photographe
+              let selectedTags = data.photographers[j].tags.some(
+                // let selectedTags = data.photographers[j].tags.map(
+                // let selectedTags = data.photographers[j].tags.filter(
                 (elmt) => elmt == tag
               );
-              // selectionne tag correspondant pour chaque photographe si true
+              // tag choisi = tag photographe > true / false
               console.log(selectedTags);
 
-              for (let k = 0; k < selectedTags.length; k++) {
-
-                // AFFICHE LA CARTE DES PHOTOGRAPHES SI TAG(S) CORRESPONDANT(S)
-                // PROBLEME 1 : SUPPRIMER LES CARTES DE LA SECTION CHARGEES PAR DEFAUT
-                // PROBLEME 2 : SUPPRIMER LES CARTES DE LA SECTION A CHAQUE NOUVELLE SELECTION DE FILTRE
-
-                if (selectedTags[k].length > 0) {
-                  // NE FONCTIONNE PAS -------------------------------------------------
-                  // for (let y = 0; y < photographersCard.length; y++) {
-                  //   while (photographersCard.length > 0) {
-                  //     photographers.removeChild(photographersCard);
-                  //     console.log('coucou'); // zero retour console
-                  //   }
-                  //   photographersCard.removeChild(photographersCard)[0];
-                  // }
-                  // -------------------------------------------------
-
-                  // console.log(photographers); // zero acces
-                  setCard(data.photographers[j]);
-                }
+              // si tag(s) choisi(s)
+              if (selectedTags) {
+                // affiche photographes correspondants
+                setPhotographers(data.photographers[j]);
               }
             }
           });
         });
       }
-    })
+    });
 
-    // ----------------------------------------------------------------------------------------------
-    // PREMIERE VERSION
-    // CHAQUE CLIC SUR UN TAG AFFICHE LES PHOTOGRAPHES QUI ONT CE TAG
-    // NE FONCTIONNE PAS POUR SELECTION MULTIPLE DE TAGS
-    // PAGE WEB SE RECHARGE A CHAQUE CLIC SUR UN TAG
+  // ----------------------------------------------------------------------------------------------
+  // PREMIERE VERSION
+  // CHAQUE CLIC SUR UN TAG AFFICHE LES PHOTOGRAPHES QUI ONT CE TAG
+  // NE FONCTIONNE PAS POUR SELECTION MULTIPLE DE TAGS
+  // PAGE WEB SE RECHARGE A CHAQUE CLIC SUR UN TAG
 
-    // // RECUPERE LE TAG CHOISI
-    // // TAG href = `index.html?tag=${photographer.tags}`
-    // // const urlParams = window.location.search;
-    // // console.log(urlParams); // ?tag="portrait" (...)
-    // const getTag = (urlTag, tag) => {
-    //   urlTag = new URL(document.location).searchParams;
-    //   tag = urlTag.get('tag');
-    //   return tag;
-    // };
-    // console.log(getTag());
+  // // RECUPERE LE TAG CHOISI
+  // // TAG href = `index.html?tag=${photographer.tags}`
+  // // const urlParams = window.location.search;
+  // // console.log(urlParams); // ?tag="portrait" (...)
+  // const getTag = (urlTag, tag) => {
+  //   urlTag = new URL(document.location).searchParams;
+  //   tag = urlTag.get('tag');
+  //   return tag;
+  // };
+  // console.log(getTag());
 
-    // for (let i = 0; i < data.photographers.length; i++) {
-    //   // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
-    //   let selectedTag = data.photographers[i].tags.filter(
-    //     (elmt) => elmt == getTag()
-    //   );
-    //   // console.log(data.photographers[i].tags);
-    //   console.log(selectedTag); // tableau du tag sélectionné correspondant si true pour chaque photographe
+  // for (let i = 0; i < data.photographers.length; i++) {
+  //   // CIBLE LES PHOTOGRAPHES EN FONCTION DU TAG CHOISI
+  //   let selectedTag = data.photographers[i].tags.filter(
+  //     (elmt) => elmt == getTag()
+  //   );
+  //   // console.log(data.photographers[i].tags);
+  //   console.log(selectedTag); // tableau du tag sélectionné correspondant si true pour chaque photographe
 
-    //   if (getTag() == null) {
-    //     // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
-    //     setCard(data.photographers[i]);
-    //   } else {
-    //     for (let j = 0; j < selectedTag.length; j++) {
-    //       // AFFICHE LA CARTE DES PHOTOGRAPHES DONT UN TAG CORRESPOND A CELUI CHOISI
-    //       if (selectedTag[j].length > 0) {
-    //         setCard(data.photographers[i]);
-    //       }
-    //     }
-    //   }
-    // }
-    // });
-    // ----------------------------------------------------------------------------------------------
+  //   if (getTag() == null) {
+  //     // AFFICHE LA CARTE DE TOUS LES PHOTOGRAPHES
+  //     setCard(data.photographers[i]);
+  //   } else {
+  //     for (let j = 0; j < selectedTag.length; j++) {
+  //       // AFFICHE LA CARTE DES PHOTOGRAPHES DONT UN TAG CORRESPOND A CELUI CHOISI
+  //       if (selectedTag[j].length > 0) {
+  //         setCard(data.photographers[i]);
+  //       }
+  //     }
+  //   }
+  // }
+  // });
+  // ----------------------------------------------------------------------------------------------
 
-    // GESTION DES ERREURS
-    .catch((error) => console.log(error.message));
+  // GESTION DES ERREURS
+  // .catch((error) => console.log(error.message));
 }
 fetchData();
 

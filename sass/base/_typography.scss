@@ -41,7 +41,7 @@ nav {
 
 }
 
-.card {
+.photographer {
   &__name {
     font-size: $xxl;
     font-weight: $regular;
@@ -113,7 +113,7 @@ nav {
 }
 
 @media only screen and (max-width: 600px) {
-  .card {
+  .photographer {
     &__name {
       font-size: $xl;
     }
@@ -125,7 +125,7 @@ nav {
 }
 
 @media only screen and (max-width: 426px) {
-  .card {
+  .photographer {
     &__name {
       font-size: $l;
     }

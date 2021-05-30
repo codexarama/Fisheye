@@ -81,43 +81,43 @@ nav {
   color: black;
 }
 
-.card__name {
+.photographer__name {
   font-size: xx-large;
   font-weight: 400;
   color: #d3573c;
   border-radius: 3px;
   line-height: 1.5em;
 }
-.card__name:focus {
+.photographer__name:focus {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
 }
-.card__location {
+.photographer__location {
   font-size: large;
   color: #901c1c;
   border-radius: 3px;
   line-height: 1.5em;
 }
-.card__location:focus {
+.photographer__location:focus {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
-.card__tagline {
+.photographer__tagline {
   font-weight: 700;
   border-radius: 3px;
   line-height: 1.5em;
 }
-.card__tagline:focus {
+.photographer__tagline:focus {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
-.card__price {
+.photographer__price {
   font-size: small;
   font-weight: 300;
   border-radius: 3px;
   line-height: 2em;
 }
-.card__price:focus {
+.photographer__price:focus {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
@@ -139,21 +139,21 @@ nav {
 }
 
 @media only screen and (max-width: 600px) {
-  .card__name {
+  .photographer__name {
     font-size: x-large;
   }
-  .card__price {
+  .photographer__price {
     font-size: small;
   }
 }
 @media only screen and (max-width: 426px) {
-  .card__name {
+  .photographer__name {
     font-size: large;
   }
-  .card__location {
+  .photographer__location {
     font-size: small;
   }
-  .card__tagline {
+  .photographer__tagline {
     font-size: xx-small;
   }
 }
@@ -281,34 +281,34 @@ nav {
     font-size: xx-small;
   }
 }
-.card {
+.photographer {
   width: 33%;
   text-align: center;
   padding: 25px 0;
 }
-.card__image {
+.photographer__image {
   width: 175px;
   height: 175px;
   border-radius: 50%;
   margin: auto;
   overflow: hidden;
 }
-.card__image img {
+.photographer__image img {
   width: 175px;
   height: 175px;
   object-fit: cover;
   transition: all 0.5s ease;
 }
-.card__image img:hover, .card__image img:focus {
+.photographer__image img:hover, .photographer__image img:focus {
   transform: scale(1.25);
   transform-origin: 50% 50%;
 }
-.card__name, .card__slogan, .card .tag {
+.photographer__name, .photographer__slogan, .photographer .tag {
   margin-top: 10px;
 }
 
 @media only screen and (max-width: 426px) {
-  .card {
+  .photographer {
     width: 100%;
     padding: 0 0 25px;
   }

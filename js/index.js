@@ -4,10 +4,10 @@
 const section = document.querySelector('section');
 section.setAttribute('class', 'photographers');
 
-const setCard = (photographer) => {
-  const card = elmtFactory(
+const setPhotographers = (photographer) => {
+  const photographers = elmtFactory(
     'article',
-    { class: 'card' },
+    { class: 'photographer' },
     elmtFactory(
       'a',
       {
@@ -19,7 +19,7 @@ const setCard = (photographer) => {
       },
       elmtFactory(
         'div',
-        { class: 'card__image' },
+        { class: 'photographer__image' },
         elmtFactory('img', {
           src: 'images/portraits/' + `${photographer.portrait}`,
           alt: "",
@@ -28,29 +28,29 @@ const setCard = (photographer) => {
       ),
       elmtFactory(
         'h2',
-        { class: 'card__name', tabindex: '0' },
+        { class: 'photographer__name', tabindex: '0' },
         `${photographer.name}`
       )
     ),
     elmtFactory(
       'p',
-      { class: 'card__location', tabindex: '0' },
+      { class: 'photographer__location', tabindex: '0' },
       `${photographer.city}` + ', ' + `${photographer.country}`
     ),
     elmtFactory(
       'p',
-      { class: 'card__tagline', tabindex: '0' },
+      { class: 'photographer__tagline', tabindex: '0' },
       `${photographer.tagline}`
     ),
     elmtFactory(
       'p',
-      { class: 'card__price', tabindex: '0' },
+      { class: 'photographer__price', tabindex: '0' },
       `${photographer.price}` + '€'
     ),
     elmtFactory('ul', { class: 'tags' })
   );
 
-  const tagsList = card.getElementsByClassName('tags')[0];
+  const tagsList = photographers.getElementsByClassName('tags')[0];
   for (let j = 0; j < photographer.tags.length; j++) {
     const tags = elmtFactory(
       'li',
@@ -70,5 +70,5 @@ const setCard = (photographer) => {
     tagsList.appendChild(tags);
   }
 
-  section.appendChild(card);
+  section.appendChild(photographers);
 };

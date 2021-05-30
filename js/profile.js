@@ -15,22 +15,22 @@ const setId = (photographer) => {
       { class: 'id__infos' },
       elmtFactory(
         'h2',
-        { class: 'card__name', tabindex: '0' },
+        { class: 'photographer__name', tabindex: '0' },
         `${photographer.name}`
       ),
       elmtFactory(
         'p',
-        { class: 'card__location', tabindex: '0' },
+        { class: 'photographer__location', tabindex: '0' },
         `${photographer.city}` + ', ' + `${photographer.country}`
       ),
       elmtFactory(
         'p',
-        { class: 'card__tagline', tabindex: '0' },
+        { class: 'photographer__tagline', tabindex: '0' },
         `${photographer.tagline}`
       ),
       elmtFactory(
         'p',
-        { class: 'card__price', tabindex: '0' },
+        { class: 'photographer__price', tabindex: '0' },
         `${photographer.price}` + '€'
       ),
       elmtFactory('ul', { class: 'tags' })

@@ -10,8 +10,7 @@
     color: $secondaire-txt;
 
     &.selected,
-    &:hover,
-    &:focus {
+    &:hover {
       cursor: pointer;
       border-radius: 25px;
       border: solid 1px $primaire-border;
@@ -25,34 +24,6 @@
     }
   }
 }
-
-// .tags {
-//   li a {
-//     text-align: center;
-//     font-size: $s;
-//     border-radius: 25px;
-//     border: solid 1px $secondaire-border;
-//     background-color: white;
-//     margin: 0 2px;
-//     padding: 0 5px;
-//     color: $secondaire-txt;
-//   }
-
-//   & li a.selected,
-//   & li a:hover,
-//   & li a:focus {
-//     cursor: pointer;
-//     border-radius: 25px;
-//     border: solid 1px $primaire-border;
-//     background-color: $primaire-bg;
-//     color: $primaire-a;
-//   }
-
-//   & li a:focus {
-//     outline: none;
-//     box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
-//   }
-// }
 
 @media only screen and (max-width: 426px) {
   .tags {

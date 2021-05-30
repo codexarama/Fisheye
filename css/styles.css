@@ -264,7 +264,7 @@ nav {
   padding: 0 5px;
   color: #901c1c;
 }
-.tags li a.selected, .tags li a:hover, .tags li a:focus {
+.tags li a.selected, .tags li a:hover {
   cursor: pointer;
   border-radius: 25px;
   border: solid 1px #901c1c;

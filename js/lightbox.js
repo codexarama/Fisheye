@@ -158,7 +158,6 @@ const displayLightbox = () => {
       // });
     };
 
-
     // FONCTION : GESTION NAVIGATION CLAVIER
     // ---------- NE FONCTIONNE PAS ---------- //
     // fleche gauche > media precedent
@@ -260,14 +259,12 @@ const closeLightbox = () => {
   lightbox.style.display = 'none';
   // retire "active" du block qui affiche les elements
   lightboxShow.classList.remove('active');
-  // focus sur bouton "contactez-moi"
-  formOpenBtn.focus();
-
-  const medias = document.querySelectorAll('.currentMedia');
-  for (let i = 0; i < medias.length; i++) {
-    let selectedMedia = medias[i];
-    selectedMedia.classList.remove('selected');
-  }
+  // focus sur dernier media choisi
+  const lastMedia = document.querySelector('.currentMedia.selected');
+  // ---------- console.log(lastMedia);
+  lastMedia.focus();
+  // retire "selected" de ce media
+  lastMedia.classList.remove('selected');
 };
 
 // CLOSE LIGHTBOX ("escape" event)

@@ -50,45 +50,10 @@ const displayLightbox = () => {
       lightboxNav();
       // AFFICHE MEDIA CHOISI DANS LIGHTBOX (appel fonction)
       showMedia();
-
-      // quand click sur fleche gauche ("previous")
-      prev.addEventListener('click', (event) => {
-        event.preventDefault();
-        // retire 'selected' du media choisi
-        selectedMedia.classList.remove('selected');
-        // ---------- console.log(selectedMedia);
-        // lui affecte index -1
-        i--; // ---------- console.log(i);
-        selectedMedia = medias[i].querySelector('.currentMedia');
-        // ---------- console.log(selectedMedia);
-        // ajoute 'selected' au media precedant celui choisi
-        selectedMedia.classList.add('selected');
-        // ---------- console.log(selectedMedia);
-        // affiche fleches navigation previous / next (appel fonction)
-        lightboxNav();
-        // AFFICHE MEDIA PRECEDENT (appel fonction)
-        showMedia();
-      });
-
-      // quand click sur fleche droite ("next")
-      next.addEventListener('click', (event) => {
-        event.preventDefault();
-        // retire 'selected' du media choisi
-        selectedMedia.classList.remove('selected');
-        // ---------- console.log(selectedMedia);
-        // lui affecte index +1
-        i++;
-        // ---------- console.log(i);
-        selectedMedia = medias[i].querySelector('.currentMedia');
-        // ---------- console.log(selectedMedia);
-        // ajoute 'selected' au media precedant celui choisi
-        selectedMedia.classList.add('selected');
-        // ---------- console.log(selectedMedia);
-        // affiche fleches navigation previous / next (appel fonction)
-        lightboxNav();
-        // AFFICHE MEDIA PRECEDENT (appel fonction)
-        showMedia();
-      });
+      // AFFICHE MEDIA PRECEDENT (appel fonction)
+      previousMedia();
+      // AFFICHE MEDIA SUIVANT (appel fonction)
+      nextMedia();
     });
 
     // AFFICHE fleches NAVIGATION (previous / next)
@@ -135,11 +100,99 @@ const displayLightbox = () => {
         video.replaceWith(lightboxMedia);
       }
     };
+
+    // AFFICHE MEDIA PRECEDENT
+    const previousMedia = () => {
+      // quand click sur fleche gauche ("previous")
+      prev.addEventListener('click', (event) => {
+        event.preventDefault();
+        // retire 'selected' du media choisi
+        selectedMedia.classList.remove('selected');
+        // ---------- console.log(selectedMedia);
+        // lui affecte index -1
+        i--; // ---------- console.log(i);
+        selectedMedia = medias[i].querySelector('.currentMedia');
+        // ---------- console.log(selectedMedia);
+        // ajoute 'selected' au media precedant celui choisi
+        selectedMedia.classList.add('selected');
+        // ---------- console.log(selectedMedia);
+        // affiche fleches navigation previous / next (appel fonction)
+        lightboxNav();
+        // AFFICHE MEDIA PRECEDENT (appel fonction)
+        showMedia();
+      });
+
+      // fleche gauche > media precedent
+      // ---------- NE FONCTIONNE PAS ---------- //
+      document.addEventListener('keydown', (KeyboardEvent) => {
+        if (KeyboardEvent === 37) prev.click;
+      });
+    };
+
+    // AFFICHE MEDIA SUIVANT
+    const nextMedia = () => {
+      // quand click sur fleche droite ("next")
+      next.addEventListener('click', (event) => {
+        event.preventDefault();
+        // retire 'selected' du media choisi
+        selectedMedia.classList.remove('selected');
+        // ---------- console.log(selectedMedia);
+        // lui affecte index +1
+        i++;
+        // ---------- console.log(i);
+        selectedMedia = medias[i].querySelector('.currentMedia');
+        // ---------- console.log(selectedMedia);
+        // ajoute 'selected' au media precedant celui choisi
+        selectedMedia.classList.add('selected');
+        // ---------- console.log(selectedMedia);
+        // affiche fleches navigation previous / next (appel fonction)
+        lightboxNav();
+        // AFFICHE MEDIA PRECEDENT (appel fonction)
+        showMedia();
+      });
+
+      // fleche droite > media suivant
+      // ---------- NE FONCTIONNE PAS ---------- //
+      document.addEventListener('keydown', (KeyboardEvent) => {
+        if (KeyboardEvent === 39) next.click;
+      });
+    };
+
+    // FONCTION : GESTION NAVIGATION CLAVIER
+    // ---------- NE FONCTIONNE PAS ---------- //
+    // const keybordPrevNExt = {
+    //   ArrowLeft: previousMedia,
+    //   ArrowRigt: nextMedia,
+    // };
+    // const handleKeyDown = ({ key, value }) => {
+    //   if (keybordPrevNExt[key]) {
+    //     keybordPrevNExt[value]();
+    //   }
+    // };
+    // document.addEventListener('keydown', handleKeyDown);
+
+    // ---------- NE FONCTIONNE PAS ---------- //
+    // const keybordPrevNExt = () => {
+    //   document.addEventListener('keydown', (event) => {
+    //     switch (event.key) {
+    //       case 'ArrowLeft':
+    //         previousMedia();
+    //         break;
+    //       case 'ArrowRight':
+    //         nextMedia();
+    //         break;
+    //       default:
+    //         return;
+    //     }
+    //     event.preventDefault();
+    //   });
+    // };
+    // keybordPrevNExt()
   }
 };
 
-// // FONCTION : GESTION NAVIGATION CLAVIER
-// // "fleche doite" ou "gauche" = "entree"
+// FONCTION : GESTION NAVIGATION CLAVIER
+// "fleche doite" ou "gauche" = "entree"
 
 // document.addEventListener('keydown', (KeyboardEvent) => {
 //   console.log(KeyboardEvent.key);
@@ -150,7 +203,7 @@ const displayLightbox = () => {
 //   }
 // });
 
-// // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 // document.addEventListener('keydown', (KeyboardEvent) => {
 //   console.log(KeyboardEvent.key);
 //   if (KeyboardEvent.keyCode === 37) {
@@ -165,25 +218,26 @@ const displayLightbox = () => {
 //   }
 // });
 
-// // const keybordPrevNExt = (event) => {
-// // };
-// // -------------------------------------------------------------------------
-// // const keybordPrevNExt = (event) => {
-// //   console.log(event.key);
-// //   let enter = event.keyCode === 13;
-// //   if (event.keyCode === 39) {
-// //     event.preventDefault();
-// //     enter;
-// //   }
-// // };
-// // -------------------------------------------------------------------------
-// // const keybordPrevNExt = (event) => {
-// //   console.log(event.key);
-// //   let enter = event.keyCode === 13;
-// //   let arrowRight = event.keyCode === 39;
-// //   arrowRight = enter;
-// // };
-// // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
+// const keybordPrevNExt = (event) => {
+//   console.log(event.key);
+//   let enter = event.keyCode === 13;
+//   if (event.keyCode === 39) {
+//     event.preventDefault();
+//     enter;
+//   }
+// };
+
+// -------------------------------------------------------------------------
+// const keybordPrevNExt = (event) => {
+//   console.log(event.key);
+//   let enter = event.keyCode === 13;
+//   let arrowRight = event.keyCode === 39;
+//   arrowRight = enter;
+// };
+
+// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 
 // CLOSE LIGHTBOX ("clik" event)
 const closeLightbox = () => {

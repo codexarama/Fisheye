@@ -1,8 +1,8 @@
 // OUVRE - FERME LISTBOX
 document.querySelector('.filter').addEventListener('click', () => {
-  this.querySelector('.filter__box').classList.toggle('open');
-  this.querySelector('.filter__box').removeAttribute('aria-expanded');
-  this.querySelector('.filter__box').setAttribute('aria-expanded', 'true');
+  document.querySelector('.filter__box').classList.toggle('open');
+  document.querySelector('.filter__box').removeAttribute('aria-expanded');
+  document.querySelector('.filter__box').setAttribute('aria-expanded', 'true');
 });
 
 const listbox = document.querySelector('[role="listbox"]');
@@ -51,39 +51,16 @@ const setActiveDescendant = (option) => {
   const id = option.id;
   let selectedOption = listbox.querySelector('#' + id);
 
-  // gestion des styles au focus
-  // ATTENTION ecrire mots composes en Camel
-  // ---------- NE FONCTIONNE PAS ---------- //
-  // let styles = {
-  //   background: '#db8876',
-  //   borderLeft: '10px solid #db8876',
-  //   borderRight: '10px solid #db8876',
-  //   color: 'black',
-  //   fontWeight: '700',
-  // };
-  // console.log(styles);
-
   // retire "selected" + "aria-selected=true" sur ancienne option
   showOption.setAttribute('aria-activedescendant', id);
   options.forEach((option) => {
     option.classList.remove('selected');
     option.removeAttribute('aria-selected');
-    // if (!option.classList.contains("selected"))
-    // option.setAttribute(
-    //   'style',
-    //   'background: #db8876; border-left: 10px solid #db8876; border-right: 10px solid #db8876; color: black; font-weight: 700;'
-    // );
-    // option.removeAttribute('style');
   });
 
   // affecte "selected" + "aria-selected=true" sur nouvelle option
   selectedOption.classList.add('selected');
   selectedOption.setAttribute('aria-selected', 'true');
-  // selectedOption.removeAttribute('style');
-  // selectedOption.setAttribute(
-  //   'style',
-  //   'background: #db8876; border-left: 10px solid #db8876; border-right: 10px solid #db8876; color: black; font-weight: 700;'
-  // );
 
   // retourne fleche bouton quant atteint 1er ou dernier item de la liste
   if (options[0].classList.contains('selected'))
@@ -99,9 +76,9 @@ const setActiveDescendant = (option) => {
 
 // si flèche haut / bas pressee
 showOption.addEventListener('keydown', (event) => {
+  event.preventDefault();
   const { key } = event;
   if (key !== 'ArrowDown' && key !== 'ArrowUp') return;
-  event.preventDefault();
 
   // filtre choisi = activedescendant
   const activeDescendant = getActiveDescendant(showOption);

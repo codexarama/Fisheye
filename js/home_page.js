@@ -46,19 +46,22 @@ function fetchData() {
           console.log(tagsList);
 
           // pour chaque tag du tableau
-          tagsList.forEach((tag) => {
+          tagsList.filter((tag) => {
             // affiche photographe(s) dont tag(s) correspond(ent)
             for (let j = 0; j < data.photographers.length; j++) {
+
               // liste des tags de chaque photographe
               console.log(data.photographers[j].tags);
+
               // tag choisi = tag photographe
-              let selectedTags = data.photographers[j].tags.some(
+              const selectedTags = data.photographers[j].tags.some(
                 // let selectedTags = data.photographers[j].tags.map(
                 // let selectedTags = data.photographers[j].tags.filter(
                 (elmt) => elmt == tag
               );
+
               // tag choisi = tag photographe > true / false
-              console.log(selectedTags);
+              console.log(selectedTags == photographersTags[j]);
 
               // si tag(s) choisi(s)
               if (selectedTags) {
@@ -66,6 +69,11 @@ function fetchData() {
                 setPhotographers(data.photographers[j]);
               }
             }
+
+            // AFFICHE TOUS LES PHOTOGRAPHES SI AUCUN TAG N'EST CHOISI
+            // ----- NE FONCTIONNE PAS ----- //
+            // if (tagsList.length = 0) setPhotographers(data.photographers[j]);
+            
           });
         });
       }

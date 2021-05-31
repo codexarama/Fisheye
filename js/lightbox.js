@@ -122,11 +122,11 @@ const displayLightbox = () => {
         showMedia();
       });
 
-      // fleche gauche > media precedent
       // ---------- NE FONCTIONNE PAS ---------- //
-      document.addEventListener('keydown', (KeyboardEvent) => {
-        if (KeyboardEvent === 37) prev.click;
-      });
+      // fleche gauche > media precedent
+      // document.addEventListener('keydown', (KeyboardEvent) => {
+      //   if (KeyboardEvent === 37) prev.click;
+      // });
     };
 
     // AFFICHE MEDIA SUIVANT
@@ -151,14 +151,23 @@ const displayLightbox = () => {
         showMedia();
       });
 
-      // fleche droite > media suivant
       // ---------- NE FONCTIONNE PAS ---------- //
-      document.addEventListener('keydown', (KeyboardEvent) => {
-        if (KeyboardEvent === 39) next.click;
-      });
+      // fleche droite > media suivant
+      // document.addEventListener('keydown', (KeyboardEvent) => {
+      //   if (KeyboardEvent === 39) next.click;
+      // });
     };
 
+
     // FONCTION : GESTION NAVIGATION CLAVIER
+    // ---------- NE FONCTIONNE PAS ---------- //
+    // fleche gauche > media precedent
+    // fleche droite > media suivant
+    // document.addEventListener('keydown', (event) => {
+    //   if (event.keyCode === 37) return previousMedia();
+    //   if (event.keyCode === 39) return nextxMedia();
+    // });
+
     // ---------- NE FONCTIONNE PAS ---------- //
     // const keybordPrevNExt = {
     //   ArrowLeft: previousMedia,

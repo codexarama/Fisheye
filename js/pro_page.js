@@ -97,6 +97,18 @@ function fetchData() {
       };
       launchGallery();
 
+      // FILTRE GALERIE PAR NAVIGATION CLAVIER
+      const selectedOption = document.querySelector('.filter__selected')
+      // console.log(selectedOption);
+
+      selectedOption.addEventListener('keydown', (event) => {
+        event.preventDefault()
+        let galleryFilter = selectedOption.textContent
+        console.log(galleryFilter);
+        console.log(galleryFilter == 'Date'); // ne fonctionne pas
+      })
+
+
       // ----- labels + inputs likes counter ----- //
       function setAttributes(elmt, attribute) {
         for (let key in attribute) {

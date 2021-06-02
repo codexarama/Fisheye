@@ -254,6 +254,7 @@ nav {
     width: 100%;
   }
 }
+.tagsNav li a,
 .tags li a {
   text-align: center;
   font-size: small;
@@ -264,20 +265,23 @@ nav {
   padding: 0 5px;
   color: #901c1c;
 }
-.tags li a.selected, .tags li a:hover {
+.tagsNav li a.selected, .tagsNav li a:hover,
+.tags li a.selected,
+.tags li a:hover {
   cursor: pointer;
   border-radius: 25px;
   border: solid 1px #901c1c;
   background-color: #901c1c;
   color: white;
 }
+.tagsNav li a:focus,
 .tags li a:focus {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 
 @media only screen and (max-width: 426px) {
-  .tags li a {
+  .tagsNav .tags li a {
     font-size: xx-small;
   }
 }

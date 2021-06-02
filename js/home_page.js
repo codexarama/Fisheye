@@ -83,8 +83,17 @@ function fetchData() {
               );
               // console.log(selectedTags);
 
+
               // si tag(s) choisi(s) affiche photographes correspondants
-              if (selectedTags) setPhotographers(data.photographers[j]);
+              if (selectedTags)
+
+              // ICI IL FAUDRAIT RECUPER LE DERNIER RESULTAT DE LA FONCTION
+              // uniqueId SITUEE EN DEHORS DE CETTE BOUCLE
+              // J'AI ESSAYE LA METHODE ASYNC / AWAIT
+              // MAIS NE PARVIENS A AUCUN RESULTAT CONCLUANT...
+
+              setPhotographers(data.photographers[j]);
+              
               // ou
               //   const filterPage = async () => {
               //     if (selectedTags) setPhotographers(data.photographers[j]);

@@ -1,8 +1,15 @@
 // OUVRE - FERME LISTBOX
 document.querySelector('.filter').addEventListener('click', () => {
   document.querySelector('.filter__box').classList.toggle('open');
-  document.querySelector('.filter__box').removeAttribute('aria-expanded');
-  document.querySelector('.filter__box').setAttribute('aria-expanded', 'true');
+  document.querySelector('.filter__box').removeAttribute('aria-expanded', 'false');
+  if (document.querySelector('.filter__box').classList.contains('open'))
+    document
+      .querySelector('.filter__box')
+      .setAttribute('aria-expanded', 'true');
+  else
+    document
+      .querySelector('.filter__box')
+      .setAttribute('aria-expanded', 'false');
 });
 
 const listbox = document.querySelector('[role="listbox"]');

@@ -90,6 +90,11 @@ function fetchData() {
             displayLightbox();
           });
         }
+
+        // FILTRE GALERIE PAR NAVIGATION CLAVIER
+        const selectedOption = document.querySelector('.filter__selected');
+        // console.log(selectedOption);
+
         // ACTUALISE COMPTEUR DE LIKES
         likesCount();
         // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie par defaut)
@@ -97,17 +102,14 @@ function fetchData() {
       };
       launchGallery();
 
+      // NE FONCTIONNE PAS --------------------------------------
       // FILTRE GALERIE PAR NAVIGATION CLAVIER
-      const selectedOption = document.querySelector('.filter__selected')
-      // console.log(selectedOption);
-
-      selectedOption.addEventListener('keydown', (event) => {
-        event.preventDefault()
-        let galleryFilter = selectedOption.textContent
-        console.log(galleryFilter);
-        console.log(galleryFilter == 'Date'); // ne fonctionne pas
-      })
-
+      showOption.addEventListener('keydown', (event) => {
+        event.preventDefault();
+        console.log(showOption.textContent); // ok
+        console.log(showOption.textContent === 'Date'); // false
+      });
+      // --------------------------------------------------------
 
       // ----- labels + inputs likes counter ----- //
       function setAttributes(elmt, attribute) {

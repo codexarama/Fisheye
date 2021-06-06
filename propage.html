@@ -20,8 +20,8 @@
 </head>
 <html>
   <body id="body">
-    <header class="banner">
-      <a href="index.html" class="banner__link" title="Homepage"
+    <header role="banner" class="banner">
+      <a href="index.html" class="banner__link"
         ><img
           src="images/logo/logo_fisheye.svg"
           class="banner__logo"
@@ -30,12 +30,12 @@
     </header>
     <main id="main-content">
       <!-- profil du photographe -->
-      <section class="id">
+      <section aria-label="photographer infos" class="id">
         <button title="Me contacter" type="button" id="modalBtn" class="btn btn-contact">Contactez-moi</button>
       </section>
 
     <!-- choix des options de filtrage de la galerie photos -->
-      <section class="filter">
+      <section aria-label="gallery filter" class="filter">
           <p tabindex="0" type="text" class="filter__title">Trier par</p>
           <div
             aria-expanded="false"
@@ -76,7 +76,7 @@
       </section>
 
       <!-- gallerie virtuelle -->
-      <section class="gallery"></section>
+      <section aria-label="photographer works" class="gallery"></section>
 
       <!-- lightbox -->
       <section class="lightbox">

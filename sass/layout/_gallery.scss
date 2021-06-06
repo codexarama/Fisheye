@@ -101,6 +101,7 @@
 
     &--count {
       all: unset;
+      pointer-events: none;
       width: 35px;
       border-radius: 3px;
       padding: 0 2px;

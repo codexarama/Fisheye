@@ -17,7 +17,6 @@ const setGallery = (media) => {
       },
 
       elmtFactory('div', {
-        tabindex: '0',
         class: 'gallery__media',
       })
     ),
@@ -32,7 +31,6 @@ const setGallery = (media) => {
           'p',
           {
             class: 'gallery__title',
-            tabindex: '0',
           },
           `${media.title}`
         )
@@ -41,6 +39,7 @@ const setGallery = (media) => {
         'div',
         {
           class: 'gallery__likes',
+          onfocus: 'return  false',
         },
         elmtFactory('label', {
           class: 'gallery__likes--label',
@@ -49,6 +48,7 @@ const setGallery = (media) => {
           class: 'gallery__likes--count',
           type: 'text',
           readonly: 'true',
+          onselectstart: 'false',
           value: `${media.likes}`,
         }),
         elmtFactory(

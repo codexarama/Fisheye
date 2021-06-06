@@ -126,6 +126,7 @@ function fetchData() {
       for (let i = 0; i < likeCounterLabel.length; i++) {
         let label = likeCounterLabel[i];
         // console.log(label);
+        label.setAttribute('aria-label', 'likes')
         setAttributes(label, {
           id: 'likes-counter' + i,
           for: 'likes' + i,

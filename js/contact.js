@@ -98,7 +98,6 @@ document.addEventListener('keydown', (event) => {
 // VERIFIE SAISIES
 const inputs = document.querySelectorAll('.formData input');
 // const inputs = document.querySelectorAll('.formData input, textarea');
-// console.log(inputs);
 
 const checkValidity = () => {
   inputs.forEach((input) => {

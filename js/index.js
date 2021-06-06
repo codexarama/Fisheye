@@ -22,7 +22,7 @@ const setPhotographers = (photographer) => {
         { class: 'photographer__image' },
         elmtFactory('img', {
           src: 'images/portraits/' + `${photographer.portrait}`,
-          alt: "",
+          alt: '',
           tabindex: '0',
         })
       ),
@@ -61,7 +61,7 @@ const setPhotographers = (photographer) => {
         {
           href: '?tag=' + `${photographer.tags[j]}`,
           rel: 'tag',
-          title:  `${photographer.tags[j]}`,
+          title: `${photographer.tags[j]}`,
           class: `${photographer.tags[j]}`,
         },
         '#' + `${photographer.tags[j]}`

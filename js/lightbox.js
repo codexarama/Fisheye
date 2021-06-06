@@ -29,7 +29,6 @@ const openLightbox = () => {
 // FONCTION : AFFICHE MEDIA CHOISI
 const displayLightbox = () => {
   const medias = document.querySelectorAll('.gallery__link');
-  // ---------- console.log(medias);
 
   for (let i = 0; i < medias.length; i++) {
     mediaLink = medias[i];
@@ -45,7 +44,6 @@ const displayLightbox = () => {
       selectedMedia = medias[i].querySelector('.currentMedia');
       // affecte 'selected' au media choisi
       selectedMedia.classList.add('selected');
-      // ---------- console.log(selectedMedia);
       // affiche fleches navigation previous / next (appel fonction)
       lightboxNav();
       // AFFICHE MEDIA CHOISI DANS LIGHTBOX (appel fonction)
@@ -108,14 +106,11 @@ const displayLightbox = () => {
         event.preventDefault();
         // retire 'selected' du media choisi
         selectedMedia.classList.remove('selected');
-        // ---------- console.log(selectedMedia);
         // lui affecte index -1
-        i--; // ---------- console.log(i);
+        i--;
         selectedMedia = medias[i].querySelector('.currentMedia');
-        // ---------- console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
         selectedMedia.classList.add('selected');
-        // ---------- console.log(selectedMedia);
         // affiche fleches navigation previous / next (appel fonction)
         lightboxNav();
         // AFFICHE MEDIA PRECEDENT (appel fonction)
@@ -136,15 +131,11 @@ const displayLightbox = () => {
         event.preventDefault();
         // retire 'selected' du media choisi
         selectedMedia.classList.remove('selected');
-        // ---------- console.log(selectedMedia);
         // lui affecte index +1
         i++;
-        // ---------- console.log(i);
         selectedMedia = medias[i].querySelector('.currentMedia');
-        // ---------- console.log(selectedMedia);
         // ajoute 'selected' au media precedant celui choisi
         selectedMedia.classList.add('selected');
-        // ---------- console.log(selectedMedia);
         // affiche fleches navigation previous / next (appel fonction)
         lightboxNav();
         // AFFICHE MEDIA PRECEDENT (appel fonction)
@@ -261,7 +252,6 @@ const closeLightbox = () => {
   lightboxShow.classList.remove('active');
   // focus sur dernier media choisi
   const lastMedia = document.querySelector('.currentMedia.selected');
-  // ---------- console.log(lastMedia);
   lastMedia.focus();
   // retire "selected" de ce media
   lastMedia.classList.remove('selected');
@@ -269,5 +259,7 @@ const closeLightbox = () => {
 
 // CLOSE LIGHTBOX ("escape" event)
 document.addEventListener('keydown', (event) => {
-  if (event.keyCode === 27) closeLightbox();
+  if (event.keyCode === 27) {
+    closeLightbox();
+  }
 });

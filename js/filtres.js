@@ -83,9 +83,9 @@ const setActiveDescendant = (option) => {
 
 // si flèche haut / bas pressee
 showOption.addEventListener('keydown', (event) => {
-  event.preventDefault();
   const { key } = event;
   if (key !== 'ArrowDown' && key !== 'ArrowUp') return;
+  event.preventDefault();
 
   // filtre choisi = activedescendant
   const activeDescendant = getActiveDescendant(showOption);

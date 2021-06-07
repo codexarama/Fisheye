@@ -60,41 +60,67 @@ function fetchData() {
             }
 
             for (let i = 0; i < photographerWorks.length; i++) {
-              // si filtre "date" choisi
-              if (option.classList.contains('filter__option--2')) {
-                // affiche filtre correspondant dans url
-                location.hash = 'filtre date';
-                // affiche galerie triee par date
-                setGallery(photographerWorks.sort(filterBy('date', 'desc'))[i]);
-              }
-              // si filtre "titre" choisi
-              if (option.classList.contains('filter__option--3')) {
-                // affiche filtre correspondant dans url
-                location.hash = 'filtre titre';
-                // affiche galerie triee par titre
-                setGallery(photographerWorks.sort(filterBy('title'))[i]);
-              }
-              // si filtre "popularite" choisi
-              if (option.classList.contains('filter__option--1')) {
-                // affiche filtre correspondant dans url
-                location.hash = 'filtre popularite';
-                // affiche galerie triee par popularite
-                setGallery(
-                  photographerWorks.sort(filterBy('likes', 'desc'))[i]
-                );
-              }
+              const filterByDate = () => {
+                // si filtre "date" choisi
+                if (option.classList.contains('filter__option--2')) {
+                  // affiche filtre correspondant dans url
+                  location.hash = 'filtre date';
+                  // affiche galerie triee par date
+                  setGallery(
+                    photographerWorks.sort(filterBy('date', 'desc'))[i]
+                  );
+                }
+              };
+              filterByDate();
+
+              const filterByTitle = () => {
+                // si filtre "titre" choisi
+                if (option.classList.contains('filter__option--3')) {
+                  // affiche filtre correspondant dans url
+                  location.hash = 'filtre titre';
+                  // affiche galerie triee par titre
+                  setGallery(photographerWorks.sort(filterBy('title'))[i]);
+                }
+              };
+              filterByTitle();
+
+              const filterByPop = () => {
+                // si filtre "popularite" choisi
+                if (option.classList.contains('filter__option--1')) {
+                  // affiche filtre correspondant dans url
+                  location.hash = 'filtre popularite';
+                  // affiche galerie triee par popularite
+                  setGallery(
+                    photographerWorks.sort(filterBy('likes', 'desc'))[i]
+                  );
+                }
+              };
+              filterByPop();
             }
             // ACTUALISE COMPTEUR DE LIKES
             likesCount();
             // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie filtree)
             displayLightbox();
           });
+
+          // NE FONCTIONNE PAS --------------------------------------
+          // FILTRE GALERIE PAR NAVIGATION CLAVIER
+          // option.addEventListener('keydown', (event) => {
+          //   console.log('coucou');
+          //   event.preventDefault();
+          //   for (let j = 0; j < galleryCard.length; j++) {
+          //     while (galleryCard.length > 0) {
+          //       gallery.removeChild(galleryCard[0]);
+          //     }
+          //   }
+
+          //   for (let i = 0; i < photographerWorks.length; i++) {
+          //     filterByDate();
+          //     filterByTitle();
+          //     filterByPop();
+          //   }
+          // });
         }
-
-        // FILTRE GALERIE PAR NAVIGATION CLAVIER
-        const selectedOption = document.querySelector('.filter__selected');
-        // console.log(selectedOption);
-
         // ACTUALISE COMPTEUR DE LIKES
         likesCount();
         // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie par defaut)
@@ -104,11 +130,12 @@ function fetchData() {
 
       // NE FONCTIONNE PAS --------------------------------------
       // FILTRE GALERIE PAR NAVIGATION CLAVIER
-      showOption.addEventListener('keydown', (event) => {
-        event.preventDefault();
-        console.log(showOption.textContent); // ok
-        console.log(showOption.textContent === 'Date'); // false
-      });
+      // showOption.addEventListener('keyup', () => {
+      // showOption.addEventListener('keydown', (event) => {
+      // event.preventDefault();
+      // console.log(showOption.textContent); // ok
+      // console.log(showOption.textContent === 'Date'); // false
+      // });
       // --------------------------------------------------------
 
       // ----- labels + inputs likes counter ----- //
@@ -126,7 +153,7 @@ function fetchData() {
       for (let i = 0; i < likeCounterLabel.length; i++) {
         let label = likeCounterLabel[i];
         // console.log(label);
-        label.setAttribute('aria-label', 'likes')
+        label.setAttribute('aria-label', 'likes');
         setAttributes(label, {
           id: 'likes-counter' + i,
           for: 'likes' + i,

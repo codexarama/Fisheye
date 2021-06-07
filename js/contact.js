@@ -35,22 +35,16 @@ const openForm = () => {
 
 // FONCTION : FOCUS DANS INPUTS
 const focusInput = () => {
-  // focus dans input 1
   firstName.focus();
-  // si "tabulation", appel fonction "gestion navigation clavier"
   form.addEventListener('keydown', keyboardNavForm);
 };
 
 // FONCTION : GESTION NAVIGATION CLAVIER
 const keyboardNavForm = (event) => {
-  // si "tabulation"
   if (event.keyCode === 9) {
-    // si "shit-tab"
     if (event.shiftKey) {
-      // si ferme modal
       if (document.activeElement === formCloseBtn) {
         event.preventDefault();
-        // focus sur bouton "envoyer"
         submitBtn.focus();
       }
     }
@@ -59,11 +53,8 @@ const keyboardNavForm = (event) => {
 
 // qd click sur bouton "contactez-moi"
 formOpenBtn.addEventListener('click', () => {
-  // ouvre modal (appel fonction)
   openForm();
-  // affiche info dans url
   location.hash = 'contacter photographe';
-  // active navigation clavier (appel fonction)
   focusInput();
 });
 

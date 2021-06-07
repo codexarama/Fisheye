@@ -54,7 +54,7 @@ fetch(url)
 
         // tableau des tags choisis
         let tagsList = Array.from(selected).map((elmt) => {
-          elmt = elmt.title;
+          elmt = elmt.id;
           return elmt;
         });
         // console.log(tagsList);

@@ -51,6 +51,9 @@ function fetchData() {
         }
 
         for (const option of document.querySelectorAll('.filter__option')) {
+          // NE FONCTIONNE PAS --------------------------------------
+          // ['click', 'keydown'].forEach((eventName) => {
+          //   option.addEventListener(eventName, () => {
           option.addEventListener('click', () => {
             for (let j = 0; j < galleryCard.length; j++) {
               // reset gallerie si autre option choisie
@@ -102,6 +105,7 @@ function fetchData() {
             // AFFICHE MEDIA CHOISI DANS LIGHTBOX (galerie filtree)
             displayLightbox();
           });
+          // });
 
           // NE FONCTIONNE PAS --------------------------------------
           // FILTRE GALERIE PAR NAVIGATION CLAVIER

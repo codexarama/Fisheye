@@ -13,6 +13,7 @@ const likesCount = () => {
       like.classList.toggle('selected');
       // au click sur "like", focus sur input "counter"
       let likeCounter = like.parentElement.children[1];
+      let likesAnnouncer = like.parentElement.children[2];
       // si "selected"
       if (like.classList.contains('selected')) {
         // affiche mention dans url
@@ -21,8 +22,12 @@ const likesCount = () => {
         like.setAttribute('title', 'Remove like');
         // + 1 au compteur local
         likeCounter.value++;
+        // ACCESSIBILITE actualise l'annonceur de likes
+        likesAnnouncer.textContent = likeCounter.value + ' likes';
         // change couleur
         likeCounter.style.color = '#db8876';
+        // ACCESSIBILITE focus sur annonceur nb likes
+        likesAnnouncer.focus();
         // + 1 au compteur global
         totalCounter.value++;
       } else {
@@ -32,8 +37,12 @@ const likesCount = () => {
         like.setAttribute('title', 'Add a like');
         // - 1 au compteur local
         likeCounter.value--;
+        // ACCESSIBILITE actualise l'annonceur de likes
+        likesAnnouncer.textContent = likeCounter.value + ' likes';
         // change couleur
         likeCounter.style.color = '#901c1c';
+        // ACCESSIBILITE focus sur annonceur nb likes
+        likesAnnouncer.focus();
         // - 1 au compteur global
         totalCounter.value--;
       }

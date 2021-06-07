@@ -44,13 +44,21 @@ const setGallery = (media) => {
         elmtFactory('label', {
           class: 'gallery__likes--label',
         }),
+        // ----------------------------------------------------------------------------------------
         elmtFactory('input', {
+          tabindex: '-1',
           class: 'gallery__likes--count',
           type: 'text',
           readonly: 'true',
-          onselectstart: 'false',
           value: `${media.likes}`,
         }),
+        elmtFactory('span', {
+          class: 'visually-hidden',
+          tabindex:'0'
+        },
+        `${media.likes}` + ' likes'
+        ),
+        // ----------------------------------------------------------------------------------------
         elmtFactory(
           'button',
           { class: 'gallery__likes--btn', role: 'button' },

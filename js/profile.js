@@ -71,5 +71,5 @@ const setId = (photographer) => {
   sectionId.appendChild(id);
   main.setAttribute('id', `${photographer.id}`);
   // AFFICHE LE TITRE DE LA PAGE PRO DU PHOTOGRAPHE CHOISI SELON CANEVAS : Fisheye | Prenom Nom
-  title.textContent = 'Fisheye | ' + `${photographer.name}`;
+  title.textContent = 'Fisheye : ' + `${photographer.name}`;
 };

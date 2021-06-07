@@ -80,21 +80,22 @@ const displayLightbox = () => {
     const showMedia = () => {
       // affiche titre media dans url
       window.location.hash = medias[i].title + ', closeup view';
-      // ---------- console.log(medias[i].title);
       // affiche media + titre dans lightbox
       lightboxMedia.src = selectedMedia.src;
       lightboxMedia.alt = medias[i].title + ', closeup view';
       lightboxTitle.textContent = medias[i].title;
-      // affiche media type video
-      // ---------- console.log(typeof selectMedia.alt === 'undefined');
-      // true si media = video
+      // si media type img undefined, affiche media type video
       if (typeof selectedMedia.alt === 'undefined') {
+        // remplace img elmt par video elmt
         lightboxMedia.replaceWith(video);
+        // affiche titre media dans url
         window.location.hash = medias[i].title + ', closeup view';
+        // affiche media + titre dans lightbox
         video.src = selectedMedia.src;
         video.alt = medias[i].title + ', closeup view';
         lightboxTitle.textContent = medias[i].title;
       } else {
+        // remplace video elmt par img elemt
         video.replaceWith(lightboxMedia);
       }
     };
@@ -116,12 +117,6 @@ const displayLightbox = () => {
         // AFFICHE MEDIA PRECEDENT (appel fonction)
         showMedia();
       });
-
-      // ---------- NE FONCTIONNE PAS ---------- //
-      // fleche gauche > media precedent
-      // document.addEventListener('keydown', (KeyboardEvent) => {
-      //   if (KeyboardEvent === 37) prev.click;
-      // });
     };
 
     // AFFICHE MEDIA SUIVANT
@@ -141,16 +136,29 @@ const displayLightbox = () => {
         // AFFICHE MEDIA PRECEDENT (appel fonction)
         showMedia();
       });
-
-      // ---------- NE FONCTIONNE PAS ---------- //
-      // fleche droite > media suivant
-      // document.addEventListener('keydown', (KeyboardEvent) => {
-      //   if (KeyboardEvent === 39) next.click;
-      // });
     };
 
     // FONCTION : GESTION NAVIGATION CLAVIER
     // ---------- NE FONCTIONNE PAS ---------- //
+    const arrowNav = (event) => {
+      switch (event.key) {
+        case 'ArrowLeft':
+          previousMedia();
+          break;
+        case 'ArrowRight':
+          nextMedia();
+          break;
+        default:
+          return;
+      }
+      event.preventDefault();
+    };
+
+    window.addEventListener('keydown', arrowNav);
+
+    // ---------- NE FONCTIONNE PAS ---------- //
+
+    // -------------------------------------------------------------------------
     // fleche gauche > media precedent
     // fleche droite > media suivant
     // document.addEventListener('keydown', (event) => {
@@ -158,7 +166,7 @@ const displayLightbox = () => {
     //   if (event.keyCode === 39) return nextxMedia();
     // });
 
-    // ---------- NE FONCTIONNE PAS ---------- //
+    // -------------------------------------------------------------------------
     // const keybordPrevNExt = {
     //   ArrowLeft: previousMedia,
     //   ArrowRigt: nextMedia,
@@ -170,7 +178,7 @@ const displayLightbox = () => {
     // };
     // document.addEventListener('keydown', handleKeyDown);
 
-    // ---------- NE FONCTIONNE PAS ---------- //
+    // -------------------------------------------------------------------------
     // const keybordPrevNExt = () => {
     //   document.addEventListener('keydown', (event) => {
     //     switch (event.key) {
@@ -187,53 +195,43 @@ const displayLightbox = () => {
     //   });
     // };
     // keybordPrevNExt()
+
+    // -------------------------------------------------------------------------
+    //     window.addEventListener('keydown', (KeyboardEvent) => {
+    //       console.log(KeyboardEvent.key);
+    //       if (KeyboardEvent.keyCode === 37) {
+    //         console.log('a');
+    //         previousMedia();
+    //         // previousMedia.click;
+    //         console.log('b');
+    //       }
+    //       if (KeyboardEvent.keyCode === 39) {
+    //         console.log('c');
+    //         nextMedia();
+    //         // nextMedia.click;
+    //         console.log('d');
+    //       }
+    //     });
+
+    // -------------------------------------------------------------------------
+    // const keybordPrevNExt = (event) => {
+    //   console.log(event.key);
+    //   let enter = event.keyCode === 13;
+    //   if (event.keyCode === 39) {
+    //     event.preventDefault();
+    //     enter;
+    //   }
+    // };
+
+    // -------------------------------------------------------------------------
+    // const keybordPrevNExt = (event) => {
+    //   console.log(event.key);
+    //   let enter = event.keyCode === 13;
+    //   let arrowRight = event.keyCode === 39;
+    //   arrowRight = enter;
+    // };
   }
 };
-
-// FONCTION : GESTION NAVIGATION CLAVIER
-// "fleche doite" ou "gauche" = "entree"
-
-// document.addEventListener('keydown', (KeyboardEvent) => {
-//   console.log(KeyboardEvent.key);
-
-//   // if (next.focus() && KeyboardEvent.keyCode === 39) {
-//   if (next.focus()) {
-//     console.log("next"); // ne fonctionne pas
-//   }
-// });
-
-// -------------------------------------------------------------------------
-// document.addEventListener('keydown', (KeyboardEvent) => {
-//   console.log(KeyboardEvent.key);
-//   if (KeyboardEvent.keyCode === 37) {
-//     console.log('a');
-//     prev.click;
-//     console.log('b');
-//   }
-//   if (KeyboardEvent.keyCode === 39) {
-//     console.log('c');
-//     next.click;
-//     console.log('d');
-//   }
-// });
-
-// -------------------------------------------------------------------------
-// const keybordPrevNExt = (event) => {
-//   console.log(event.key);
-//   let enter = event.keyCode === 13;
-//   if (event.keyCode === 39) {
-//     event.preventDefault();
-//     enter;
-//   }
-// };
-
-// -------------------------------------------------------------------------
-// const keybordPrevNExt = (event) => {
-//   console.log(event.key);
-//   let enter = event.keyCode === 13;
-//   let arrowRight = event.keyCode === 39;
-//   arrowRight = enter;
-// };
 
 // -------------------------------------------------------------------------
 // -------------------------------------------------------------------------
@@ -258,7 +256,7 @@ const closeLightbox = () => {
 };
 
 // CLOSE LIGHTBOX ("escape" event)
-document.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', (event) => {
   if (event.keyCode === 27) {
     closeLightbox();
   }

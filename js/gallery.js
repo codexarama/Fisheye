@@ -44,7 +44,6 @@ const setGallery = (media) => {
         elmtFactory('label', {
           class: 'gallery__likes--label',
         }),
-        // ----------------------------------------------------------------------------------------
         elmtFactory('input', {
           tabindex: '-1',
           class: 'gallery__likes--count',
@@ -53,12 +52,12 @@ const setGallery = (media) => {
           value: `${media.likes}`,
         }),
         elmtFactory('span', {
+          tabindex: '-1',
           class: 'visually-hidden',
           tabindex:'0'
         },
         `${media.likes}` + ' likes'
         ),
-        // ----------------------------------------------------------------------------------------
         elmtFactory(
           'button',
           { class: 'gallery__likes--btn', role: 'button' },

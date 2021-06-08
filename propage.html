@@ -42,7 +42,7 @@
             role="combobox"
             class="filter__box">
             <button
-              aria-owns="listbox"
+              aria-haspopup="listbox"
               id="orderBy"
               aria-label="Order by"
               class="filter__selected btn">
@@ -54,18 +54,21 @@
               aria-labelledby="orderBy"
               class="filter__options">
               <li
+                tabindex="0"
                 role='option'
                 id="popularite"
                 class="filter__option filter__option--1 selected">
                 Popularité
               </li>
               <li
+                tabindex="0"
                 role='option'
                 id="date"
                 class="filter__option filter__option--2">
                 Date
               </li>
               <li
+                tabindex="0"
                 role='option'
                 id="titre"
                 class="filter__option filter__option--3">

@@ -1,7 +1,10 @@
 // OUVRE - FERME LISTBOX
+// ajoute / retire attributs
 document.querySelector('.filter').addEventListener('click', () => {
   document.querySelector('.filter__box').classList.toggle('open');
-  document.querySelector('.filter__box').removeAttribute('aria-expanded', 'false');
+  document
+    .querySelector('.filter__box')
+    .removeAttribute('aria-expanded', 'false');
   if (document.querySelector('.filter__box').classList.contains('open'))
     document
       .querySelector('.filter__box')
@@ -10,12 +13,19 @@ document.querySelector('.filter').addEventListener('click', () => {
     document
       .querySelector('.filter__box')
       .setAttribute('aria-expanded', 'false');
+
+  // ajuste apparence
+  if (optionTitre.classList.contains('selected'))
+    optionDate.style.borderRadius = '0 0 3px 3px';
 });
 
+// DOM elements
 const listbox = document.querySelector('[role="listbox"]');
-// console.log(listbox);
 const options = [...listbox.children];
-// console.log(options);
+const optionPop = document.getElementsByClassName('filter__option--1')[0];
+const optionDate = document.getElementsByClassName('filter__option--2')[0];
+const optionTitre = document.getElementsByClassName('filter__option--3')[0];
+const filterBoxOpen = document.getElementsByClassName('open');
 
 // IDENTITFIE OPTION CHOISIE
 // NAVIGATION SOURIS
@@ -36,9 +46,9 @@ listbox.addEventListener('click', (event) => {
 
 // FERME LISTBOX SI CLICK HORS BOX
 window.addEventListener('click', function (e) {
-  const select = document.querySelector('.filter__box');
-  if (!select.contains(e.target)) {
-    select.classList.remove('open');
+  const filterBox = document.querySelector('.filter__box');
+  if (!filterBox.contains(e.target)) {
+    filterBox.classList.remove('open');
   }
 });
 

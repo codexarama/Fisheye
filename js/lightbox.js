@@ -136,25 +136,31 @@ const displayLightbox = () => {
         // AFFICHE MEDIA PRECEDENT (appel fonction)
         showMedia();
       });
+
+      window.addEventListener('keydown', (event) => {
+        console.log('coucou');
+        if (event.keyCode === 37) prev.click
+        if (event.keyCode === 39) next.click
+      })
     };
 
     // FONCTION : GESTION NAVIGATION CLAVIER
     // ---------- NE FONCTIONNE PAS ---------- //
-    const arrowNav = (event) => {
-      switch (event.key) {
-        case 'ArrowLeft':
-          previousMedia();
-          break;
-        case 'ArrowRight':
-          nextMedia();
-          break;
-        default:
-          return;
-      }
-      event.preventDefault();
-    };
+    // const arrowNav = (event) => {
+    //   switch (event.key) {
+    //     case 'ArrowLeft':
+    //       previousMedia();
+    //       break;
+    //     case 'ArrowRight':
+    //       nextMedia();
+    //       break;
+    //     default:
+    //       return;
+    //   }
+    //   event.preventDefault();
+    // };
 
-    window.addEventListener('keydown', arrowNav);
+    // window.addEventListener('keydown', arrowNav);
 
     // ---------- NE FONCTIONNE PAS ---------- //
 

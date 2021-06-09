@@ -228,11 +228,14 @@
     <!-- footer element -->
     <footer class="footer">
       <div class="footer__content">
-        <input tabindex="0" id="total-likes" aria-readonly="true" readonly type="text"></input>
-        <i tabindex="0"  class="fas fa-heart"></i>
+        <label for="total-likes"></label>
+        <input tabindex="-1" id="total-likes" aria-readonly="true" readonly type="text"></input>
+        <span tabindex='0' class="visually-hidden"></span>
+        </span>
+        <i class="fas fa-heart"></i>
       </div>
       <div class="footer__content">
-        <p tabindex="0" id="pricePerDay"></p>
+        <p tabindex="0" aria-label="Tarif" id="pricePerDay"></p>
       </div>
     </footer>
 

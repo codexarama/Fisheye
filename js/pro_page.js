@@ -169,6 +169,14 @@ fetch(url)
       totalLikes = 0;
       photographerWorks.forEach((work) => (totalLikes += work.likes));
       totalCounter.value = `${totalLikes}`;
+
+      // ACCESSIBILITE
+      let likesFooterAnnouncer = document.querySelector(
+        'footer span.visually-hidden'
+      );
+      likesFooterAnnouncer.addEventListener('keyup', () => {
+        likesFooterAnnouncer.textContent = totalCounter.value + 'likes au compteur';
+      });
     };
     totalLikesCounter();
 

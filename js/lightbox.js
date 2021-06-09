@@ -38,8 +38,6 @@ const displayLightbox = () => {
       event.preventDefault();
       // OUVRE LA LIGHTBOX (appel fonction)
       openLightbox();
-      // focus dans lightbox (bouton "fermer")
-      lightboxCloseBtn.focus();
       // recupere image correspondante
       selectedMedia = medias[i].querySelector('.currentMedia');
       // affecte 'selected' au media choisi
@@ -79,10 +77,11 @@ const displayLightbox = () => {
       // affiche titre media dans url
       window.location.hash = medias[i].title + ', closeup view';
       // affiche media + titre dans lightbox
-      lightboxMedia.focus(); // ACCESSIBILITE
       lightboxMedia.src = selectedMedia.src;
-      lightboxMedia.alt = medias[i].title + ', closeup view';
-      lightboxTitle.textContent = medias[i].title;
+      lightboxMedia.alt = selectedMedia.alt;
+      lightboxTitle.textContent = selectedMedia.alt;
+      // lightboxMedia.alt = medias[i].title;
+      // lightboxTitle.textContent = medias[i].title;
       // si media type img undefined, affiche media type video
       if (typeof selectedMedia.alt === 'undefined') {
         // remplace img elmt par video elmt
@@ -97,6 +96,12 @@ const displayLightbox = () => {
         // remplace video elmt par img elemt
         video.replaceWith(lightboxMedia);
       }
+      // ACCESSIBILITE
+      // focus sur titre media
+      // styles (focus true)
+        lightboxTitle.style.outline = 'none';
+        lightboxTitle.style.border = '0 0 0 4px #901c1c';
+      lightboxTitle.focus();
     };
 
     // AFFICHE MEDIA PRECEDENT
@@ -144,6 +149,13 @@ const displayLightbox = () => {
     //   console.log('coucou');
     //   if (event.keyCode === 37) previousMedia();
     //   if (event.keyCode === 39) nextMedia();
+    // });
+
+    // NE FONCTIONNE PAS ---------------------------------------- //
+    // window.addEventListener('keydown', (event) => {
+    //   console.log('coucou');
+    //   if (event.keyCode === 37) prev.click();
+    //   if (event.keyCode === 39) next.click();
     // });
 
     // NE FONCTIONNE PAS ---------------------------------------- //

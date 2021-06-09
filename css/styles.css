@@ -90,7 +90,7 @@ nav {
 }
 .photographer__name:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #db8876;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #d3573c;
 }
 .photographer__location {
   font-size: large;
@@ -789,7 +789,14 @@ label {
 }
 .lightbox__title {
   margin-top: 5px;
+  padding: 3px;
+  border-radius: 5px;
   color: #901c1c;
+}
+.lightbox__title:focus {
+  margin-top: -1px;
+  outline: none;
+  border: 3px solid #901c1c;
 }
 .lightbox__btn {
   all: unset;

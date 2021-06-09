@@ -12,7 +12,7 @@ const setGallery = (media) => {
       'a',
       {
         href: '#',
-        title: `${media.title}`,
+        title: 'close-up view',
         class: 'gallery__link',
       },
 
@@ -79,7 +79,7 @@ const setGallery = (media) => {
       tabindex: '0',
       class: 'currentMedia',
       src: 'images/photos/' + `${media.image}`,
-      alt: '',
+      alt: `${media.title}`,
     });
     // insere elmt image dans carte type galerie
     galleryMedia.appendChild(mediaType);
@@ -92,7 +92,7 @@ const setGallery = (media) => {
       tabindex: '0',
       class: 'currentMedia',
       src: 'images/videos/' + `${media.video}`,
-      alt: '',
+      alt: `${media.title}`,
     });
     // insere elmt video dans carte type galerie
     galleryMedia.appendChild(mediaType);

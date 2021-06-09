@@ -38,7 +38,15 @@
 
   &__title {
     margin-top: 5px;
+    padding: 3px;
+    border-radius: 5px;
     color: $secondaire-txt;
+
+    &:focus {
+      margin-top: -1px;
+      outline: none;
+      border: 3px solid $primaire-bg;
+    }
   }
 
   &__btn {

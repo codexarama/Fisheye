@@ -59,7 +59,6 @@ const displayLightbox = () => {
       // btn "previous" invisible si 1er media choisi
       if (i == 0) {
         prev.style.display = 'none';
-        next.focus();
       }
       // btn "previous" visible quand index media > 0
       if (i > 0) {
@@ -72,7 +71,6 @@ const displayLightbox = () => {
       // btn "next" invisible si dernier media choisi
       if (i == medias.length - 1) {
         next.style.display = 'none';
-        prev.focus();
       }
     };
 
@@ -81,6 +79,7 @@ const displayLightbox = () => {
       // affiche titre media dans url
       window.location.hash = medias[i].title + ', closeup view';
       // affiche media + titre dans lightbox
+      lightboxMedia.focus(); // ACCESSIBILITE
       lightboxMedia.src = selectedMedia.src;
       lightboxMedia.alt = medias[i].title + ', closeup view';
       lightboxTitle.textContent = medias[i].title;
@@ -136,16 +135,18 @@ const displayLightbox = () => {
         // AFFICHE MEDIA PRECEDENT (appel fonction)
         showMedia();
       });
-
-      window.addEventListener('keydown', (event) => {
-        console.log('coucou');
-        if (event.keyCode === 37) prev.click
-        if (event.keyCode === 39) next.click
-      })
     };
 
     // FONCTION : GESTION NAVIGATION CLAVIER
-    // ---------- NE FONCTIONNE PAS ---------- //
+
+    // NE FONCTIONNE PAS ---------------------------------------- //
+    // window.addEventListener('keydown', (event) => {
+    //   console.log('coucou');
+    //   if (event.keyCode === 37) previousMedia();
+    //   if (event.keyCode === 39) nextMedia();
+    // });
+
+    // NE FONCTIONNE PAS ---------------------------------------- //
     // const arrowNav = (event) => {
     //   switch (event.key) {
     //     case 'ArrowLeft':
@@ -162,9 +163,7 @@ const displayLightbox = () => {
 
     // window.addEventListener('keydown', arrowNav);
 
-    // ---------- NE FONCTIONNE PAS ---------- //
-
-    // -------------------------------------------------------------------------
+    // NE FONCTIONNE PAS ---------------------------------------- //
     // fleche gauche > media precedent
     // fleche droite > media suivant
     // document.addEventListener('keydown', (event) => {
@@ -172,7 +171,7 @@ const displayLightbox = () => {
     //   if (event.keyCode === 39) return nextxMedia();
     // });
 
-    // -------------------------------------------------------------------------
+    // NE FONCTIONNE PAS ---------------------------------------- //
     // const keybordPrevNExt = {
     //   ArrowLeft: previousMedia,
     //   ArrowRigt: nextMedia,
@@ -184,7 +183,7 @@ const displayLightbox = () => {
     // };
     // document.addEventListener('keydown', handleKeyDown);
 
-    // -------------------------------------------------------------------------
+    // NE FONCTIONNE PAS ---------------------------------------- //
     // const keybordPrevNExt = () => {
     //   document.addEventListener('keydown', (event) => {
     //     switch (event.key) {
@@ -202,7 +201,7 @@ const displayLightbox = () => {
     // };
     // keybordPrevNExt()
 
-    // -------------------------------------------------------------------------
+    // NE FONCTIONNE PAS ---------------------------------------- //
     //     window.addEventListener('keydown', (KeyboardEvent) => {
     //       console.log(KeyboardEvent.key);
     //       if (KeyboardEvent.keyCode === 37) {
@@ -219,7 +218,7 @@ const displayLightbox = () => {
     //       }
     //     });
 
-    // -------------------------------------------------------------------------
+    // NE FONCTIONNE PAS ---------------------------------------- //
     // const keybordPrevNExt = (event) => {
     //   console.log(event.key);
     //   let enter = event.keyCode === 13;
@@ -229,7 +228,7 @@ const displayLightbox = () => {
     //   }
     // };
 
-    // -------------------------------------------------------------------------
+    // NE FONCTIONNE PAS ---------------------------------------- //
     // const keybordPrevNExt = (event) => {
     //   console.log(event.key);
     //   let enter = event.keyCode === 13;
@@ -238,9 +237,6 @@ const displayLightbox = () => {
     // };
   }
 };
-
-// -------------------------------------------------------------------------
-// -------------------------------------------------------------------------
 
 // CLOSE LIGHTBOX ("clik" event)
 const closeLightbox = () => {

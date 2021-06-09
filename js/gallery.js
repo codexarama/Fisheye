@@ -54,7 +54,6 @@ const setGallery = (media) => {
         elmtFactory('span', {
           tabindex: '-1',
           class: 'visually-hidden',
-          tabindex:'0'
         },
         `${media.likes}` + ' likes'
         ),

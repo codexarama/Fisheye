@@ -70,6 +70,7 @@ const setActiveDescendant = (option) => {
 
   // retire "selected" + "aria-selected=true" sur ancienne option
   showOption.setAttribute('aria-activedescendant', id);
+  showOption.setAttribute('aria-label', 'Médias triés par ' + id);
   options.forEach((option) => {
     option.classList.remove('selected');
     option.removeAttribute('aria-selected');

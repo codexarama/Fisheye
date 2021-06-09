@@ -36,15 +36,14 @@
 
     <!-- choix des options de filtrage de la galerie photos -->
       <section aria-label="gallery filter" class="filter">
-          <p tabindex="0" type="text" class="filter__title">Trier par</p>
+          <p type="text" class="filter__title">Trier par</p>
           <div
             aria-expanded="false"
             role="combobox"
             class="filter__box">
             <button
               aria-haspopup="listbox"
-              id="orderBy"
-              aria-label="Order by"
+              aria-label="Médias triés par popularité"
               class="filter__selected btn">
               Popularité
             </button>
@@ -54,22 +53,28 @@
               aria-labelledby="orderBy"
               class="filter__options">
               <li
-                tabindex="0"
+                tabindex="-1"
                 role='option'
-                id="popularite"
+                aria-setsize="3"
+                aria-posinset="1"
+                id="popularité"
                 class="filter__option filter__option--1 selected">
                 Popularité
               </li>
               <li
-                tabindex="0"
+                tabindex="-1"
                 role='option'
+                aria-setsize="3"
+                aria-posinset="2"
                 id="date"
                 class="filter__option filter__option--2">
                 Date
               </li>
               <li
-                tabindex="0"
+                tabindex="-1"
                 role='option'
+                aria-setsize="3"
+                aria-posinset="3"
                 id="titre"
                 class="filter__option filter__option--3">
                 Titre

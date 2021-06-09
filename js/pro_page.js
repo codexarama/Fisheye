@@ -2,6 +2,8 @@ let url =
   'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json';
 
 // APPEL API, CALLBACK, (...) RETOUR PROMESSE
+// fetch('http://localhost:52330/posts', { mode: 'no-cors' }); // unespected end of input
+// fetch(url, { mode: 'no-cors', }) // unespected end of input
 fetch(url)
   .then((response) => response.json())
 

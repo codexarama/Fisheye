@@ -18,6 +18,7 @@ const likesCount = () => {
       let likesAnnouncer = like.parentElement.children[2];
       // si "selected"
       if (like.classList.contains('selected')) {
+        likeCounter.style.border = '';
         // affiche mention dans url
         location.hash = "j'aime";
         // ACCESSIBILITE
@@ -28,15 +29,16 @@ const likesCount = () => {
         likeCounter.value++;
         // modifie apparence input
         likeCounter.style.color = '#db8876';
-        // ACCESSIBILITE focus sur annonciateur nb likes
+        // ACCESSIBILITE
+        // focus sur annonciateur nb likes
         likesAnnouncer.focus();
-        likesAnnouncer.textContent = likeCounter.value + ' likes';
         // signale correspondance element lu
         // likeCounter.style.boxShadow = '0 0 0 2px white, 0 0 0 4px #db8876';
+        likesAnnouncer.textContent = likeCounter.value + ' likes';
         // + 1 au compteur global
         totalCounter.value++;
-
       } else {
+        likeCounter.style.border = '';
         // affiche mention dans url
         location.hash = "je n'aime plus";
         // ACCESSIBILITE
@@ -50,12 +52,11 @@ const likesCount = () => {
         // ACCESSIBILITE
         // focus sur annonciateur nb likes
         likesAnnouncer.focus();
-        likesAnnouncer.textContent = likeCounter.value + ' likes';
         // signale correspondance element lu
         // likeCounter.style.boxShadow = '0 0 0 2px white, 0 0 0 4px #901c1c';
+        likesAnnouncer.textContent = likeCounter.value + ' likes';
         // - 1 au compteur global
         totalCounter.value--;
-
       }
 
       // ACCESSIBILITE btn "like" navigation clavier

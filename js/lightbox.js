@@ -88,17 +88,21 @@ const displayLightbox = () => {
         window.location.hash = medias[i].title + ', closeup view';
         // affiche media + titre dans lightbox
         video.src = selectedMedia.src;
-        video.alt = medias[i].title + ', closeup view';
-        lightboxTitle.textContent = medias[i].title;
+        video.alt = selectedMedia.alt;
+        lightboxTitle.textContent = "Image extraite de la vidéo";
       } else {
         // remplace video elmt par img elemt
         video.replaceWith(lightboxMedia);
       }
       // ACCESSIBILITE
       // focus sur titre media
-      lightboxTitle.style.outline = 'none';
-      lightboxTitle.style.border = '0 0 0 4px #901c1c';
       lightboxTitle.focus();
+      // NE FONCTIONNE PAS ------------------------------------------------------------------------
+      // navigation entre les medias avec fleches
+      // window.addEventListener('keydown', (event) => {
+        // if (event.keyCode === 37) prev.click();
+        // if (event.keyCode === 39) next.click();
+      // });
     };
 
     // AFFICHE MEDIA PRECEDENT
@@ -122,9 +126,7 @@ const displayLightbox = () => {
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
       window.addEventListener('keydown', (event) => {
-        if (event.keyCode === 37) {
-          prev.click();
-        }
+        if (event.keyCode === 37) prev.click();
       });
     };
 
@@ -149,9 +151,7 @@ const displayLightbox = () => {
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
       window.addEventListener('keydown', (event) => {
-        if (event.keyCode === 39) {
-          next.click();
-        }
+        if (event.keyCode === 39) next.click();
       });
     };
   }

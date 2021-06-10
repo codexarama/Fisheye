@@ -122,7 +122,6 @@ const displayLightbox = () => {
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
       window.addEventListener('keydown', (event) => {
-        console.log('coucou');
         if (event.keyCode === 37) {
           prev.click();
         }
@@ -150,7 +149,6 @@ const displayLightbox = () => {
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
       window.addEventListener('keydown', (event) => {
-        console.log('coucou');
         if (event.keyCode === 39) {
           next.click();
         }

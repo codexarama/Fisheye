@@ -50,6 +50,28 @@ const displayLightbox = () => {
       previousMedia();
       // AFFICHE MEDIA SUIVANT (appel fonction)
       nextMedia();
+
+      // ACCESSIBILITE
+      // navigation clavier + lecteur ecran : navigue entre medias avec fleches
+      // comportement par defaut des fleches : epelle titre image...
+      // NE FONCTIONNE PAS ------------------------------------------------------------------------
+      //   if (lightboxTitle.focus()) {
+      //     window.addEventListener('keydown', (event) => {
+      //       event.preventDefault();
+      //       switch (event.key) {
+      //         case 'ArrowLeft':
+      //           prev.focus();
+      //           prev.click();
+      //           break;
+      //         case 'ArrowRight':
+      //           next.focus;
+      //           next.click();
+      //           break;
+      //         default:
+      //           return;
+      //       }
+      //     });
+      //   }
     });
 
     // AFFICHE fleches NAVIGATION (previous / next)
@@ -89,7 +111,7 @@ const displayLightbox = () => {
         // affiche media + titre dans lightbox
         video.src = selectedMedia.src;
         video.alt = selectedMedia.alt;
-        lightboxTitle.textContent = "Image extraite de la vidéo";
+        lightboxTitle.textContent = 'Image extraite de la vidéo';
       } else {
         // remplace video elmt par img elemt
         video.replaceWith(lightboxMedia);
@@ -97,11 +119,37 @@ const displayLightbox = () => {
       // ACCESSIBILITE
       // focus sur titre media
       lightboxTitle.focus();
+
+      // ACCESSIBILITE
+      // navigation clavier + lecteur ecran : navigue entre medias avec fleches
+      // comportement par defaut des fleches : epelle titre image...
+      // NE FONCTIONNE PAS ------------------------------------------------------------------------
+      // window.addEventListener('keydown', (event) => {
+      //   switch (event.key) {
+      //     case 'ArrowLeft':
+      //       prev.click();
+      //       // break;
+      //     case 'ArrowRight':
+      //       next.click();
+      //       // break;
+      //     default:
+      //       return;
+      //   }
+      // });
+
       // NE FONCTIONNE PAS ------------------------------------------------------------------------
       // navigation entre les medias avec fleches
       // window.addEventListener('keydown', (event) => {
-        // if (event.keyCode === 37) prev.click();
-        // if (event.keyCode === 39) next.click();
+      //   if (event.keyCode === 37) {
+      //     event.preventDefault();
+      //     prev.click();
+      //   }
+      //   if (event.keyCode === 39) {
+      //     event.preventDefault();
+      //     next.click();
+      //   }
+      // if (event.keyCode === 37) prev.click();
+      // if (event.keyCode === 39) next.click();
       // });
     };
 

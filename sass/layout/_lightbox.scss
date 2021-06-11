@@ -43,9 +43,7 @@
     color: $secondaire-txt;
 
     &:focus {
-      margin-top: -1px;
-      outline: none;
-      border: 3px solid $primaire-bg;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
     }
   }
 

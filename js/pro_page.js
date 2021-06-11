@@ -1,6 +1,6 @@
 // APPEL API, CALLBACK, (...) RETOUR PROMESSE
 fetch('FishEyeData.json')
-       .then((response) => response.json())
+  .then((response) => response.json())
 
   // RECUPERE DONNEES
   .then((data) => {
@@ -155,7 +155,7 @@ fetch('FishEyeData.json')
       setAttributes(input, {
         id: 'likes' + i,
       });
-      input.setAttribute('aria-describedby', 'content-reader')
+      input.setAttribute('aria-describedby', 'content-reader');
     }
 
     // ----- footer section  ----- //
@@ -171,7 +171,8 @@ fetch('FishEyeData.json')
         'footer span.visually-hidden'
       );
       likesFooterAnnouncer.addEventListener('keyup', () => {
-        likesFooterAnnouncer.textContent = totalCounter.value + 'likes au compteur';
+        likesFooterAnnouncer.textContent =
+          totalCounter.value + 'likes au compteur';
       });
     };
     totalLikesCounter();

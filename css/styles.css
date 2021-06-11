@@ -697,10 +697,6 @@ label {
   font-weight: 700;
   color: #901c1c;
 }
-.gallery__likes--count:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
-}
 
 .visually-hidden {
   position: absolute !important;
@@ -794,9 +790,7 @@ label {
   color: #901c1c;
 }
 .lightbox__title:focus {
-  margin-top: -1px;
-  outline: none;
-  border: 3px solid #901c1c;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
 }
 .lightbox__btn {
   all: unset;

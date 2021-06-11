@@ -1,9 +1,5 @@
-let url =
-  'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json';
-
 // APPEL API, CALLBACK, (...) RETOUR PROMESSE
-// fetch(url, { mode: 'no-cors' }) // unespected end of input
-fetch(url)
+fetch('/fisheye_data.json')
   .then((response) => response.json())
 
   // RECUPERE DONNEES

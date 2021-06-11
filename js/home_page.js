@@ -1,5 +1,5 @@
 // APPEL API, CALLBACK, (...) RETOUR PROMESSE
-fetch('/fisheye_data.json')
+fetch('fisheye_data.json')
   .then((response) => response.json())
   // RECUPERATION DES DONNEES
   .then((data) => {

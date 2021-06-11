@@ -41,10 +41,6 @@
     padding: 3px;
     border-radius: 5px;
     color: $secondaire-txt;
-
-    &:focus {
-      box-shadow: 0 0 0 2px white, 0 0 0 4px $primaire-bg;
-    }
   }
 
   &__btn {

@@ -789,9 +789,6 @@ label {
   border-radius: 5px;
   color: #901c1c;
 }
-.lightbox__title:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
-}
 .lightbox__btn {
   all: unset;
   position: absolute;

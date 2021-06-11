@@ -173,7 +173,7 @@ const displayLightbox = () => {
 
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
-      window.addEventListener('keydown', (event) => {
+      lightbox.addEventListener('keydown', (event) => {
         if (event.keyCode === 37) prev.click();
       });
     };
@@ -198,7 +198,7 @@ const displayLightbox = () => {
 
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
-      window.addEventListener('keydown', (event) => {
+      lightbox.addEventListener('keydown', (event) => {
         if (event.keyCode === 39) next.click();
       });
     };
@@ -225,8 +225,6 @@ const closeLightbox = () => {
 };
 
 // CLOSE LIGHTBOX ("escape" event)
-window.addEventListener('keydown', (event) => {
-  if (event.keyCode === 27) {
-    closeLightbox();
-  }
+lightbox.addEventListener('keydown', (event) => {
+  if (event.keyCode === 27) closeLightbox();
 });

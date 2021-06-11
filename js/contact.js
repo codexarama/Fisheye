@@ -49,6 +49,7 @@ const keyboardNavForm = (event) => {
       }
     }
   }
+  if (event.keyCode === 27) closeForm();
 };
 
 // qd click sur bouton "contactez-moi"
@@ -80,11 +81,6 @@ formCloseBtn.forEach((btn) =>
     closeForm();
   })
 );
-
-// FERME MODAL ("escape" event)
-document.addEventListener('keydown', (event) => {
-  if (event.keyCode === 27) closeForm();
-});
 
 // VERIFIE SAISIES
 const inputs = document.querySelectorAll('.formData input');

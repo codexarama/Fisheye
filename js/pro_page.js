@@ -155,6 +155,7 @@ fetch('FishEyeData.json')
       setAttributes(input, {
         id: 'likes' + i,
       });
+      input.setAttribute('aria-describedby', 'content-reader')
     }
 
     // ----- footer section  ----- //

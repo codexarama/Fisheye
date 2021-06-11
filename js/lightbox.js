@@ -141,7 +141,7 @@ const displayLightbox = () => {
 
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
-      lightbox.addEventListener('keydown', (event) => {
+      window.addEventListener('keydown', (event) => {
         if (event.keyCode === 37) prev.click();
       });
     };
@@ -166,7 +166,7 @@ const displayLightbox = () => {
 
       // ACCESSIBILITE
       // navigation entre les medias avec fleches
-      lightbox.addEventListener('keydown', (event) => {
+      window.addEventListener('keydown', (event) => {
         if (event.keyCode === 39) next.click();
       });
     };

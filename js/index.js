@@ -14,14 +14,14 @@ const setPhotographers = (photographer) => {
         id: `${photographer.id}`,
         // CREE UNE url SPECIFIQUE POUR CHAQUE PHOTOGRAPHE (selon id)
         // OUVRE LA PAGE PRO TYPE DU PHOTOGRAPHE CORRESPONDANT
-        href: 'propage.html?id=' + `${photographer.id}`,
+        href: `propage.html?id=${photographer.id}`,
         class: 'photographerId',
       },
       elmtFactory(
         'div',
         { class: 'photographer__image' },
         elmtFactory('img', {
-          src: 'images/portraits/' + `${photographer.portrait}`,
+          src: `images/portraits/${photographer.portrait}`,
           alt: '',
           tabindex: '0',
         })
@@ -35,7 +35,7 @@ const setPhotographers = (photographer) => {
     elmtFactory(
       'p',
       { class: 'photographer__location', tabindex: '0' },
-      `${photographer.city}` + ', ' + `${photographer.country}`
+      `${photographer.city}, ${photographer.country}`
     ),
     elmtFactory(
       'p',
@@ -45,7 +45,7 @@ const setPhotographers = (photographer) => {
     elmtFactory(
       'p',
       { class: 'photographer__price', tabindex: '0' },
-      `${photographer.price}` + '€'
+      `${photographer.price} €`
     ),
     elmtFactory('ul', { class: 'tags' })
   );
@@ -59,12 +59,12 @@ const setPhotographers = (photographer) => {
         'a',
         // CREE UNE url SPECIFIQUE POUR CHAQUE TAG (au clic)
         {
-          href: '?tag=' + `${photographer.tags[j]}`,
+          href: `?tag=${photographer.tags[j]}`,
           rel: 'tag',
           title: `${photographer.tags[j]}`,
           class: `${photographer.tags[j]}`,
         },
-        '#' + `${photographer.tags[j]}`
+        `# ${photographer.tags[j]}`
       )
     );
     tagsList.appendChild(tags);

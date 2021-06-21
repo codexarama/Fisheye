@@ -56,7 +56,7 @@ const setGallery = (media) => {
           id: 'content-reader',
           class: 'visually-hidden',
         },
-        `${media.likes}` + ' likes'
+        `${media.likes} likes`
         ),
         elmtFactory(
           'button',
@@ -79,7 +79,7 @@ const setGallery = (media) => {
     let mediaType = elmtFactory('img', {
       tabindex: '0',
       class: 'currentMedia',
-      src: 'images/photos/' + `${media.image}`,
+      src: `images/photos/${media.image}`,
       alt: `${media.title}`,
     });
     // insere elmt image dans carte type galerie
@@ -92,7 +92,7 @@ const setGallery = (media) => {
     let mediaType = elmtFactory('video', {
       tabindex: '0',
       class: 'currentMedia',
-      src: 'images/videos/' + `${media.video}`,
+      src: `images/videos/${media.video}`,
       alt: `${media.title}`,
     });
     // insere elmt video dans carte type galerie

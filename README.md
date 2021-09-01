@@ -15,8 +15,8 @@ Chaque photographe bénéficie d'une visibilité sur la page d'accueil et dispos
 
 > Intégration Prototype
 
--[x] page d'accueil
--[x] page professionnelle d'un photographe
+- page d'accueil
+- page professionnelle d'un photographe
 
 > Développement
 
@@ -28,9 +28,9 @@ Chaque photographe bénéficie d'une visibilité sur la page d'accueil et dispos
 
 ## COMPETENCES DEVELOPPEES
 
--[x] Développer une application web modulaire avec des design patterns
--[x] Assurer l'accessibilité d'un site web
--[x] Ecrire du code JavaScript maintenable
+- [x] Développer une application web modulaire avec des design patterns
+- [x] Assurer l'accessibilité d'un site web
+- [x] Ecrire du code JavaScript maintenable
 
 
 ## RESSOURCES FOURNIES

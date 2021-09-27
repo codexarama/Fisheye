@@ -35,7 +35,7 @@ Chaque photographe bénéficie d'une visibilité sur la page d'accueil et dispos
 
 ## RESSOURCES FOURNIES
 
-- base de données Json
-- maquette des pages web
-- charte graphique
+- [notes de réunion](https://s3.eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/Notes+de+r%C3%A9union.pdf)
+- [maquette des pages web](https://www.figma.com/file/pt8xJxC1QffW4HX16QhGZJ/UI-Design-FishEye-FR?node-id=0%3A1)
+- [base de données Json](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json)
 - photos des artistes (profil + oeuvres)

@@ -1,15 +1,15 @@
 # Fisheye
 
-(projet fictif de formation)
+(projet fictif de formation n°04/12 avec Openclassrooms)
 
 ## CONTEXTE
 
 Fisheye est une plateforme d'exposition pour photographes freelance professionnels.
-Chaque photographe bénéficie d'une visibilité sur la page d'accueil et dispose d'un espace professionnel avec galerie et formulaire de contact pour des événements et des tirages.
+Chaque photographe bénéficie d'une visibilité sur la page d'accueil et dispose d'un espace professionnel avec galerie et formulaire de contact.
 
 ## PROBLEMATIQUE
 
-> Le site est obsolète, il a été développé il y a plus de 10 ans. Il doit être remanié et transformé en site dynamique.
+> Le site est obsolète, il doit être remanié et transformé en site dynamique.
 
 ## LIVRABLES
 

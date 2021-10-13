@@ -1,6 +1,6 @@
 # Fisheye
 
-(projet fictif de formation n°04/12 avec Openclassrooms)
+(projet fictif de formation n°04/12 avec OpenClassrooms)
 
 ## CONTEXTE
 

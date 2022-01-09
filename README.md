@@ -2,6 +2,14 @@
 
     Projet fictif de formation n°04/11 | OpenClassrooms
 
+**Home page**
+
+<kbd>![home page](./Fisheye_1.png)</kbd>
+
+**Selected photographer**
+
+<kbd>![home page](./Fisheye_2.png)</kbd>
+
 > CONTEXTE
 
 Fisheye est une plateforme d'exposition pour photographes freelance professionnels.

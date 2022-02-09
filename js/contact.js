@@ -62,7 +62,7 @@ formOpenBtn.addEventListener('click', () => {
 // FONCTION : FERME MODAL ("click" event)
 const closeForm = () => {
   // active main
-  mainContent.setAttribute('arias-hidden', 'false');
+  mainContent.setAttribute('aria-hidden', 'false');
   // dasactive modal
   formModal.setAttribute('aria-hidden', 'true');
   // annule stop scroll

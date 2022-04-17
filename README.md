@@ -30,7 +30,8 @@ Le site est obsolète, il doit être remanié et transformé en site dynamique.
 
 - intégration via base de données (fetch API)
 - accessibilité utilisateurs malvoyants
-- lightbox (galerie photos)
+- patron de conception créationnel (factory design pattern)
+- galerie photos (lightbox)
 - formulaire de contact
 - responsive design
 
@@ -38,6 +39,9 @@ Le site est obsolète, il doit être remanié et transformé en site dynamique.
 
 - [x] Développer une application web modulaire avec des design patterns
 - [x] Assurer l'accessibilité d'un site web
+- [x] Implémenter des actions asynchrones
+- [x] Manipuler des données (array methods) : filtrage - tri - correctifs
+- [x] Manipuler des url : paramétrage et gestion
 - [x] Ecrire du code JavaScript maintenable
 
 

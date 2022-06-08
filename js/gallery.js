@@ -26,7 +26,7 @@ const setGallery = (media) => {
 
       elmtFactory(
         'div',
-        { class: 'gallery__infos' },
+        { tabindex: '0', class: 'gallery__infos' },
         elmtFactory(
           'p',
           {
@@ -51,12 +51,14 @@ const setGallery = (media) => {
           readonly: 'true',
           value: `${media.likes}`,
         }),
-        elmtFactory('span', {
-          tabindex: '-1',
-          id: 'content-reader',
-          class: 'visually-hidden',
-        },
-        `${media.likes} likes`
+        elmtFactory(
+          'span',
+          {
+            tabindex: '-1',
+            id: 'content-reader',
+            class: 'visually-hidden',
+          },
+          `${media.likes} likes`
         ),
         elmtFactory(
           'button',

@@ -3,8 +3,9 @@ var axsStyles = head.appendChild(document.createElement('style'));
 
 // ANNULE LES STYLES AFFECTES AU FOCUS SI NAVIGATION SOURIS
 document.addEventListener('mousedown', () => {
-	axsStyles.innerHTML = '* {box-shadow:none !important}';
+  axsStyles.innerHTML = '* {box-shadow:none !important}';
 });
 document.addEventListener('keydown', () => {
-	axsStyles.innerHTML = '';
+  axsStyles.innerHTML =
+    '*:not(.gallery__link):not(.lightbox__title) {outline:none !important}';
 });

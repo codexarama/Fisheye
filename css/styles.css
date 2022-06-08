@@ -25,7 +25,7 @@ body {
 }
 
 button {
-  /* all: unset; */
+  all: unset;
   cursor: pointer;
 }
 
@@ -545,7 +545,6 @@ label {
 .filter__title:focus {
   padding: 10px 10px 0 10px;
   margin-left: -10px;
-
   box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
 .filter__box {
@@ -656,6 +655,10 @@ label {
 }
 .gallery__infos {
   width: 212px;
+  border-radius: 5px;
+}
+.gallery__infos:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c !important;
 }
 .gallery__title {
   border-radius: 3px;
@@ -663,17 +666,11 @@ label {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.gallery__title:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #901c1c;
-}
 .gallery__likes--btn {
   width: 14px;
   height: 13px;
-  appearance: none;
-  border: none;
   border-radius: 50%;
   background-color: transparent;
-  cursor: pointer;
   color: #901c1c;
 }
 .gallery__likes--btn:focus {

@@ -12,5 +12,5 @@ document.addEventListener('mousedown', () => {
 // ANNULE LES STYLES PAR DEFAUT DU FOCUS
 document.addEventListener('keydown', () => {
   accessStyles.innerHTML =
-    '*:not(.gallery__link):not(.lightbox__title) {outline:none !important}';
+    '*:not(.photographerId):not(.gallery__link):not(.lightbox__title) {outline:none !important}';
 });

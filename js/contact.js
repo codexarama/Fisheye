@@ -24,11 +24,12 @@ const message = document.querySelector('#message');
 // FONCTION : OUVRE FORMULAIRE
 const openForm = () => {
   // desactive "main"
-  mainContent.setAttribute('arias-hidden', 'true');
+  mainContent.setAttribute('aria-hidden', 'true');
   // active modal
   formModal.setAttribute('aria-hidden', 'false');
   // stop scroll arriere plan
-  body.classList.add('no-scroll');
+  body.setAttribute('class', 'no-scroll');
+  // body.classList.add('no-scroll');
   // affiche contenu modal
   formModal.style.display = 'flex';
 };
@@ -66,7 +67,8 @@ const closeForm = () => {
   // dasactive modal
   formModal.setAttribute('aria-hidden', 'true');
   // annule stop scroll
-  body.classList.remove('no-scroll');
+  body.removeAttribute('class', 'no-scroll');
+  // body.classList.remove('no-scroll');
   // masque modal
   formModal.style.display = 'none';
   // focus sur bouton "contactez-moi"
